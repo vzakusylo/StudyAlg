@@ -1,0 +1,17 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Finished sample/Marvin.IDP/obj
+/Finished sample/TourManagement.API/bin/Debug/netcoreapp2.0
+node_modules/
+obj/
+bin/.vs/
+/*/bin/Debug/netcoreapp2.1/
+/Cormen/07_QuickSort/bin/Debug/
+/.idea/.idea.StudyAlg/.idea
+/.idea/.idea.StudyAlg
+/DesignPatterns/Behaviour/Visitor/bin/Debug/netcoreapp2.2
+/*.user
+/lafore_data_structures/Arrays/bin/Debug/netcoreapp2.2
