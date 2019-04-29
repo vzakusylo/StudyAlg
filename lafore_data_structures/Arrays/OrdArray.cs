@@ -47,18 +47,38 @@ namespace Arrays
             int j;
             for (j = 0; j < _nElements; j++)
             {
-                if (_a[j] > value)
+                double current = _a[j];
+                if (current > value)
                 {
                     break;
                 }
             }
-            for (int k = _nElements; k < j; k--)
+            for (int k = _nElements; k > j; k--)
             {
                 _a[k] = _a[k - 1];
             }
 
             _a[j] = value;
             _nElements++;
+        }
+
+        public bool delete(long value)
+        {
+            int j = find(value);
+            if (j == _nElements)
+            {
+                return false;
+            }
+            else
+            {
+                for (int k = j; k < _nElements; k++)
+                {
+                    _a[k] = _a[k + 1];
+                }
+
+                _nElements--;
+                return true;
+            }
         }
     }
 }
