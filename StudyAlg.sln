@@ -27,21 +27,29 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AhoCorasick", "AhoCorasick\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cormen", "Cormen", "{93C34EBC-A920-4E69-9844-8139BF202913}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07_QuickSort", "Cormen\07_QuickSort\07_QuickSort.csproj", "{C7D130C8-F181-456F-9AF3-42374328A08B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "07_QuickSort", "Cormen\07_QuickSort\07_QuickSort.csproj", "{C7D130C8-F181-456F-9AF3-42374328A08B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesignPatterns", "DesignPatterns", "{FF13E45B-80B6-4E9D-9366-D87A188D2EB8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Behaviour", "Behaviour", "{4D3FEBB3-0B46-49AD-9E3E-1009560F1C41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visitor", "DesignPatterns\Behaviour\Visitor\Visitor.csproj", "{E15F46FF-85E3-4886-B053-909F8628C434}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visitor", "DesignPatterns\Behaviour\Visitor\Visitor.csproj", "{E15F46FF-85E3-4886-B053-909F8628C434}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataStructures", "DataStructures", "{05A5DA9E-6F16-4B8E-9B0E-08E5B015443A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashTable", "DataStructures\HashTable\HashTable.csproj", "{D668C8A9-35E7-4993-9D20-85D097CB2A53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HashTable", "DataStructures\HashTable\HashTable.csproj", "{D668C8A9-35E7-4993-9D20-85D097CB2A53}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lafore_data_structures", "lafore_data_structures", "{9840B35A-C0B9-4D29-B4F9-E2DBDFB49B84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arrays", "lafore_data_structures\Arrays\Arrays.csproj", "{69123437-465D-4A64-82DA-5EC5B529CBA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arrays", "lafore_data_structures\Arrays\Arrays.csproj", "{69123437-465D-4A64-82DA-5EC5B529CBA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "crypto", "crypto", "{2B99AA5A-DF15-42F2-BDCF-2B01986ED32B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LCS35", "crypto\LCS35\LCS35.csproj", "{C76BBADB-4245-4161-971C-A007E1651D2A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{A2EF0127-7537-4D45-BE48-F04278BB806C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insertion-sort", "lafore_data_structures\insertion-sort\insertion-sort.csproj", "{EAE660C0-8760-4188-9570-1515C38A6344}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -109,6 +117,18 @@ Global
 		{69123437-465D-4A64-82DA-5EC5B529CBA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69123437-465D-4A64-82DA-5EC5B529CBA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69123437-465D-4A64-82DA-5EC5B529CBA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C76BBADB-4245-4161-971C-A007E1651D2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C76BBADB-4245-4161-971C-A007E1651D2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C76BBADB-4245-4161-971C-A007E1651D2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C76BBADB-4245-4161-971C-A007E1651D2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2EF0127-7537-4D45-BE48-F04278BB806C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2EF0127-7537-4D45-BE48-F04278BB806C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2EF0127-7537-4D45-BE48-F04278BB806C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2EF0127-7537-4D45-BE48-F04278BB806C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAE660C0-8760-4188-9570-1515C38A6344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAE660C0-8760-4188-9570-1515C38A6344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAE660C0-8760-4188-9570-1515C38A6344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAE660C0-8760-4188-9570-1515C38A6344}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -119,6 +139,8 @@ Global
 		{E15F46FF-85E3-4886-B053-909F8628C434} = {4D3FEBB3-0B46-49AD-9E3E-1009560F1C41}
 		{D668C8A9-35E7-4993-9D20-85D097CB2A53} = {05A5DA9E-6F16-4B8E-9B0E-08E5B015443A}
 		{69123437-465D-4A64-82DA-5EC5B529CBA1} = {9840B35A-C0B9-4D29-B4F9-E2DBDFB49B84}
+		{C76BBADB-4245-4161-971C-A007E1651D2A} = {2B99AA5A-DF15-42F2-BDCF-2B01986ED32B}
+		{EAE660C0-8760-4188-9570-1515C38A6344} = {9840B35A-C0B9-4D29-B4F9-E2DBDFB49B84}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6069C04-3F20-4887-B277-AC4CF5E0AD9B}
