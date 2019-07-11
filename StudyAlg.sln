@@ -49,7 +49,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LCS35", "crypto\LCS35\LCS35
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{A2EF0127-7537-4D45-BE48-F04278BB806C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "insertion-sort", "lafore_data_structures\insertion-sort\insertion-sort.csproj", "{EAE660C0-8760-4188-9570-1515C38A6344}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "insertion-sort", "lafore_data_structures\insertion-sort\insertion-sort.csproj", "{EAE660C0-8760-4188-9570-1515C38A6344}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "112-object-sort", "lafore_data_structures\112-object-sort\112-object-sort.csproj", "{938F42FD-4829-47E2-BF1D-5CE950E62833}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -129,6 +131,10 @@ Global
 		{EAE660C0-8760-4188-9570-1515C38A6344}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAE660C0-8760-4188-9570-1515C38A6344}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EAE660C0-8760-4188-9570-1515C38A6344}.Release|Any CPU.Build.0 = Release|Any CPU
+		{938F42FD-4829-47E2-BF1D-5CE950E62833}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{938F42FD-4829-47E2-BF1D-5CE950E62833}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{938F42FD-4829-47E2-BF1D-5CE950E62833}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{938F42FD-4829-47E2-BF1D-5CE950E62833}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -141,6 +147,7 @@ Global
 		{69123437-465D-4A64-82DA-5EC5B529CBA1} = {9840B35A-C0B9-4D29-B4F9-E2DBDFB49B84}
 		{C76BBADB-4245-4161-971C-A007E1651D2A} = {2B99AA5A-DF15-42F2-BDCF-2B01986ED32B}
 		{EAE660C0-8760-4188-9570-1515C38A6344} = {9840B35A-C0B9-4D29-B4F9-E2DBDFB49B84}
+		{938F42FD-4829-47E2-BF1D-5CE950E62833} = {9840B35A-C0B9-4D29-B4F9-E2DBDFB49B84}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6069C04-3F20-4887-B277-AC4CF5E0AD9B}

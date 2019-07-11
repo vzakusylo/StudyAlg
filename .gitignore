@@ -19,3 +19,5 @@ bin/.vs/
 /lafore_data_structures/insertion-sort/bin/Debug/netstandard2.0/insertion-sort.deps.json
 /lafore_data_structures/insertion-sort/bin/Debug/netstandard2.0/insertion-sort.dll
 /lafore_data_structures/insertion-sort/bin/Debug/netstandard2.0/insertion-sort.pdb
+/lafore_data_structures/112-object-sort/bin/Debug/netcoreapp2.2
+/lafore_data_structures/insertion-sort/bin/Debug/netcoreapp2.2

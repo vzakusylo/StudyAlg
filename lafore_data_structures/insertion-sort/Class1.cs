@@ -35,7 +35,8 @@ namespace insertion_sort
             {
                 long temp = a[outt];
                 inn = outt;
-                while (inn> 0 && a[inn-1] >= temp)
+                long aprev = a[inn - 1];
+                while (inn> 0 && aprev >= temp)
                 {
                     a[inn] = a[inn - 1];
                     --inn;
