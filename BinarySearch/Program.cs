@@ -7,7 +7,7 @@ namespace BinarySearch
         static void Main(string[] args)
         {
             
-            Array.Fill(b, true, firstTrue, count);
+            //Array.Fill(b, true, 0,100);
             
             var rnd = new Random(1);
             for (var step = 0; step < 100_000; step++)
@@ -17,8 +17,8 @@ namespace BinarySearch
                 var firstTrue = rnd.Next(n + 1);
                 var count = n - firstTrue;
                 Array.Fill(b, true, firstTrue, count);
-                
-                BinarySearchRecursive()
+
+                BinarySearchRecursive();
 
                 var res1 = binarySearchFirstTrueSimple(x => b[x], 0, n - 1);
                 var res2 = binarySearchFirstTrue(x => b[x], 0, n);
@@ -62,7 +62,7 @@ namespace BinarySearch
                 return true;
             }
 
-            var mid = (left + ((right - left) / 2);
+            var mid = (left + ((right - left) / 2));
             if (array[mid] == x)
             {
                 return true;
