@@ -14,7 +14,7 @@ namespace _133_brackets
                 Console.WriteLine("Enter string containing delimiters:");
                 var input = Console.ReadLine();
                 BracketChecker theChecker = new BracketChecker(input);
-                theChecker.check();
+                theChecker.Check();
             }
         }
     }

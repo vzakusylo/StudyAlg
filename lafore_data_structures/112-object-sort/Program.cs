@@ -13,7 +13,7 @@ namespace _112_object_sort
             arr.Insert("Adams", "Henry", 63);
             arr.Insert("Hashimoto", "Sato", 21);
             arr.Insert("Stimson", "Henry", 21);
-
+              
             Console.WriteLine("Before sorting:");
             arr.Display();
             arr.InsertionSort();

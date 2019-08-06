@@ -26,3 +26,4 @@ bin/.vs/
 /lafore_data_structures/129-reverse-word-stack/bin/Debug/netcoreapp2.2
 /lafore_data_structures/133-brackets/bin/Debug/netcoreapp2.2
 /lafore_data_structures/150-priority-q/bin/Debug/netcoreapp2.2
+/lafore_data_structures/*/bin/Debug/netcoreapp2.2
