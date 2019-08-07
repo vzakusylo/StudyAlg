@@ -65,7 +65,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "133-brackets", "lafore_data
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "150-priority-q", "lafore_data_structures\150-priority-q\150-priority-q.csproj", "{7FE58EA5-76C4-40DE-9AE9-370E74652D57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "165-infix", "lafore_data_structures\165-infix\165-infix.csproj", "{164F5D03-3291-4C01-8919-7B2C1EA5459D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "165-infix", "lafore_data_structures\165-infix\165-infix.csproj", "{164F5D03-3291-4C01-8919-7B2C1EA5459D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "190-linked-list", "lafore_data_structures\190-linked-list\190-linked-list.csproj", "{2CFE3A63-158B-47EA-A62C-8457C090A4A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -173,6 +175,10 @@ Global
 		{164F5D03-3291-4C01-8919-7B2C1EA5459D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{164F5D03-3291-4C01-8919-7B2C1EA5459D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{164F5D03-3291-4C01-8919-7B2C1EA5459D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CFE3A63-158B-47EA-A62C-8457C090A4A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CFE3A63-158B-47EA-A62C-8457C090A4A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CFE3A63-158B-47EA-A62C-8457C090A4A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CFE3A63-158B-47EA-A62C-8457C090A4A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -193,6 +199,7 @@ Global
 		{3CC9646E-DCF8-4BAF-85CF-FC16DC007A79} = {9840B35A-C0B9-4D29-B4F9-E2DBDFB49B84}
 		{7FE58EA5-76C4-40DE-9AE9-370E74652D57} = {9840B35A-C0B9-4D29-B4F9-E2DBDFB49B84}
 		{164F5D03-3291-4C01-8919-7B2C1EA5459D} = {9840B35A-C0B9-4D29-B4F9-E2DBDFB49B84}
+		{2CFE3A63-158B-47EA-A62C-8457C090A4A0} = {9840B35A-C0B9-4D29-B4F9-E2DBDFB49B84}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6069C04-3F20-4887-B277-AC4CF5E0AD9B}
