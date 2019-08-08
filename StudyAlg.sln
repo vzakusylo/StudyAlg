@@ -41,7 +41,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HashTable", "DataStructures
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lafore_data_structures", "lafore_data_structures", "{9840B35A-C0B9-4D29-B4F9-E2DBDFB49B84}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arrays", "lafore_data_structures\Arrays\Arrays.csproj", "{69123437-465D-4A64-82DA-5EC5B529CBA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "001-arrays", "lafore_data_structures\Arrays\001-arrays.csproj", "{69123437-465D-4A64-82DA-5EC5B529CBA1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "crypto", "crypto", "{2B99AA5A-DF15-42F2-BDCF-2B01986ED32B}"
 EndProject
@@ -49,7 +49,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LCS35", "crypto\LCS35\LCS35
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{A2EF0127-7537-4D45-BE48-F04278BB806C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "insertion-sort", "lafore_data_structures\insertion-sort\insertion-sort.csproj", "{EAE660C0-8760-4188-9570-1515C38A6344}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "002-insertion-sort", "lafore_data_structures\insertion-sort\002-insertion-sort.csproj", "{EAE660C0-8760-4188-9570-1515C38A6344}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "112-object-sort", "lafore_data_structures\112-object-sort\112-object-sort.csproj", "{938F42FD-4829-47E2-BF1D-5CE950E62833}"
 EndProject
@@ -67,7 +67,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "150-priority-q", "lafore_da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "165-infix", "lafore_data_structures\165-infix\165-infix.csproj", "{164F5D03-3291-4C01-8919-7B2C1EA5459D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "190-linked-list", "lafore_data_structures\190-linked-list\190-linked-list.csproj", "{2CFE3A63-158B-47EA-A62C-8457C090A4A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "190-linked-list", "lafore_data_structures\190-linked-list\190-linked-list.csproj", "{2CFE3A63-158B-47EA-A62C-8457C090A4A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
