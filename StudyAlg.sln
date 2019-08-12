@@ -69,6 +69,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "165-infix", "lafore_data_st
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "190-linked-list", "lafore_data_structures\190-linked-list\190-linked-list.csproj", "{2CFE3A63-158B-47EA-A62C-8457C090A4A0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ParallelProgramming", "ParallelProgramming", "{3E004BD4-D8CD-4091-B800-848CA3733BFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelProgramming", "ParallelProgramming\ParallelProgramming\ParallelProgramming.csproj", "{2925FDF9-B692-4F92-87E6-CB112B0589F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -179,6 +183,10 @@ Global
 		{2CFE3A63-158B-47EA-A62C-8457C090A4A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CFE3A63-158B-47EA-A62C-8457C090A4A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CFE3A63-158B-47EA-A62C-8457C090A4A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2925FDF9-B692-4F92-87E6-CB112B0589F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2925FDF9-B692-4F92-87E6-CB112B0589F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2925FDF9-B692-4F92-87E6-CB112B0589F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2925FDF9-B692-4F92-87E6-CB112B0589F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -200,6 +208,7 @@ Global
 		{7FE58EA5-76C4-40DE-9AE9-370E74652D57} = {9840B35A-C0B9-4D29-B4F9-E2DBDFB49B84}
 		{164F5D03-3291-4C01-8919-7B2C1EA5459D} = {9840B35A-C0B9-4D29-B4F9-E2DBDFB49B84}
 		{2CFE3A63-158B-47EA-A62C-8457C090A4A0} = {9840B35A-C0B9-4D29-B4F9-E2DBDFB49B84}
+		{2925FDF9-B692-4F92-87E6-CB112B0589F5} = {3E004BD4-D8CD-4091-B800-848CA3733BFD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6069C04-3F20-4887-B277-AC4CF5E0AD9B}

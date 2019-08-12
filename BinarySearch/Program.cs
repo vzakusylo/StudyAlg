@@ -18,7 +18,7 @@ namespace BinarySearch
                 var count = n - firstTrue;
                 Array.Fill(b, true, firstTrue, count);
 
-                BinarySearchRecursive();
+                BinarySearchRecursive(null, 1,1,1);
 
                 var res1 = binarySearchFirstTrueSimple(x => b[x], 0, n - 1);
                 var res2 = binarySearchFirstTrue(x => b[x], 0, n);

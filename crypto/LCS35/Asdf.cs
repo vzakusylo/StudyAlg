@@ -181,4 +181,8 @@ public class TimeLockPuzzle {
         return;
     }
 }
+
+internal class PrintWriter
+{
+}
 //  end of TimeLockPuzzle class
