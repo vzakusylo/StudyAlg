@@ -29,3 +29,6 @@ bin/.vs/
 /lafore_data_structures/*/bin/Debug/netcoreapp2.2
 /DataStructures/HashTable/bin/Debug/netcoreapp2.2
 /ParallelProgramming/ParallelProgramming/bin/Debug
+/algs/AhoCorasick/bin/Debug/netcoreapp2.1
+/algs/BalancedParenthesesInExpression/bin/Debug/netcoreapp2.1
+/crypto/LCS35/bin/Debug/netcoreapp2.2
