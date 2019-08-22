@@ -35,3 +35,5 @@ bin/.vs/
 /.learningtransport/ClientUI/*
 /*/*/bin/Debug/netcoreapp2.2/*
 /algs/*/bin/Debug/netcoreapp2.1/*
+/arch/*/*/bin/Debug/*
+/arch/*/bin/Debug/*

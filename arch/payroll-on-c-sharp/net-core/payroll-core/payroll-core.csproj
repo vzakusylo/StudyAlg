@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>payroll_core</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="3.12.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="AddCommissionedEmployee.cs" />
+    <Compile Update="AddEmployeeTransaction.cs" />
+    <Compile Update="AddHourlyEmployee.cs" />
+    <Compile Update="AddSalariedEmployee.cs" />
+    <Compile Update="Affiliation.cs" />
+    <Compile Update="BiWeeklySchedule.cs" />
+    <Compile Update="ChangeAffiliationTransaction.cs" />
+    <Compile Update="ChangeClassificationTransaction.cs" />
+    <Compile Update="ChangeCommissionedTransaction.cs" />
+    <Compile Update="ChangeDirectTransaction.cs" />
+    <Compile Update="ChangeEmployeeTransaction.cs" />
+    <Compile Update="ChangeHoldTransaction.cs" />
+    <Compile Update="ChangeHourlyTransaction.cs" />
+    <Compile Update="ChangeMailTransaction.cs" />
+    <Compile Update="ChangeMemberTransaction.cs" />
+    <Compile Update="ChangeMethodTransaction.cs" />
+    <Compile Update="ChangeNameTransaction.cs" />
+    <Compile Update="ChangeSalariedTransaction.cs" />
+    <Compile Update="ChangeUnaffiliatedTransaction.cs" />
+    <Compile Update="CommissionClassification.cs" />
+    <Compile Update="DateUtil.cs" />
+    <Compile Update="DeleteEmployeeTransaction.cs" />
+    <Compile Update="DirectDepositMethod.cs" />
+    <Compile Update="Employee.cs" />
+    <Compile Update="HoldMethod.cs" />
+    <Compile Update="HourlyClassification.cs" />
+    <Compile Update="InMemoryPayrollDatabase.cs" />
+    <Compile Update="MailMethod.cs" />
+    <Compile Update="MonthlySchedule.cs" />
+    <Compile Update="NoAffiliation.cs" />
+    <Compile Update="Paycheck.cs" />
+    <Compile Update="PaydayTransaction.cs" />
+    <Compile Update="PaymentClassification.cs" />
+    <Compile Update="PaymentMethod.cs" />
+    <Compile Update="PaymentSchedule.cs" />
+    <Compile Update="PayrollDatabase.cs" />
+    <Compile Update="PayrollTest.cs" />
+    <Compile Update="SalariedClassification.cs" />
+    <Compile Update="SalesReceipt.cs" />
+    <Compile Update="SalesReceiptTransaction.cs" />
+    <Compile Update="ServiceCharge.cs" />
+    <Compile Update="ServiceChargeTransaction.cs" />
+    <Compile Update="TimeCard.cs" />
+    <Compile Update="TimeCardTransaction.cs" />
+    <Compile Update="Transaction.cs" />
+    <Compile Update="UnionAffiliation.cs" />
+    <Compile Update="WeeklySchedule.cs" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>payroll_db_core</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\payroll-core\payroll-core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="LoadEmployeeOperation.cs" />
+    <Compile Update="LoadEmployeeOperationTest.cs" />
+    <Compile Update="LoadPaymentClassificationOperation.cs" />
+    <Compile Update="LoadPaymentClassificationOperationTest.cs" />
+    <Compile Update="LoadPaymentMethodOperation.cs" />
+    <Compile Update="LoadPaymentMethodOperationTest.cs" />
+    <Compile Update="SaveEmployeeOperation.cs" />
+    <Compile Update="SqlPayrollDatabase.cs" />
+    <Compile Update="SqlPayrollDatabaseTest.cs" />
+  </ItemGroup>
+
+</Project>
