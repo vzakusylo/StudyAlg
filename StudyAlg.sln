@@ -85,6 +85,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelDemo", "mult\Parall
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelProgramming", "mult\ParallelProgramming\ParallelProgramming.csproj", "{2925FDF9-B692-4F92-87E6-CB112B0589F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "docs-examples", "mult\docs-examples\docs-examples.csproj", "{0C243198-7AC4-4E68-A0DD-8A0DD9C9AE9E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -211,6 +213,10 @@ Global
 		{2925FDF9-B692-4F92-87E6-CB112B0589F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2925FDF9-B692-4F92-87E6-CB112B0589F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2925FDF9-B692-4F92-87E6-CB112B0589F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C243198-7AC4-4E68-A0DD-8A0DD9C9AE9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C243198-7AC4-4E68-A0DD-8A0DD9C9AE9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C243198-7AC4-4E68-A0DD-8A0DD9C9AE9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C243198-7AC4-4E68-A0DD-8A0DD9C9AE9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -243,6 +249,7 @@ Global
 		{74155A57-767B-4C33-A966-F7F7B18AC094} = {51953BD7-9A17-4369-A1B7-06383D4F4FC9}
 		{5BC69670-B51C-4E2B-A167-E8C2D6C07EB0} = {B3351533-1AA6-4952-8BFA-D4378E057956}
 		{2925FDF9-B692-4F92-87E6-CB112B0589F5} = {B3351533-1AA6-4952-8BFA-D4378E057956}
+		{0C243198-7AC4-4E68-A0DD-8A0DD9C9AE9E} = {B3351533-1AA6-4952-8BFA-D4378E057956}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6069C04-3F20-4887-B277-AC4CF5E0AD9B}
