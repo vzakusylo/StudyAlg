@@ -34,3 +34,4 @@ bin/.vs/
 /crypto/LCS35/bin/Debug/netcoreapp2.2
 /.learningtransport/ClientUI/*
 /*/*/bin/Debug/netcoreapp2.2/*
+/algs/*/bin/Debug/netcoreapp2.1/*
