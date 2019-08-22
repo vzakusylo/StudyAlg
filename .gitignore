@@ -32,3 +32,5 @@ bin/.vs/
 /algs/AhoCorasick/bin/Debug/netcoreapp2.1
 /algs/BalancedParenthesesInExpression/bin/Debug/netcoreapp2.1
 /crypto/LCS35/bin/Debug/netcoreapp2.2
+/.learningtransport/ClientUI/*
+/*/*/bin/Debug/netcoreapp2.2/*
