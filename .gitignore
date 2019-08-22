@@ -37,3 +37,6 @@ bin/.vs/
 /algs/*/bin/Debug/netcoreapp2.1/*
 /arch/*/*/bin/Debug/*
 /arch/*/bin/Debug/*
+
+/algs/*/*/bin/Debug/netcoreapp2.1/*
+/algs/*/bin/Debug/netcoreapp2.1/*
