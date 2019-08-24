@@ -97,6 +97,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MergeSort", "algs\MergeSort
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollUI", "arch\payroll-on-c-sharp\net-core\payroll-ui\PayrollUI.csproj", "{9A624B5A-14C1-47A5-81FD-B0166895EDC3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "payroll", "arch\payroll-on-c-sharp\payroll\payroll.csproj", "{F71C0F4B-83F8-43EB-9D86-F94BDF75CBC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "payroll.tests", "arch\payroll-on-c-sharp\payroll.tests\payroll.tests.csproj", "{72FF2E3D-ADB7-4429-9CB0-817156EE7249}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -239,6 +243,14 @@ Global
 		{9A624B5A-14C1-47A5-81FD-B0166895EDC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A624B5A-14C1-47A5-81FD-B0166895EDC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A624B5A-14C1-47A5-81FD-B0166895EDC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F71C0F4B-83F8-43EB-9D86-F94BDF75CBC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F71C0F4B-83F8-43EB-9D86-F94BDF75CBC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F71C0F4B-83F8-43EB-9D86-F94BDF75CBC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F71C0F4B-83F8-43EB-9D86-F94BDF75CBC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72FF2E3D-ADB7-4429-9CB0-817156EE7249}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72FF2E3D-ADB7-4429-9CB0-817156EE7249}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72FF2E3D-ADB7-4429-9CB0-817156EE7249}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72FF2E3D-ADB7-4429-9CB0-817156EE7249}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -281,6 +293,8 @@ Global
 		{B2083EDC-3E85-44F4-A8F3-5939A6753793} = {51953BD7-9A17-4369-A1B7-06383D4F4FC9}
 		{75685879-CCE6-4FC4-A21D-280DD86B5121} = {51953BD7-9A17-4369-A1B7-06383D4F4FC9}
 		{9A624B5A-14C1-47A5-81FD-B0166895EDC3} = {CEDCC75C-9286-44BC-9281-F0EFA53683B3}
+		{F71C0F4B-83F8-43EB-9D86-F94BDF75CBC5} = {E6053DBF-1392-4387-9322-6509B623E5E0}
+		{72FF2E3D-ADB7-4429-9CB0-817156EE7249} = {E6053DBF-1392-4387-9322-6509B623E5E0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6069C04-3F20-4887-B277-AC4CF5E0AD9B}
