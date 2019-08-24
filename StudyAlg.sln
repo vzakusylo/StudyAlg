@@ -47,15 +47,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AhoCorasick", "algs\AhoCora
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BalancedParenthesesInExpression", "algs\BalancedParenthesesInExpression\BalancedParenthesesInExpression.csproj", "{87EB9B1D-0E3F-4B47-BDC0-E5CB7EE535E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "197-first-last-list", "lafore_data_structures\197-first-last-list\197-first-last-list.csproj", "{1F74B20C-0F57-451C-A291-5470AD3F741F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "197-first-last-list", "lafore_data_structures\197-first-last-list\197-first-last-list.csproj", "{1F74B20C-0F57-451C-A291-5470AD3F741F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "security", "security", "{6FBEC99D-F645-4DF4-8825-53AF1593F0A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gadget", "security\gadget\gadget.csproj", "{9C0DAC78-DF01-4D26-8C50-5B73117ED976}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gadget", "security\gadget\gadget.csproj", "{9C0DAC78-DF01-4D26-8C50-5B73117ED976}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "arch", "arch", "{389B40ED-685E-4A35-A15A-D54D6117264B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nservicebus-step-by-step", "arch\nservicebus-step-by-step\nservicebus-step-by-step.csproj", "{E0C8B4CC-2665-4DBC-9C95-B23375F00ACD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "nservicebus-step-by-step", "arch\nservicebus-step-by-step\nservicebus-step-by-step.csproj", "{E0C8B4CC-2665-4DBC-9C95-B23375F00ACD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryHeap", "algs\BinaryHeap\BinaryHeap.csproj", "{B4784784-E2FA-459D-9C3B-931A418390ED}"
 EndProject
@@ -71,19 +71,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelDemo", "mult\Parall
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelProgramming", "mult\ParallelProgramming\ParallelProgramming.csproj", "{2925FDF9-B692-4F92-87E6-CB112B0589F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "docs-examples", "mult\docs-examples\docs-examples.csproj", "{0C243198-7AC4-4E68-A0DD-8A0DD9C9AE9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "docs-examples", "mult\docs-examples\docs-examples.csproj", "{0C243198-7AC4-4E68-A0DD-8A0DD9C9AE9E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "design", "design", "{E7E0BE15-75E9-42A4-860E-9849053C7BA4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "payroll-on-c-sharp", "payroll-on-c-sharp", "{E6053DBF-1392-4387-9322-6509B623E5E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollUI", "arch\payroll-on-c-sharp\PayrollUI\PayrollUI.csproj", "{9A624B5A-14C1-47A5-81FD-B0166895EDC3}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net-core", "net-core", "{CEDCC75C-9286-44BC-9281-F0EFA53683B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "payroll-core", "arch\payroll-on-c-sharp\net-core\payroll-core\payroll-core.csproj", "{37750FF9-E5DF-4862-B749-50D681A0E1CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "payroll-core", "arch\payroll-on-c-sharp\net-core\payroll-core\payroll-core.csproj", "{37750FF9-E5DF-4862-B749-50D681A0E1CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "payroll-db-core", "arch\payroll-on-c-sharp\net-core\payroll-db-standart\payroll-db-core.csproj", "{C8ECB7FB-9C51-4B12-B41B-4DCDBFC751B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "payroll-db-core", "arch\payroll-on-c-sharp\net-core\payroll-db-standart\payroll-db-core.csproj", "{C8ECB7FB-9C51-4B12-B41B-4DCDBFC751B7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cormen", "Cormen", "{12F849D6-686C-48B1-8E63-4ED4F66C8E11}"
 EndProject
@@ -96,6 +94,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quicksort", "algs\Quicksort\Quicksort.csproj", "{B2083EDC-3E85-44F4-A8F3-5939A6753793}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MergeSort", "algs\MergeSort\MergeSort.csproj", "{75685879-CCE6-4FC4-A21D-280DD86B5121}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollUI", "arch\payroll-on-c-sharp\net-core\payroll-ui\PayrollUI.csproj", "{9A624B5A-14C1-47A5-81FD-B0166895EDC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -207,10 +207,6 @@ Global
 		{0C243198-7AC4-4E68-A0DD-8A0DD9C9AE9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C243198-7AC4-4E68-A0DD-8A0DD9C9AE9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C243198-7AC4-4E68-A0DD-8A0DD9C9AE9E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9A624B5A-14C1-47A5-81FD-B0166895EDC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9A624B5A-14C1-47A5-81FD-B0166895EDC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9A624B5A-14C1-47A5-81FD-B0166895EDC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9A624B5A-14C1-47A5-81FD-B0166895EDC3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{37750FF9-E5DF-4862-B749-50D681A0E1CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{37750FF9-E5DF-4862-B749-50D681A0E1CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37750FF9-E5DF-4862-B749-50D681A0E1CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -239,6 +235,10 @@ Global
 		{75685879-CCE6-4FC4-A21D-280DD86B5121}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75685879-CCE6-4FC4-A21D-280DD86B5121}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75685879-CCE6-4FC4-A21D-280DD86B5121}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A624B5A-14C1-47A5-81FD-B0166895EDC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A624B5A-14C1-47A5-81FD-B0166895EDC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A624B5A-14C1-47A5-81FD-B0166895EDC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A624B5A-14C1-47A5-81FD-B0166895EDC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -271,7 +271,6 @@ Global
 		{2925FDF9-B692-4F92-87E6-CB112B0589F5} = {B3351533-1AA6-4952-8BFA-D4378E057956}
 		{0C243198-7AC4-4E68-A0DD-8A0DD9C9AE9E} = {B3351533-1AA6-4952-8BFA-D4378E057956}
 		{E6053DBF-1392-4387-9322-6509B623E5E0} = {389B40ED-685E-4A35-A15A-D54D6117264B}
-		{9A624B5A-14C1-47A5-81FD-B0166895EDC3} = {E6053DBF-1392-4387-9322-6509B623E5E0}
 		{CEDCC75C-9286-44BC-9281-F0EFA53683B3} = {E6053DBF-1392-4387-9322-6509B623E5E0}
 		{37750FF9-E5DF-4862-B749-50D681A0E1CC} = {CEDCC75C-9286-44BC-9281-F0EFA53683B3}
 		{C8ECB7FB-9C51-4B12-B41B-4DCDBFC751B7} = {CEDCC75C-9286-44BC-9281-F0EFA53683B3}
@@ -281,6 +280,7 @@ Global
 		{E6BD763B-7BCA-47D3-9247-A28C791612A2} = {51953BD7-9A17-4369-A1B7-06383D4F4FC9}
 		{B2083EDC-3E85-44F4-A8F3-5939A6753793} = {51953BD7-9A17-4369-A1B7-06383D4F4FC9}
 		{75685879-CCE6-4FC4-A21D-280DD86B5121} = {51953BD7-9A17-4369-A1B7-06383D4F4FC9}
+		{9A624B5A-14C1-47A5-81FD-B0166895EDC3} = {CEDCC75C-9286-44BC-9281-F0EFA53683B3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6069C04-3F20-4887-B277-AC4CF5E0AD9B}

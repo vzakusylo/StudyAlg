@@ -1,22 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <Import Project="..\..\..\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('..\..\..\packages\NUnit.3.12.0\build\NUnit.props')" />
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
     <ProductVersion>7.10.3077</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C43D3311-FD20-4D3F-AA69-5DEF4CCD7AA9}</ProjectGuid>
+    <ProjectGuid>{9A624B5A-14C1-47A5-81FD-B0166895EDC3}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ApplicationIcon />
+    <ApplicationIcon>App.ico</ApplicationIcon>
     <AssemblyKeyContainerName />
-    <AssemblyName>Payroll</AssemblyName>
+    <AssemblyName>PayrollUI</AssemblyName>
     <AssemblyOriginatorKeyFile />
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Payroll</RootNamespace>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PayrollUI</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <StartupObject />
     <FileUpgradeFlags>
@@ -26,6 +27,8 @@
     </UpgradeBackupLocation>
     <OldToolsVersion>0.0</OldToolsVersion>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -70,9 +73,11 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    <Reference Include="Cambia.BaseN, Version=2.2.3.0, Culture=neutral, PublicKeyToken=02dfce8a63b04c02, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Cambia.BaseN.2.2.3\lib\net40\Cambia.BaseN.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Name>System</Name>
@@ -80,162 +85,119 @@
     <Reference Include="System.Data">
       <Name>System.Data</Name>
     </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Cambia.BaseN.2.2.3\lib\net40\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddCommissionedEmployee.cs">
+    <Compile Include="AddEmployeePresenter.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AddEmployeeTransaction.cs">
+    <Compile Include="AddEmployeePresenterTest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AddHourlyEmployee.cs">
+    <Compile Include="AddEmployeeView.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AddSalariedEmployee.cs">
-      <SubType>Code</SubType>
+    <Compile Include="AddEmployeeWindow.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Affiliation.cs">
+    <Compile Include="AddEmployeeWindowTest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BiWeeklySchedule.cs">
+    <Compile Include="MockAddEmployeeView.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ChangeAffiliationTransaction.cs">
+    <Compile Include="MockPayrollPresenter.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ChangeClassificationTransaction.cs">
+    <Compile Include="MockPayrollView.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ChangeCommissionedTransaction.cs">
+    <Compile Include="MockTransaction.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ChangeDirectTransaction.cs">
+    <Compile Include="MockViewLoader.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ChangeEmployeeTransaction.cs">
+    <Compile Include="PayrollMain.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ChangeHoldTransaction.cs">
+    <Compile Include="PayrollPresenter.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ChangeHourlyTransaction.cs">
+    <Compile Include="PayrollPresenterTest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ChangeMailTransaction.cs">
+    <Compile Include="PayrollView.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ChangeMemberTransaction.cs">
+    <Compile Include="PayrollWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PayrollWindowTest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ChangeMethodTransaction.cs">
+    <Compile Include="TransactionContainer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ChangeNameTransaction.cs">
+    <Compile Include="TransactionContainerTest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ChangeSalariedTransaction.cs">
+    <Compile Include="ViewLoader.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ChangeUnaffiliatedTransaction.cs">
+    <Compile Include="WindowViewLoader.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CommissionClassification.cs">
+    <Compile Include="WindowViewLoaderTest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DateUtil.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DeleteEmployeeTransaction.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DirectDepositMethod.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Employee.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="HoldMethod.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="HourlyClassification.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="InMemoryPayrollDatabase.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MailMethod.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MonthlySchedule.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="NoAffiliation.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Paycheck.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="PaydayTransaction.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="PaymentClassification.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="PaymentMethod.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="PaymentSchedule.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="PayrollDatabase.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="PayrollTest.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SalariedClassification.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SalesReceipt.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SalesReceiptTransaction.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ServiceCharge.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ServiceChargeTransaction.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TimeCard.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TimeCardTransaction.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Transaction.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UnionAffiliation.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WeeklySchedule.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Content Include="App.ico" />
+    <EmbeddedResource Include="AddEmployeeWindow.resx">
+      <DependentUpon>AddEmployeeWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PayrollWindow.resx">
+      <DependentUpon>PayrollWindow.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\payroll-core\payroll-core.csproj">
+      <Project>{37750ff9-e5df-4862-b749-50d681a0e1cc}</Project>
+      <Name>payroll-core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\payroll-db-standart\payroll-db-core.csproj">
+      <Project>{c8ecb7fb-9c51-4b12-b41b-4dcdbfc751b7}</Project>
+      <Name>payroll-db-core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent />
     <PostBuildEvent />
   </PropertyGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\NUnit.3.12.0\build\NUnit.props'))" />
+  </Target>
 </Project>
