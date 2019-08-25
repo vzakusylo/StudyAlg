@@ -14,7 +14,7 @@ namespace payroll.AddEmployee
 
         protected override PaymentClassification MakeClassification()
         {
-            return new SalariedClassification.SalariedClassification();
+            return new SalariedClassification.SalariedClassification(Salary);
         }
 
         protected override PaymentSchedule MakeSchedule()

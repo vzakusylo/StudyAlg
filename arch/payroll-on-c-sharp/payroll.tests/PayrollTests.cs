@@ -88,5 +88,18 @@ namespace payroll.tests
             Assert.NotNull(sc);
             Assert.Equal(12.95, sc.Amount);
         }
+
+        [Fact]
+        public async Task ChangeNameTransaction()
+        {
+            int empId = 2;
+            AddHourlyEmployee t = new AddHourlyEmployee(empId, "Bill", "Home", 15.25);
+            await t.ExecuteAsync();
+            ChangeNameTransaction cnt = new ChangeNameTransaction(empId, "Bob");
+            await cnt.ExecuteAsync();
+            Employee e = await PayrollDatabase.GetEmployeeAsync(empId);
+            Assert.NotNull(e);
+            Assert.Equal("Bob", e.Name);
+        }
     }
 }

@@ -5,7 +5,7 @@ namespace payroll
     public class Employee
     {
         public int EmpId { get; }
-        public string Name { get; }
+        public string Name { get; set; }
         public string Address { get; }
 
         public Employee(int empId, string name, string address)

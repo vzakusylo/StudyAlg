@@ -1,10 +1,12 @@
 using System;
+using System.Collections;
 using System.Threading.Tasks;
 
 namespace payroll.SalariedClassification
 {
     public class HourlyClassification : PaymentClassification
     {
+        Hashtable timeCards = new Hashtable();
         public double HourlyRate { get; }
 
         public HourlyClassification(double hourlyRate)
@@ -19,12 +21,13 @@ namespace payroll.SalariedClassification
 
         public TimeCard GetTimeCard(DateTime dateTime)
         {
-            throw new System.NotImplementedException();
+            return (TimeCard) timeCards[dateTime];
         }
 
         public Task AddTimeCardAsync(TimeCard timeCard)
         {
-            throw new NotImplementedException();
+            timeCards.Add(timeCard.Date, timeCard);
+            return Task.CompletedTask;
         }
     }
 }

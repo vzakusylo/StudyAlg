@@ -4,11 +4,14 @@ namespace payroll
 {
     public class ServiceCharge
     {
-        public ServiceCharge(DateTime time, double charge)
-        {
-            throw new NotImplementedException();
-        }
+        public DateTime Time { get; }
 
         public double Amount { get; set; }
+
+        public ServiceCharge(DateTime time, double amount)
+        {
+            Time = time;
+            Amount = amount;
+        }
     }
 }

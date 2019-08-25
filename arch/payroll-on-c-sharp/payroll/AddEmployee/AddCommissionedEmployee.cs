@@ -21,7 +21,7 @@ namespace payroll.AddEmployee
 
         protected override PaymentSchedule MakeSchedule()
         {
-            throw new NotImplementedException();
+            return new MonthlySchedule();
         }
     }
 }

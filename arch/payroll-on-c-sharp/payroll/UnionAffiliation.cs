@@ -1,17 +1,21 @@
 using System;
+using System.Collections;
+
 
 namespace payroll
 {
     public class UnionAffiliation
     {
+        private Hashtable _serviceCharges = new Hashtable();
+
         public ServiceCharge GetServiceCharge(DateTime dateTime)
         {
-            throw new System.NotImplementedException();
+            return (ServiceCharge)_serviceCharges[dateTime];
         }
 
         public void AddServiceCharge(ServiceCharge serviceCharge)
         {
-            throw new NotImplementedException();
+            _serviceCharges.Add(serviceCharge.Time, serviceCharge);
         }
     }
 }
