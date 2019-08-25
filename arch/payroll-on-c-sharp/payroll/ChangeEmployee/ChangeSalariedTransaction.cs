@@ -5,11 +5,14 @@ namespace payroll.ChangeEmployee
 {
     public class ChangeSalariedTransaction : ChangeClassificationTransaction
     {
-        public ChangeSalariedTransaction(int empId) : base(empId)
+        public double Salary { get; }
+
+        public ChangeSalariedTransaction(int empId, double salary) : base(empId)
         {
+            Salary = salary;
         }
 
-        protected override PaymentClassification Classification { get; }
-        protected override PaymentSchedule Schedule { get; }
+        protected override PaymentClassification Classification => new SalariedClassification.SalariedClassification(Salary);
+        protected override PaymentSchedule Schedule => new BiWeeklySchedule();
     }
 }

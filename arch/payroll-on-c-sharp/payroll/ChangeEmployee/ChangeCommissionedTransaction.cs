@@ -5,11 +5,18 @@ namespace payroll.ChangeEmployee
 {
     public class ChangeCommissionedTransaction : ChangeClassificationTransaction
     {
-        public ChangeCommissionedTransaction(int empId) : base(empId)
+        public double BaseRate { get; }
+        public double CommissionRate { get; }
+        
+        public ChangeCommissionedTransaction(int empId, double baseRate, double commissionRate) : base(empId)
         {
+            
+            BaseRate = baseRate;
+            CommissionRate = commissionRate;
         }
 
-        protected override PaymentClassification Classification { get; }
-        protected override PaymentSchedule Schedule { get; }
+        protected override PaymentClassification Classification => new CommissionedClassification(BaseRate,CommissionRate);
+
+        protected override PaymentSchedule Schedule => new MonthlySchedule();
     }
 }

@@ -6,8 +6,6 @@ using payroll.DeleteEmployee;
 using payroll.SalariedClassification;
 using Xunit;
 
-using SalariedClassification = payroll.SalariedClassification.SalariedClassification;
-
 namespace payroll.tests
 {
     public class PayrollTests
@@ -36,7 +34,7 @@ namespace payroll.tests
         [Fact]
         public async Task DeleteEmployee()
         {
-            int empId = 4;
+            int empId = 2;
             AddCommissionedEmployee t = new AddCommissionedEmployee(empId, "Bill", "Home", 2500, 3.2);
             await t.ExecuteAsync();
 
@@ -53,7 +51,7 @@ namespace payroll.tests
         [Fact]
         public async Task TimeCardTransaction()
         {
-            int empId = 5;
+            int empId = 3;
             AddHourlyEmployee t = new AddHourlyEmployee(empId, "Bill", "Home", 15.25);
             await t.ExecuteAsync();
 
@@ -75,7 +73,7 @@ namespace payroll.tests
         [Fact]
         public async Task AddServiceCharge()
         {
-            int empId = 2;
+            int empId = 4;
             AddHourlyEmployee t = new AddHourlyEmployee(empId, "Bill", "Home", 15.25);
             await t.ExecuteAsync();
 
@@ -95,7 +93,7 @@ namespace payroll.tests
         [Fact]
         public async Task ChangeNameTransaction()
         {
-            int empId = 2;
+            int empId = 5;
             AddHourlyEmployee t = new AddHourlyEmployee(empId, "Bill", "Home", 15.25);
             await t.ExecuteAsync();
             ChangeNameTransaction cnt = new ChangeNameTransaction(empId, "Bob");
@@ -108,7 +106,7 @@ namespace payroll.tests
         [Fact]
         public async Task ChangeHourlyTransaction()
         {
-            int empId = 3;
+            int empId = 6;
             AddCommissionedEmployee t = new AddCommissionedEmployee(empId, "Lance", "Home", 2500, 3.2);
             await t.ExecuteAsync();
             ChangeHourlyTransaction cht = new ChangeHourlyTransaction(empId, 27.52);
@@ -128,10 +126,10 @@ namespace payroll.tests
         [Fact]
         public async Task ChangeSalariedTransaction()
         {
-            int empId = 3;
-            AddSalariedEmployee t = new AddSalariedEmployee(empId, "Lance", "Home", 2500);
+            int empId = 7;
+            AddCommissionedEmployee t = new AddCommissionedEmployee(empId, "Lance", "Home", 2500, 3.2);
             await t.ExecuteAsync();
-            ChangeSalariedTransaction cht = new ChangeSalariedTransaction(empId);
+            ChangeSalariedTransaction cht = new ChangeSalariedTransaction(empId, 2500);
             await cht.ExecuteAsync();
 
             Employee e = await PayrollDatabase.GetEmployeeAsync(empId);
@@ -142,26 +140,26 @@ namespace payroll.tests
             SalariedClassification.SalariedClassification sc = pc as SalariedClassification.SalariedClassification;
             Assert.Equal(2500, sc.Salary);
             PaymentSchedule ps = e.Schedule;
-            Assert.True(ps is MonthlySchedule);
+            Assert.True(ps is BiWeeklySchedule);
         }
-
 
         [Fact]
         public async Task ChangeCommissionedTransaction()
         {
-            int empId = 3;
-            AddCommissionedEmployee t = new AddCommissionedEmployee(empId, "Lance", "Home", 2500, 15);
+            int empId = 8;
+            AddSalariedEmployee t = new AddSalariedEmployee(empId, "Lance", "Home", 2500);
             await t.ExecuteAsync();
-            ChangeCommissionedTransaction cht = new ChangeCommissionedTransaction(empId);
+            ChangeCommissionedTransaction cht = new ChangeCommissionedTransaction(empId, 2600, 4.4);
             await cht.ExecuteAsync();
 
             Employee e = await PayrollDatabase.GetEmployeeAsync(empId);
             Assert.NotNull(e);
             PaymentClassification pc = e.Classification;
             Assert.NotNull(pc);
-            Assert.True(pc is SalariedClassification.SalariedClassification);
-            SalariedClassification.SalariedClassification sc = pc as SalariedClassification.SalariedClassification;
-            Assert.Equal(2500, sc.Salary);
+            Assert.True(pc is CommissionedClassification);
+            CommissionedClassification sc = pc as CommissionedClassification;
+            Assert.Equal(2600, sc.BaseRate);
+            Assert.Equal(4.4, sc.CommissionedRate);
             PaymentSchedule ps = e.Schedule;
             Assert.True(ps is MonthlySchedule);
         }
