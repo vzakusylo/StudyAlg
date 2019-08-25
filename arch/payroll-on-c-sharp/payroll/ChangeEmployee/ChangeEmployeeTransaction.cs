@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace payroll.AddEmployee
+namespace payroll.ChangeEmployee
 {
     public abstract class ChangeEmployeeTransaction : ITransaction
     {
@@ -19,9 +19,9 @@ namespace payroll.AddEmployee
             {
                 throw new InvalidOperationException("Could not find employee");
             }
-            Change(e);
+            await ChangeAsync(e);
         }
 
-        protected abstract void Change(Employee e);
+        protected abstract Task ChangeAsync(Employee e);
     }
 }

@@ -31,9 +31,14 @@ namespace payroll
             return Task.CompletedTask;
         }
 
-        public static Task<Employee> GetUnionMember(int memberId)
+        public static Task<Employee> GetUnionMemberAsync(int memberId)
         {
             return Task.FromResult((Employee)_hashtable[memberId]);
+        }
+
+        public static void RemoveUnionMember(int memeberId)
+        {
+            _hashtable.Remove(memeberId);
         }
     }
 }

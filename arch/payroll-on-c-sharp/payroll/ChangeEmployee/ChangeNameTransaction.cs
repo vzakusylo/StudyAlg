@@ -1,4 +1,6 @@
-namespace payroll.AddEmployee
+using System.Threading.Tasks;
+
+namespace payroll.ChangeEmployee
 {
     public class ChangeNameTransaction : ChangeEmployeeTransaction
     {
@@ -9,9 +11,10 @@ namespace payroll.AddEmployee
             Name = name;
         }
         
-        protected override void Change(Employee e)
+        protected override Task ChangeAsync(Employee e)
         {
             e.Name = Name;
+            return Task.CompletedTask;
         }
     }
 }

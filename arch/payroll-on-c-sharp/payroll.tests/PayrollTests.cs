@@ -4,6 +4,7 @@ using payroll.AddEmployee;
 using payroll.ChangeEmployee;
 using payroll.DeleteEmployee;
 using payroll.SalariedClassification;
+using payroll.Union;
 using Xunit;
 
 namespace payroll.tests
@@ -162,6 +163,27 @@ namespace payroll.tests
             Assert.Equal(4.4, sc.CommissionedRate);
             PaymentSchedule ps = e.Schedule;
             Assert.True(ps is MonthlySchedule);
+        }
+
+        [Fact]
+        public async Task ChangeUnionMember()
+        {
+            int empId = 9;
+            AddHourlyEmployee t = new AddHourlyEmployee(empId, "Bill", "Home", 15.25);
+            await t.ExecuteAsync();
+            int memberId = 7743;
+            ChangeMemberTransaction cmt = new ChangeMemberTransaction(empId, memberId, 99.42);
+            await cmt.ExecuteAsync();
+            Employee e = await PayrollDatabase.GetEmployeeAsync(empId);
+            Assert.NotNull(e);
+            IAffiliation affiliation = e.Affiliation;
+            Assert.NotNull(affiliation);
+            Assert.True(affiliation is UnionAffiliation);
+            UnionAffiliation uf = affiliation as UnionAffiliation;
+            Assert.Equal(99.42, uf.Dues);
+            Employee member = await PayrollDatabase.GetUnionMemberAsync(memberId);
+            Assert.NotNull(member);
+            Assert.Equal(e,member);
         }
     }
 }

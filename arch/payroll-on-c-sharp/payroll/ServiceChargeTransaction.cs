@@ -18,7 +18,7 @@ namespace payroll
         
         public async Task ExecuteAsync()
         {
-            Employee e = await PayrollDatabase.GetUnionMember(MemberId);
+            Employee e = await PayrollDatabase.GetUnionMemberAsync(MemberId);
             if (e == null)
             {
                 throw new InvalidOperationException("Unit member not found");

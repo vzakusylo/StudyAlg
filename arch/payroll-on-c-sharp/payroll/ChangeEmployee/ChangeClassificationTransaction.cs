@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+using payroll.ChangeEmployee;
 using payroll.SalariedClassification;
 
 namespace payroll.AddEmployee
@@ -8,10 +10,11 @@ namespace payroll.AddEmployee
         {
         }
 
-        protected override void Change(Employee e)
+        protected override Task ChangeAsync(Employee e)
         {
             e.Classification = Classification;
             e.Schedule = Schedule;
+            return Task.CompletedTask;
         }
 
         protected abstract PaymentClassification Classification { get; }
