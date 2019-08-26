@@ -1,5 +1,5 @@
 using System;
-using payroll.SalariedClassification;
+using payroll.Union;
 
 namespace payroll
 {
@@ -14,10 +14,11 @@ namespace payroll
             EmpId = empId;
             Name = name;
             Address = address;
+            Affiliation = new NoAffiliation();
         }
-        public PaymentClassification Classification { get; set; }
+        public Classification.PaymentClassification Classification { get; set; }
         public IPaymentSchedule Schedule { get; set; }
-        public PaymentMethod Method { get; set; }
+        public IPaymentMethod Method { get; set; }
         public IAffiliation Affiliation { get; set; }
 
         public bool IsPayDate(DateTime payDate)

@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Payroll.Classification;
 using payroll.SalariedClassification;
 
 namespace payroll

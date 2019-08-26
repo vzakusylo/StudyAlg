@@ -1,4 +1,4 @@
-namespace payroll.SalariedClassification
+namespace payroll.Classification
 {
     public abstract class PaymentClassification
     {

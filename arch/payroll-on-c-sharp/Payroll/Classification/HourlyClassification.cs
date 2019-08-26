@@ -1,8 +1,11 @@
 using System;
 using System.Collections;
 using System.Threading.Tasks;
+using payroll;
+using payroll.Classification;
+using payroll.SalariedClassification;
 
-namespace payroll.SalariedClassification
+namespace Payroll.Classification
 {
     public class HourlyClassification : PaymentClassification
     {

@@ -1,4 +1,5 @@
 using System;
+using Payroll.Classification;
 using payroll.SalariedClassification;
 
 namespace payroll.AddEmployee
@@ -12,7 +13,7 @@ namespace payroll.AddEmployee
             HourlyRate = hourlyRate;
         }
 
-        protected override PaymentClassification MakeClassification()
+        protected override Classification.PaymentClassification MakeClassification()
         {
             return new HourlyClassification(HourlyRate);
         }

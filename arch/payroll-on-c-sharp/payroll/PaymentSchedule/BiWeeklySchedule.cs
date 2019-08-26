@@ -6,7 +6,7 @@ namespace payroll
     {
         public bool IsPayDate(DateTime payDate)
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }

@@ -1,4 +1,7 @@
-namespace payroll.SalariedClassification
+using payroll;
+using payroll.Classification;
+
+namespace Payroll.Classification
 {
     public class SalariedClassification : PaymentClassification
     {

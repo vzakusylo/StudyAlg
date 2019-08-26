@@ -1,5 +1,3 @@
-using payroll.SalariedClassification;
-
 namespace payroll.ChangeEmployee
 {
     public class ChangeSalariedTransaction : ChangeClassificationTransaction
@@ -11,7 +9,7 @@ namespace payroll.ChangeEmployee
             Salary = salary;
         }
 
-        protected override PaymentClassification Classification => new SalariedClassification.SalariedClassification(Salary);
+        protected override Classification.PaymentClassification Classification => new Payroll.Classification.SalariedClassification(Salary);
         protected override IPaymentSchedule Schedule => new BiWeeklySchedule();
     }
 }

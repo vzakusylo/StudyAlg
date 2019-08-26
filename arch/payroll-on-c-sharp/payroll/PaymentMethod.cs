@@ -1,10 +1,7 @@
 namespace payroll
 {
-    public class PaymentMethod
+    public interface IPaymentMethod
     {
-        public void Pay(Paycheck pc)
-        {
-            throw new System.NotImplementedException();
-        }
+        void Pay(Paycheck paycheck);
     }
 }

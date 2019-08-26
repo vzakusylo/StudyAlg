@@ -89,7 +89,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quicksort", "algs\Quicksort
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MergeSort", "algs\MergeSort\MergeSort.csproj", "{75685879-CCE6-4FC4-A21D-280DD86B5121}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "payroll", "arch\payroll-on-c-sharp\payroll\payroll.csproj", "{F71C0F4B-83F8-43EB-9D86-F94BDF75CBC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payroll", "arch\payroll-on-c-sharp\payroll\Payroll.csproj", "{F71C0F4B-83F8-43EB-9D86-F94BDF75CBC5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "payroll.tests", "arch\payroll-on-c-sharp\payroll.tests\payroll.tests.csproj", "{72FF2E3D-ADB7-4429-9CB0-817156EE7249}"
 EndProject

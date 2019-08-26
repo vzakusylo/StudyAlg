@@ -1,4 +1,4 @@
-using payroll.SalariedClassification;
+using payroll.PaymentSchedule;
 
 namespace payroll.AddEmployee
 {
@@ -12,9 +12,9 @@ namespace payroll.AddEmployee
             Salary = salary;
         }
 
-        protected override PaymentClassification MakeClassification()
+        protected override Classification.PaymentClassification MakeClassification()
         {
-            return new SalariedClassification.SalariedClassification(Salary);
+            return new Payroll.Classification.SalariedClassification(Salary);
         }
 
         protected override IPaymentSchedule MakeSchedule()

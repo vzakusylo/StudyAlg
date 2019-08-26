@@ -1,5 +1,4 @@
-using payroll.AddEmployee;
-using payroll.SalariedClassification;
+using Payroll.Classification;
 
 namespace payroll.ChangeEmployee
 {
@@ -12,7 +11,7 @@ namespace payroll.ChangeEmployee
             HourlyRate = hourlyRate;
         }
 
-        protected override PaymentClassification Classification => new HourlyClassification(HourlyRate);
+        protected override Classification.PaymentClassification Classification => new HourlyClassification(HourlyRate);
 
         protected override IPaymentSchedule Schedule => new WeeklySchedule();
     }

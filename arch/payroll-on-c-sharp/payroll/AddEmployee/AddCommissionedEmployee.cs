@@ -1,5 +1,5 @@
-using System;
-using payroll.SalariedClassification;
+using Payroll.Classification;
+using payroll.PaymentSchedule;
 
 namespace payroll.AddEmployee
 {
@@ -14,7 +14,7 @@ namespace payroll.AddEmployee
             CommissionRate = commissionRate;
         }
 
-        protected override PaymentClassification MakeClassification()
+        protected override Classification.PaymentClassification MakeClassification()
         {
             return new CommissionedClassification(BaseRate, CommissionRate);
         }

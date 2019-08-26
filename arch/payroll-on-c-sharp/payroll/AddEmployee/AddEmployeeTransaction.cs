@@ -12,9 +12,9 @@ namespace payroll.AddEmployee
 
         public async Task ExecuteAsync()
         {
-            PaymentClassification pc = MakeClassification();
+            Classification.PaymentClassification pc = MakeClassification();
             IPaymentSchedule ps = MakeSchedule();
-            PaymentMethod pm = new HoldMethod();
+            IPaymentMethod pm = new HoldMethod();
             Employee e = new Employee(EmpId, Name, Address);
             e.Classification = pc;
             e.Schedule = ps;
@@ -30,7 +30,7 @@ namespace payroll.AddEmployee
             Address = address;
         }
 
-        protected abstract PaymentClassification MakeClassification();
+        protected abstract Classification.PaymentClassification MakeClassification();
 
         protected abstract IPaymentSchedule MakeSchedule();
     }

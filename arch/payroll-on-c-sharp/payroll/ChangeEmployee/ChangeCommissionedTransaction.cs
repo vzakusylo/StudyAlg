@@ -1,4 +1,5 @@
-using payroll.SalariedClassification;
+using Payroll.Classification;
+using payroll.PaymentSchedule;
 
 namespace payroll.ChangeEmployee
 {
@@ -14,7 +15,7 @@ namespace payroll.ChangeEmployee
             CommissionRate = commissionRate;
         }
 
-        protected override PaymentClassification Classification => new CommissionedClassification(BaseRate,CommissionRate);
+        protected override Classification.PaymentClassification Classification => new CommissionedClassification(BaseRate,CommissionRate);
 
         protected override IPaymentSchedule Schedule => new MonthlySchedule();
     }

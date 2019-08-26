@@ -1,5 +1,4 @@
 using System.Threading.Tasks;
-using payroll.SalariedClassification;
 
 namespace payroll.ChangeEmployee
 {
@@ -16,7 +15,7 @@ namespace payroll.ChangeEmployee
             return Task.CompletedTask;
         }
 
-        protected abstract PaymentClassification Classification { get; }
+        protected abstract Classification.PaymentClassification Classification { get; }
         protected abstract IPaymentSchedule Schedule { get; }
     }
 }

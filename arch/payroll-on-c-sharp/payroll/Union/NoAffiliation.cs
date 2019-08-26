@@ -8,7 +8,7 @@ namespace payroll.Union
 
         public double CalculateDeductions(Paycheck pc)
         {
-            throw new System.NotImplementedException();
+            return pc.Deduction;
         }
     }
 }

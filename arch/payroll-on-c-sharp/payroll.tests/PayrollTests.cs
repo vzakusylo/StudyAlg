@@ -2,8 +2,10 @@ using System;
 using System.Threading.Tasks;
 using payroll.AddEmployee;
 using payroll.ChangeEmployee;
+using Payroll.Classification;
 using payroll.DeleteEmployee;
-using payroll.Pyamemt;
+using payroll.Payment;
+using payroll.PaymentSchedule;
 using payroll.SalariedClassification;
 using payroll.Union;
 using Xunit;
@@ -22,14 +24,14 @@ namespace payroll.tests
             Employee e = await PayrollDatabase.GetEmployeeAsync(empId);
             Assert.Equal("Bob", e.Name);
 
-            PaymentClassification pc = e.Classification;
-            Assert.True(pc is SalariedClassification.SalariedClassification);
-            SalariedClassification.SalariedClassification sc = pc as SalariedClassification.SalariedClassification;
+            Classification.PaymentClassification pc = e.Classification;
+            Assert.True(pc is Payroll.Classification.SalariedClassification);
+            Payroll.Classification.SalariedClassification sc = pc as Payroll.Classification.SalariedClassification;
             Assert.Equal(1000.00, sc.Salary);
             IPaymentSchedule ps = e.Schedule;
             Assert.True(ps is MonthlySchedule);
 
-            PaymentMethod pm = e.Method;
+            IPaymentMethod pm = e.Method;
             Assert.True(pm is HoldMethod);
         }
 
@@ -63,7 +65,7 @@ namespace payroll.tests
             Employee e = await PayrollDatabase.GetEmployeeAsync(empId);
             Assert.NotNull(e);
 
-            PaymentClassification pc = e.Classification;
+            Classification.PaymentClassification pc = e.Classification;
             Assert.True(pc is HourlyClassification);
             HourlyClassification hc = pc as HourlyClassification;
 
@@ -116,7 +118,7 @@ namespace payroll.tests
 
             Employee e = await PayrollDatabase.GetEmployeeAsync(empId);
             Assert.NotNull(e);
-            PaymentClassification pc = e.Classification;
+            Classification.PaymentClassification pc = e.Classification;
             Assert.NotNull(pc);
             Assert.True(pc is HourlyClassification);
             HourlyClassification hc = pc as HourlyClassification;
@@ -136,10 +138,10 @@ namespace payroll.tests
 
             Employee e = await PayrollDatabase.GetEmployeeAsync(empId);
             Assert.NotNull(e);
-            PaymentClassification pc = e.Classification;
+            Classification.PaymentClassification pc = e.Classification;
             Assert.NotNull(pc);
-            Assert.True(pc is SalariedClassification.SalariedClassification);
-            SalariedClassification.SalariedClassification sc = pc as SalariedClassification.SalariedClassification;
+            Assert.True(pc is Payroll.Classification.SalariedClassification);
+            Payroll.Classification.SalariedClassification sc = pc as Payroll.Classification.SalariedClassification;
             Assert.Equal(2500, sc.Salary);
             IPaymentSchedule ps = e.Schedule;
             Assert.True(ps is BiWeeklySchedule);
@@ -156,7 +158,7 @@ namespace payroll.tests
 
             Employee e = await PayrollDatabase.GetEmployeeAsync(empId);
             Assert.NotNull(e);
-            PaymentClassification pc = e.Classification;
+            Classification.PaymentClassification pc = e.Classification;
             Assert.NotNull(pc);
             Assert.True(pc is CommissionedClassification);
             CommissionedClassification sc = pc as CommissionedClassification;

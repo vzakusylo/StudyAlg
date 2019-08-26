@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace payroll.Pyamemt
+namespace payroll.Payment
 {
     public class PaydayTransaction : ITransaction
     {
@@ -14,7 +12,6 @@ namespace payroll.Pyamemt
         public PaydayTransaction(in DateTime payDate)
         {
             PayDate = payDate;
-            throw new NotImplementedException();
         }
 
         public async Task ExecuteAsync()
@@ -34,7 +31,7 @@ namespace payroll.Pyamemt
 
         public Paycheck GetPaycheck(int empId)
         {
-            throw new NotImplementedException();
+            return (Paycheck)Paychecks[empId];
         }
     }
 }
