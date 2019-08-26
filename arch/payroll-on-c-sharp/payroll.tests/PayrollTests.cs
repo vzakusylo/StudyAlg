@@ -220,5 +220,56 @@ namespace payroll.tests
             Paycheck pc = pt.GetPaycheck(empId);
             Assert.Null(pc);
         }
+
+        [Fact]
+        public async Task PayingSingleHorlyEmployeeNoTimeCards()
+        {
+            int empId = 12;
+            AddHourlyEmployee t = new AddHourlyEmployee(empId, "Bill", "Home", 15.25);
+            await t.ExecuteAsync();
+            DateTime payDate = new DateTime(2001, 11,9);
+            PaydayTransaction pt = new PaydayTransaction(payDate);
+            await pt.ExecuteAsync();
+            ValidatePaycheck(pt, empId, payDate, 0.0);
+        }
+
+        private void ValidatePaycheck(PaydayTransaction pt, int empId, in DateTime payDate, double pay)
+        {
+            Paycheck pc = pt.GetPaycheck(empId);
+            Assert.NotNull(pc);
+            Assert.Equal(payDate, pc.PayDate);
+            Assert.Equal(pay, pc.GrossPay);
+            Assert.Equal("Hold", pc.GetField("Disposition"));
+            Assert.Equal(0.0, pc.Deduction);
+            Assert.Equal(pay,pc.NetPay);
+        }
+
+        [Fact]
+        public async Task PaySingleHourlyEmployeeOneTimeCard()
+        {
+            int empId = 13;
+            AddHourlyEmployee t = new AddHourlyEmployee(empId, "Bill", "Home", 15.25);
+            await t.ExecuteAsync();
+            DateTime payDate = new DateTime(2001, 11,9);
+            TimeCardTransaction tc = new TimeCardTransaction(payDate, 2, empId);
+            await tc.ExecuteAsync();
+            PaydayTransaction pt = new PaydayTransaction(payDate);
+            await pt.ExecuteAsync();
+            ValidatePaycheck(pt, empId, payDate, 30.5);
+        }
+
+        [Fact]
+        public async Task PaySingleHourlyEmployeeOvertimeOneTimeCard()
+        {
+            int empId = 14;
+            AddHourlyEmployee t = new AddHourlyEmployee(empId, "Bill", "Home", 15.25);
+            await t.ExecuteAsync();
+            DateTime payDate = new DateTime(2001, 11, 9);
+            TimeCardTransaction tc = new TimeCardTransaction(payDate, 9.0, empId);
+            await tc.ExecuteAsync();
+            PaydayTransaction pt = new PaydayTransaction(payDate);
+            await pt.ExecuteAsync();
+            ValidatePaycheck(pt, empId, payDate, (8 + 1.5) * 15.25);
+        }
     }
 }

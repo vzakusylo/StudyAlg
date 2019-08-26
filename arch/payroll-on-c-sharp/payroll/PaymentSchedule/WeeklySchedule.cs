@@ -1,12 +1,12 @@
 using System;
 
-namespace payroll
+namespace Payroll.PaymentSchedule
 {
     public class WeeklySchedule : IPaymentSchedule
     {
         public bool IsPayDate(DateTime payDate)
         {
-            throw new NotImplementedException();
+            return payDate.DayOfWeek == DayOfWeek.Friday;
         }
     }
 }

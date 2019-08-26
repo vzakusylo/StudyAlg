@@ -21,7 +21,7 @@ namespace payroll.AddEmployee
 
         protected override IPaymentSchedule MakeSchedule()
         {
-            return new BiWeeklySchedule();
+            return new WeeklySchedule();
         }
     }
 }

@@ -19,7 +19,30 @@ namespace Payroll.Classification
 
         public override double CalculatePay(Paycheck paycheck)
         {
-            throw new System.NotImplementedException();
+            double totalPay = 0.0;
+            foreach (TimeCard timeCard in timeCards.Values)
+            {
+                if (IsInPayPeriod(timeCard, paycheck.PayDate))
+                {
+                    totalPay += CalculatePayForTimeCard(timeCard);
+                }
+            }
+
+            return totalPay;
+        }
+
+        private double CalculatePayForTimeCard(TimeCard timeCard)
+        {
+            double overtimeHours = Math.Max(0.0, timeCard.Hours - 8);
+            double normalHours = timeCard.Hours - overtimeHours;
+            return HourlyRate * normalHours + HourlyRate * 1.5 * overtimeHours;
+        }
+
+        private bool IsInPayPeriod(TimeCard timeCard, DateTime payPeriod)
+        {
+            DateTime payPeriodEndDate = payPeriod;
+            DateTime payPeriodStartDate = payPeriod.AddDays(-5);
+            return timeCard.Date <= payPeriodEndDate && timeCard.Date >= payPeriodStartDate;
         }
 
         public TimeCard GetTimeCard(DateTime dateTime)
