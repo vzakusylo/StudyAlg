@@ -5,5 +5,10 @@ namespace payroll.Union
         {
             throw new System.NotImplementedException();
         }
+
+        public double CalculateDeductions(Paycheck pc)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

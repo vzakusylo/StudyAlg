@@ -1,4 +1,5 @@
 using System;
+using payroll.PaySchedule;
 using payroll.SalariedClassification;
 
 namespace payroll.AddEmployee
@@ -17,7 +18,7 @@ namespace payroll.AddEmployee
             return new HourlyClassification(HourlyRate);
         }
 
-        protected override PaymentSchedule MakeSchedule()
+        protected override IPaymentSchedule MakeSchedule()
         {
             return new BiWeeklySchedule();
         }

@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
-using payroll.ChangeEmployee;
+using payroll.PaySchedule;
 using payroll.SalariedClassification;
 
-namespace payroll.AddEmployee
+namespace payroll.ChangeEmployee
 {
     public abstract class ChangeClassificationTransaction : ChangeEmployeeTransaction
     {
@@ -18,6 +18,6 @@ namespace payroll.AddEmployee
         }
 
         protected abstract PaymentClassification Classification { get; }
-        protected abstract PaymentSchedule Schedule { get; }
+        protected abstract IPaymentSchedule Schedule { get; }
     }
 }

@@ -1,4 +1,4 @@
-using payroll.AddEmployee;
+using payroll.PaySchedule;
 using payroll.SalariedClassification;
 
 namespace payroll.ChangeEmployee
@@ -13,6 +13,6 @@ namespace payroll.ChangeEmployee
         }
 
         protected override PaymentClassification Classification => new SalariedClassification.SalariedClassification(Salary);
-        protected override PaymentSchedule Schedule => new BiWeeklySchedule();
+        protected override IPaymentSchedule Schedule => new BiWeeklySchedule();
     }
 }

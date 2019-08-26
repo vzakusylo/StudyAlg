@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using payroll.AddEmployee;
 using payroll.ChangeEmployee;
 using payroll.DeleteEmployee;
+using payroll.Pyamemt;
 using payroll.SalariedClassification;
 using payroll.Union;
 using Xunit;
@@ -25,7 +26,7 @@ namespace payroll.tests
             Assert.True(pc is SalariedClassification.SalariedClassification);
             SalariedClassification.SalariedClassification sc = pc as SalariedClassification.SalariedClassification;
             Assert.Equal(1000.00, sc.Salary);
-            PaymentSchedule ps = e.Schedule;
+            IPaymentSchedule ps = e.Schedule;
             Assert.True(ps is MonthlySchedule);
 
             PaymentMethod pm = e.Method;
@@ -120,7 +121,7 @@ namespace payroll.tests
             Assert.True(pc is HourlyClassification);
             HourlyClassification hc = pc as HourlyClassification;
             Assert.Equal(27.52, hc.HourlyRate);
-            PaymentSchedule ps = e.Schedule;
+            IPaymentSchedule ps = e.Schedule;
             Assert.True(ps is WeeklySchedule);
         }
 
@@ -140,7 +141,7 @@ namespace payroll.tests
             Assert.True(pc is SalariedClassification.SalariedClassification);
             SalariedClassification.SalariedClassification sc = pc as SalariedClassification.SalariedClassification;
             Assert.Equal(2500, sc.Salary);
-            PaymentSchedule ps = e.Schedule;
+            IPaymentSchedule ps = e.Schedule;
             Assert.True(ps is BiWeeklySchedule);
         }
 
@@ -161,7 +162,7 @@ namespace payroll.tests
             CommissionedClassification sc = pc as CommissionedClassification;
             Assert.Equal(2600, sc.BaseRate);
             Assert.Equal(4.4, sc.CommissionedRate);
-            PaymentSchedule ps = e.Schedule;
+            IPaymentSchedule ps = e.Schedule;
             Assert.True(ps is MonthlySchedule);
         }
 
@@ -184,6 +185,37 @@ namespace payroll.tests
             Employee member = await PayrollDatabase.GetUnionMemberAsync(memberId);
             Assert.NotNull(member);
             Assert.Equal(e,member);
+        }
+
+        [Fact]
+        public async Task PaySingleSalariedEmployee()
+        {
+            int empId = 10;
+            AddSalariedEmployee t = new AddSalariedEmployee(empId, "Bob", "Home", 1000.00);
+            await t.ExecuteAsync();
+            DateTime payDate = new DateTime(2001, 11, 30);
+            PaydayTransaction pt = new PaydayTransaction(payDate);
+            await pt.ExecuteAsync();
+            Paycheck pc = pt.GetPaycheck(empId);
+            Assert.NotNull(pc);
+            Assert.Equal(payDate, pc.PayDate);
+            Assert.Equal(1000, pc.GrossPay);
+            Assert.Equal("Hold", pc.GetField("Disposition"));
+            Assert.Equal(0, pc.Deduction);
+            Assert.Equal(1000, pc.NetPay);
+        }
+
+        [Fact]
+        public async Task PyaSingleSalariedEmployeeOnWrongDate()
+        {
+            int empId = 11;
+            AddSalariedEmployee t = new AddSalariedEmployee(empId, "Bob", "Home", 1000);
+            await t.ExecuteAsync();
+            DateTime payDate = new DateTime(2001, 11, 29);
+            PaydayTransaction pt = new PaydayTransaction(payDate);
+            await pt.ExecuteAsync();
+            Paycheck pc = pt.GetPaycheck(empId);
+            Assert.Null(pc);
         }
     }
 }

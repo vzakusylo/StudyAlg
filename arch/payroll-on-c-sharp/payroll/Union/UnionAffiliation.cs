@@ -27,5 +27,10 @@ namespace payroll.Union
         {
             _serviceCharges.Add(serviceCharge.Time, serviceCharge);
         }
+
+        public double CalculateDeductions(Paycheck pc)
+        {
+            return pc.Deduction;
+        }
     }
 }

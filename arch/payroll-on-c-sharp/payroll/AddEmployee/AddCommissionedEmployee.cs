@@ -1,4 +1,5 @@
 using System;
+using payroll.PaySchedule;
 using payroll.SalariedClassification;
 
 namespace payroll.AddEmployee
@@ -19,7 +20,7 @@ namespace payroll.AddEmployee
             return new CommissionedClassification(BaseRate, CommissionRate);
         }
 
-        protected override PaymentSchedule MakeSchedule()
+        protected override IPaymentSchedule MakeSchedule()
         {
             return new MonthlySchedule();
         }

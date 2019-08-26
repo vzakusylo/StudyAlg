@@ -1,5 +1,7 @@
 ﻿using System.Threading.Tasks;
+using payroll.PaySchedule;
 using payroll.SalariedClassification;
+
 
 namespace payroll.AddEmployee
 {
@@ -12,7 +14,7 @@ namespace payroll.AddEmployee
         public async Task ExecuteAsync()
         {
             PaymentClassification pc = MakeClassification();
-            PaymentSchedule ps = MakeSchedule();
+            IPaymentSchedule ps = MakeSchedule();
             PaymentMethod pm = new HoldMethod();
             Employee e = new Employee(EmpId, Name, Address);
             e.Classification = pc;
@@ -22,7 +24,7 @@ namespace payroll.AddEmployee
             await PayrollDatabase.AddEmployeeAsync(EmpId, e);
         }
 
-        public AddEmployeeTransaction(int empId, string name, string address)
+        protected AddEmployeeTransaction(int empId, string name, string address)
         {
             EmpId = empId;
             Name = name;
@@ -31,6 +33,6 @@ namespace payroll.AddEmployee
 
         protected abstract PaymentClassification MakeClassification();
 
-        protected abstract PaymentSchedule MakeSchedule();
+        protected abstract IPaymentSchedule MakeSchedule();
     }
 }

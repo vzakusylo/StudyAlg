@@ -1,3 +1,4 @@
+using payroll.PaySchedule;
 using payroll.SalariedClassification;
 
 namespace payroll.AddEmployee
@@ -17,7 +18,7 @@ namespace payroll.AddEmployee
             return new SalariedClassification.SalariedClassification(Salary);
         }
 
-        protected override PaymentSchedule MakeSchedule()
+        protected override IPaymentSchedule MakeSchedule()
         {
             return new MonthlySchedule();
         }

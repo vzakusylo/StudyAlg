@@ -40,5 +40,11 @@ namespace payroll
         {
             _hashtable.Remove(memeberId);
         }
+
+        public static Task<ArrayList> GetAllEmployeeIds()
+        {
+            ArrayList res = new ArrayList(_hashtable.Keys);
+            return Task.FromResult(res);
+        }
     }
 }

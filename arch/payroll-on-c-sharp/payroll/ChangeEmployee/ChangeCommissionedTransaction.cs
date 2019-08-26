@@ -1,4 +1,4 @@
-using payroll.AddEmployee;
+using payroll.PaySchedule;
 using payroll.SalariedClassification;
 
 namespace payroll.ChangeEmployee
@@ -17,6 +17,6 @@ namespace payroll.ChangeEmployee
 
         protected override PaymentClassification Classification => new CommissionedClassification(BaseRate,CommissionRate);
 
-        protected override PaymentSchedule Schedule => new MonthlySchedule();
+        protected override IPaymentSchedule Schedule => new MonthlySchedule();
     }
 }
