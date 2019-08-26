@@ -1,12 +1,13 @@
 using System;
+using payroll;
 
-namespace payroll
+namespace Payroll.PaymentSchedule
 {
     public class BiWeeklySchedule : IPaymentSchedule
     {
         public bool IsPayDate(DateTime payDate)
         {
-            return true;
+            throw new NotImplementedException();
         }
     }
 }

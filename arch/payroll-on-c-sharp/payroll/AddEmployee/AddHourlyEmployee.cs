@@ -1,5 +1,6 @@
 using System;
 using Payroll.Classification;
+using Payroll.PaymentSchedule;
 using payroll.SalariedClassification;
 
 namespace payroll.AddEmployee

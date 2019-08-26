@@ -6,6 +6,7 @@ using Payroll.Classification;
 using payroll.DeleteEmployee;
 using payroll.Payment;
 using payroll.PaymentSchedule;
+using Payroll.PaymentSchedule;
 using payroll.SalariedClassification;
 using payroll.Union;
 using Xunit;

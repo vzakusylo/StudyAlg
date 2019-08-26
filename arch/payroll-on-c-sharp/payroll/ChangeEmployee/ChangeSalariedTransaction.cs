@@ -1,3 +1,5 @@
+using Payroll.PaymentSchedule;
+
 namespace payroll.ChangeEmployee
 {
     public class ChangeSalariedTransaction : ChangeClassificationTransaction
