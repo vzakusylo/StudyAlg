@@ -10,10 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\payroll-core\payroll-core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="LoadEmployeeOperation.cs" />
     <Compile Update="LoadEmployeeOperationTest.cs" />
     <Compile Update="LoadPaymentClassificationOperation.cs" />

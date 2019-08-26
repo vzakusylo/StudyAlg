@@ -1,5 +1,4 @@
 using System;
-using payroll.PaySchedule;
 
 namespace payroll
 {
