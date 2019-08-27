@@ -271,5 +271,37 @@ namespace payroll.tests
             await pt.ExecuteAsync();
             ValidatePaycheck(pt, empId, payDate, (8 + 1.5) * 15.25);
         }
+
+        [Fact]
+        public async Task PaySingleHourlyEmployeeOnWrongDate()
+        {
+            int empId = 15;
+            AddHourlyEmployee t = new AddHourlyEmployee(empId, "Bill", "Home", 15.25);
+            await t.ExecuteAsync();
+            DateTime payDate = new DateTime(2001, 11, 8);
+            TimeCardTransaction tc = new TimeCardTransaction(payDate, 9.0, empId);
+            await tc.ExecuteAsync();
+            PaydayTransaction pt = new PaydayTransaction(payDate);
+            await pt.ExecuteAsync();
+            Paycheck pc = pt.GetPaycheck(empId);
+            Assert.Null(pc);
+        }
+
+        [Fact]
+        public async Task PaySingleHourlyEmployeeTwoTimeCards()
+        {
+            int empId = 16;
+            AddHourlyEmployee t = new AddHourlyEmployee(empId, "Bill", "Home", 15.25);
+            await t.ExecuteAsync();
+            DateTime payDate = new DateTime(2001, 11,9);
+            TimeCardTransaction tc = new TimeCardTransaction(payDate, 2.0, empId);
+            await tc.ExecuteAsync();
+            TimeCardTransaction tc2 = new TimeCardTransaction(payDate.AddDays(-1), 5, empId);
+            await tc2.ExecuteAsync();
+            PaydayTransaction pt = new PaydayTransaction(payDate);
+            await pt.ExecuteAsync();
+            ValidatePaycheck(pt, empId, payDate, 7*15.25);
+        }
+
     }
 }
