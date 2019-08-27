@@ -37,5 +37,10 @@ namespace payroll
             pc.NetPay = netPay;
             Method.Pay(pc);
         }
+
+        public DateTime GetPayPeriodStartDate(DateTime payDate)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

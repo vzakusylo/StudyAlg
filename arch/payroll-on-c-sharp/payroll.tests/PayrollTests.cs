@@ -303,5 +303,49 @@ namespace payroll.tests
             ValidatePaycheck(pt, empId, payDate, 7*15.25);
         }
 
+        [Fact]
+        public async Task SalariedUnionMemberDues()
+        {
+            int empId = 17;
+            AddSalariedEmployee t = new AddSalariedEmployee(empId, "Bill", "Home", 1000);
+            await t.ExecuteAsync();
+            int memberId = 7734;
+            ChangeMemberTransaction cmt = new ChangeMemberTransaction(empId, memberId, 9.42);
+            await cmt.ExecuteAsync();
+            DateTime payDate = new DateTime(2001, 11, 30);
+            PaydayTransaction pt = new PaydayTransaction(payDate);
+            await pt.ExecuteAsync();
+            Paycheck pc = pt.GetPaycheck(empId);
+            Assert.Equal(payDate, pc.PayDate);
+            Assert.Equal(1000, pc.GrossPay);
+            Assert.Equal("Hold", pc.GetField("Disposition"));
+            Assert.Equal(-1, pc.Deduction);
+            Assert.Equal(1000 - -1, pc.NetPay);
+        }
+
+        [Fact]
+        public async Task HourlyUnionMemberServiceChare()
+        {
+            int empId = 18;
+            AddHourlyEmployee t = new AddHourlyEmployee(empId, "Bill", "Home", 15.24);
+            await t.ExecuteAsync();
+            int memberId = 7734;
+            ChangeMemberTransaction cmt = new ChangeMemberTransaction(empId, memberId, 9.42);
+            await cmt.ExecuteAsync();
+            DateTime payDate = new DateTime(2001, 11, 9);
+            ServiceChargeTransaction sct = new ServiceChargeTransaction(memberId, payDate, 19.42);
+            await sct.ExecuteAsync();
+            TimeCardTransaction tct = new TimeCardTransaction(payDate, 8.0, empId);
+            await tct.ExecuteAsync();
+            PaydayTransaction pt = new  PaydayTransaction(payDate);
+            await pt.ExecuteAsync();
+            Paycheck pc = pt.GetPaycheck(empId);
+
+            Assert.Equal(payDate, pc.PayPeriodEndDate);
+            Assert.Equal(8*15.24, pc.GrossPay);
+            Assert.Equal("Hold", pc.GetField("Disposition"));
+            Assert.Equal(9.42 * 19.42, pc.Deduction);
+            Assert.Equal((8*15.24) - (9.42 * 19.42), pc.NetPay);
+        }
     }
 }

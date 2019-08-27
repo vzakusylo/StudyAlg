@@ -30,7 +30,23 @@ namespace payroll.Union
 
         public double CalculateDeductions(Paycheck pc)
         {
-            return pc.Deduction;
+            double totalDues = 0;
+            int fridays = NumberOfFridaysInPayPeriod(pc.PayPeriodStartDate, pc.PayPeriodEndDate);
+            totalDues = Dues * fridays;
+            return totalDues;
+        }
+
+        private int NumberOfFridaysInPayPeriod(DateTime pcPayPeriodStartDate, DateTime payPeriodEndDate)
+        {
+            int fridays = 0;
+            for (DateTime day = pcPayPeriodStartDate; day <= payPeriodEndDate; day.AddDays(1))
+            {
+                if (day.DayOfWeek == DayOfWeek.Friday)
+                {
+                    fridays++;
+                }
+            }
+            return fridays;
         }
     }
 }

@@ -6,7 +6,7 @@ namespace payroll
     public class Paycheck
     {
         private Hashtable _fields = new Hashtable();
-        public Paycheck(DateTime payDate)
+        public Paycheck(DateTime startDate, DateTime payDate)
         {
             PayDate = payDate;
         }
@@ -15,6 +15,8 @@ namespace payroll
         public double GrossPay { get; set; }
         public double Deduction { get; set; }
         public double NetPay { get; set; }
+        public DateTime PayPeriodEndDate { get; set; }
+        public DateTime PayPeriodStartDate { get; set; }
 
         public string GetField(string fieldName)
         {

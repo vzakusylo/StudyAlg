@@ -22,7 +22,8 @@ namespace payroll.Payment
                 Employee employee = await PayrollDatabase.GetEmployeeAsync(empId);
                 if (employee.IsPayDate(PayDate))
                 {
-                    Paycheck pc = new Paycheck(PayDate);
+                    DateTime startDate = employee.GetPayPeriodStartDate(PayDate);
+                    Paycheck pc = new Paycheck(startDate, PayDate);
                     Paychecks[empId] = pc;
                     employee.Payday(pc);
                 }
