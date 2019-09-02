@@ -324,7 +324,7 @@ namespace payroll.tests
         }
 
         [Fact]
-        public async Task HourlyUnionMemberServiceChare()
+        public async Task HourlyUnionMemberServiceCharge()
         {
             int empId = 18;
             AddHourlyEmployee t = new AddHourlyEmployee(empId, "Bill", "Home", 15.24);
@@ -346,6 +346,38 @@ namespace payroll.tests
             Assert.Equal("Hold", pc.GetField("Disposition"));
             Assert.Equal(9.42 * 19.42, pc.Deduction);
             Assert.Equal((8*15.24) - (9.42 * 19.42), pc.NetPay);
+        }
+
+        [Fact]
+        public async Task ServiceChargesSpanningMultiplePayPeriods()
+        {
+            int empId = 19;
+            AddHourlyEmployee t = new AddHourlyEmployee(empId, "Bill", "Home", 15.24);
+            await t.ExecuteAsync();
+            int memberId = 7734;
+            ChangeMemberTransaction cmt = new ChangeMemberTransaction(empId, memberId, 9.42);
+            await cmt.ExecuteAsync();
+            DateTime payDate = new DateTime(2001, 11, 9);
+            DateTime earlyDate = new DateTime(2001, 11,2);
+            DateTime lateTime = new DateTime(2001, 11,16);
+            ServiceChargeTransaction sct = new ServiceChargeTransaction(memberId, payDate, 19.42);
+            await sct.ExecuteAsync();
+            ServiceChargeTransaction sctEarly = new ServiceChargeTransaction(memberId, earlyDate, 100);
+            await sctEarly.ExecuteAsync();
+            ServiceChargeTransaction sctLate = new ServiceChargeTransaction(memberId, lateTime, 200);
+            await sctLate.ExecuteAsync();
+            TimeCardTransaction tct = new TimeCardTransaction(payDate, 8, empId);
+            await tct.ExecuteAsync();
+            PaydayTransaction pt = new PaydayTransaction(payDate);
+            await pt.ExecuteAsync();
+            Paycheck pc = pt.GetPaycheck(empId);
+
+            Assert.NotNull(pc);
+            Assert.Equal(payDate, pc.PayPeriodEndDate);
+            Assert.Equal(8*15.24, pc.GrossPay);
+            Assert.Equal("Hold", pc.GetField("Disposition"));
+            Assert.Equal(9.42 + 19.42, pc.Deduction);
+            Assert.Equal((8*15.24)-(9.42 +19.42), pc.NetPay);
         }
     }
 }
