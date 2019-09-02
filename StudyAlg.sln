@@ -93,6 +93,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payroll", "arch\payroll-on-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "payroll.tests", "arch\payroll-on-c-sharp\payroll.tests\payroll.tests.csproj", "{72FF2E3D-ADB7-4429-9CB0-817156EE7249}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "base-skit", "base-skit", "{5AAB8C77-ABF0-4C0F-A4C3-CEE97856647F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
