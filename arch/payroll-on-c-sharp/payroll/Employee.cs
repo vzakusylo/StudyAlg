@@ -40,7 +40,7 @@ namespace payroll
 
         public DateTime GetPayPeriodStartDate(DateTime payDate)
         {
-            throw new NotImplementedException();
+            return Schedule.GetPayPeriodStartDate(payDate);
         }
     }
 }

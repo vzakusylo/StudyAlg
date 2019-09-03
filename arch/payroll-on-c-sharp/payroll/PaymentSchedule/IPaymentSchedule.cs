@@ -6,5 +6,6 @@ namespace Payroll.PaymentSchedule
     {
         bool IsPayDate(DateTime payDate);
 
+        DateTime GetPayPeriodStartDate(DateTime payDate);
     }
 }
