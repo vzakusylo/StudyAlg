@@ -4,6 +4,74 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Page32;
 
+namespace Page60
+{
+
+    [TestClass]
+    public class Page60
+    {
+        delegate void StringProcessor(string input);
+
+        [TestMethod]
+        public void Main()
+        {
+            StringProcessor proc1, proc2;
+            proc1 = new StringProcessor(StaticMethods.PrintString);
+            InstanceMethods im = new InstanceMethods();
+            proc2 = new StringProcessor(im.PrintString);
+
+            proc1("hello from static method");
+            proc2("Hello from instance method");
+
+            proc1.Invoke("hello from static method via invoke");
+            proc2.Invoke("hello from instance method via invoke");
+        }
+
+        public void PrintString(string x)
+        {
+            Console.WriteLine(x);
+        }
+
+        public void PrintInteger(int x)
+        {
+            Console.WriteLine(x);
+        }
+
+        public void PrintTwoStrings(string x, string y)
+        {
+            Console.WriteLine($"{x} {y}");
+        }
+
+        public int GetStringLength(string x)
+        {
+            Console.WriteLine(x);
+            return 1;
+        }
+
+        void PrintObject(object x)
+        {
+            Console.WriteLine(x);
+        }
+
+    }
+
+    public static class StaticMethods
+    {
+        public static void PrintString(string x)
+        {
+            Console.WriteLine(x);
+        }
+    }
+
+    public class InstanceMethods
+    {
+        public void PrintString(string x)
+        {
+            Console.WriteLine(x);
+        }
+    }
+}
+
 namespace Page54
 {
     [TestClass]
