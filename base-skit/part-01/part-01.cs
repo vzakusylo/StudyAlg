@@ -4,6 +4,26 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Page32;
 
+namespace Page54
+{
+    [TestClass]
+    public class Page54
+    {
+        [TestMethod]
+        public void Main()
+        {
+            Console.WriteLine(Reverse("dlrow olleH"));
+        }
+
+        static string Reverse(string input)
+        {
+            char[] chars = input.ToCharArray();
+            Array.Reverse(chars);
+            return new string(chars);
+        }
+    }
+}
+
 namespace Page42
 {
 
