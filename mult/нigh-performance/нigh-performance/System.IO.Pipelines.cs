@@ -1,5 +1,127 @@
 using System;
+using System.Buffers;
+using System.IO;
+using System.IO.Pipelines;
+using System.IO.Pipes;
+using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace example
+{
+    using System.Threading.Tasks;
+
+    [TestClass]
+    public class SystemIoPipelines
+    {
+        [TestMethod]
+        public async Task Main()
+        {
+            var pipe = new Pipe();
+            var dataWriter = new PipeDataWriter(pipe.Writer, "testpipe");
+            var dataProcessor = new DataProcessor(new ConsoleBytesProcessor(), pipe.Reader);
+            var cts = new CancellationTokenSource();
+            await Task.WhenAll(dataWriter.ReadFromPipeAsync(cts.Token),
+                dataProcessor.StartProcessingDataAsync(cts.Token));
+        }
+    }
+
+    public class ConsoleBytesProcessor : IBytesProcessor
+    {
+        readonly FileStream _fileStream = new FileStream("buffer", FileMode.Create);
+        public Task ProcessBytesAsync(ReadOnlySequence<byte> bytesSequence, CancellationToken token)
+        {
+            if (bytesSequence.IsSingleSegment)
+            {
+                ProcessSingle(bytesSequence.First.Span);
+            }
+            else
+            {
+                foreach (ReadOnlyMemory<byte> segment in bytesSequence)
+                {
+                    ProcessSingle(segment.Span);
+                }
+            }
+
+            return Task.CompletedTask;
+        }
+
+        private void ProcessSingle(in ReadOnlySpan<byte> firstSpan)
+        {
+            _fileStream.Write(firstSpan);
+        }
+    }
+
+    public class DataProcessor
+    {
+        private readonly IBytesProcessor _bytesProcessor;
+        private readonly PipeReader _pipeReader;
+
+        public DataProcessor(IBytesProcessor bytesProcessor, PipeReader pipeReader)
+        {
+            _bytesProcessor = bytesProcessor ?? throw new ArgumentNullException(nameof(bytesProcessor));
+            _pipeReader = pipeReader ?? throw new ArgumentNullException(nameof(pipeReader));
+        }
+
+        public async Task StartProcessingDataAsync(CancellationToken token)
+        {
+            while (true)
+            {
+                token.ThrowIfCancellationRequested();
+                ReadResult result = await _pipeReader.ReadAsync(token);
+                ReadOnlySequence<byte> buffer = result.Buffer;
+                await _bytesProcessor.ProcessBytesAsync(buffer, token);
+                _pipeReader.AdvanceTo(buffer.End);
+                if (result.IsCompleted)
+                {
+                    break;
+                }
+            }
+            _pipeReader.Complete();
+        }
+    }
+
+    public interface IBytesProcessor
+    {
+        Task ProcessBytesAsync(ReadOnlySequence<byte> bytesSequence, CancellationToken token);
+    }
+
+    public class PipeDataWriter
+    {
+        private readonly NamedPipeClientStream _namedPipe;
+        private readonly PipeWriter _pipeWriter;
+        private const string Servername = ".";
+
+        public PipeDataWriter(PipeWriter pipeWriter, string pipeName)
+        {
+            _pipeWriter = pipeWriter ?? throw new ArgumentNullException(nameof(pipeWriter));
+            _namedPipe = new NamedPipeClientStream(Servername, pipeName, PipeDirection.In);
+        }
+
+        public async Task ReadFromPipeAsync(CancellationToken token)
+        {
+            await _namedPipe.ConnectAsync(token);
+            while (true)
+            {
+                token.ThrowIfCancellationRequested();
+                int readBytes = _namedPipe.Read(_pipeWriter.GetSpan());
+                if (readBytes == 0)
+                {
+                    await Task.Delay(500, token);
+                    continue;
+                }
+
+                _pipeWriter.Advance(readBytes);
+
+                FlushResult result = await _pipeWriter.FlushAsync(token);
+                if (result.IsCanceled)
+                {
+                    break;
+                }
+            }
+            _pipeWriter.Complete();
+        }
+    }
+}
 
 namespace нigh_performance
 {
