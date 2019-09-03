@@ -1,27 +1,27 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using Xunit;
 
 namespace Visitor
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        [Fact]
+        public void Run()
         {
             Employees employees = new Employees();
             employees.Attach(new Clerk());
             employees.Attach(new Director());
             employees.Attach(new President());
-            
+
             employees.Accept(new IncomeVisitor());
             employees.Accept(new VacationVisitor());
-
-            Console.ReadKey();
         }
     }
 
     class Client
     {
-        
+
     }
 
     abstract class Element
@@ -37,11 +37,11 @@ namespace Visitor
             Income = income;
             VacationDays = vacationDays;
         }
-        
+
         public double Income { get; set; }
         public string Name { get; set; }
         public int VacationDays { get; set; }
-        
+
         public override void Accept(IVisitor visitor)
         {
             visitor.Visit(this);
@@ -61,7 +61,7 @@ namespace Visitor
 
             employee.Income *= 1.10;
             Console.WriteLine("{0} {1}'s new income: {2:C}", employee.GetType().Name,
-                employee.Name, 
+                employee.Name,
                 employee.Income);
 
         }
@@ -109,16 +109,16 @@ namespace Visitor
     {
         public Clerk() : base("Harry", 25000.0, 14)
         {
-            
+
         }
     }
 
     class Director : Employee
     {
-        public  Director():base("Edward", 35000, 16){}
+        public Director() : base("Edward", 35000, 16) { }
     }
 
-    class President:Employee
+    class President : Employee
     {
         public President() : base("Damond", 45000, 21)
         { }

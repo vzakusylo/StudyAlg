@@ -1,11 +1,13 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using Xunit;
 
 namespace Composite
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        [Fact]
+        public void Main()
         {
             Employee ricky = new Employee { Id = 1, Name = "ricky", Rating = 3 };
             Employee mike = new Employee { Id = 2, Name = "mike", Rating = 4 };
@@ -14,7 +16,7 @@ namespace Composite
             Employee olive = new Employee { Id = 5, Name = "olive", Rating = 4 };
             Employee candy = new Employee { Id = 5, Name = "candy", Rating = 5 };
 
-            Supervisor ronny = new Supervisor {Id = 7, Name = "ronny", Rating = 3};
+            Supervisor ronny = new Supervisor { Id = 7, Name = "ronny", Rating = 3 };
             Supervisor bob = new Supervisor { Id = 8, Name = "bob", Rating = 3 };
 
             ronny.AddSubordinate(ricky);

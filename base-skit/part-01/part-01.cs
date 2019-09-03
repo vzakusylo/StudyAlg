@@ -19,7 +19,8 @@ namespace Page54
         {
             char[] chars = input.ToCharArray();
             Array.Reverse(chars);
-            return new string(chars);
+            var span = new ReadOnlySpan<char>(chars);
+            return new string(span);
         }
     }
 }

@@ -1,12 +1,13 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Globalization;
+using Xunit;
 
 namespace Mediator
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        [Fact]
+        public void Run()
         {
             Chatroom chatroom = new Chatroom();
 
@@ -32,7 +33,7 @@ namespace Mediator
             Console.ReadKey();
         }
 
-    
+
     }
 
     // the 'Mediator' 
@@ -75,7 +76,7 @@ namespace Mediator
 
         public virtual void Receive(string from, string message)
         {
-            Console.WriteLine($"{from} {Name} {message}" );
+            Console.WriteLine($"{from} {Name} {message}");
         }
 
         public void Send(string to, string message)
@@ -97,3 +98,4 @@ namespace Mediator
         }
     }
 }
+
