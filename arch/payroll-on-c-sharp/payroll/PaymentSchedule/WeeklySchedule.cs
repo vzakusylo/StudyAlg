@@ -8,5 +8,10 @@ namespace Payroll.PaymentSchedule
         {
             return payDate.DayOfWeek == DayOfWeek.Friday;
         }
+
+        public DateTime GetPayPeriodStartDate(DateTime payDate)
+        {
+            return payDate.AddDays(-6);
+        }
     }
 }

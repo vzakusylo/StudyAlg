@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Payroll;
 
 namespace payroll.Union
 {
@@ -33,13 +34,22 @@ namespace payroll.Union
             double totalDues = 0;
             int fridays = NumberOfFridaysInPayPeriod(pc.PayPeriodStartDate, pc.PayPeriodEndDate);
             totalDues = Dues * fridays;
+
+            foreach (ServiceCharge charge in _serviceCharges.Values)
+            {
+                if (DateUtil.IsInPayPeriod(charge.Time, pc.PayPeriodStartDate, pc.PayPeriodEndDate))
+                {
+                    totalDues += charge.Amount;
+                }
+            }
+
             return totalDues;
         }
 
         private int NumberOfFridaysInPayPeriod(DateTime pcPayPeriodStartDate, DateTime payPeriodEndDate)
         {
             int fridays = 0;
-            for (DateTime day = pcPayPeriodStartDate; day <= payPeriodEndDate; day.AddDays(1))
+            for (DateTime day = pcPayPeriodStartDate; day <= payPeriodEndDate; day = day.AddDays(1))
             {
                 if (day.DayOfWeek == DayOfWeek.Friday)
                 {

@@ -22,7 +22,7 @@ namespace Payroll.Classification
             double totalPay = 0.0;
             foreach (TimeCard timeCard in timeCards.Values)
             {
-                if (IsInPayPeriod(timeCard, paycheck.PayDate))
+                if (DateUtil.IsInPayPeriod(timeCard.Date, paycheck.PayPeriodStartDate, paycheck.PayPeriodEndDate))
                 {
                     totalPay += CalculatePayForTimeCard(timeCard);
                 }
@@ -37,14 +37,7 @@ namespace Payroll.Classification
             double normalHours = timeCard.Hours - overtimeHours;
             return HourlyRate * normalHours + HourlyRate * 1.5 * overtimeHours;
         }
-
-        private bool IsInPayPeriod(TimeCard timeCard, DateTime payPeriod)
-        {
-            DateTime payPeriodEndDate = payPeriod;
-            DateTime payPeriodStartDate = payPeriod.AddDays(-5);
-            return timeCard.Date <= payPeriodEndDate && timeCard.Date >= payPeriodStartDate;
-        }
-
+        
         public TimeCard GetTimeCard(DateTime dateTime)
         {
             return (TimeCard) timeCards[dateTime];

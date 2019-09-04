@@ -201,7 +201,7 @@ namespace payroll.tests
             await pt.ExecuteAsync();
             Paycheck pc = pt.GetPaycheck(empId);
             Assert.NotNull(pc);
-            Assert.Equal(payDate, pc.PayDate);
+            Assert.Equal(payDate, pc.PayPeriodEndDate);
             Assert.Equal(1000, pc.GrossPay);
             Assert.Equal("Hold", pc.GetField("Disposition"));
             Assert.Equal(0, pc.Deduction);
@@ -237,7 +237,7 @@ namespace payroll.tests
         {
             Paycheck pc = pt.GetPaycheck(empId);
             Assert.NotNull(pc);
-            Assert.Equal(payDate, pc.PayDate);
+            Assert.Equal(payDate, pc.PayPeriodEndDate);
             Assert.Equal(pay, pc.GrossPay);
             Assert.Equal("Hold", pc.GetField("Disposition"));
             Assert.Equal(0.0, pc.Deduction);
@@ -316,11 +316,11 @@ namespace payroll.tests
             PaydayTransaction pt = new PaydayTransaction(payDate);
             await pt.ExecuteAsync();
             Paycheck pc = pt.GetPaycheck(empId);
-            Assert.Equal(payDate, pc.PayDate);
+            Assert.Equal(payDate, pc.PayPeriodEndDate);
             Assert.Equal(1000, pc.GrossPay);
             Assert.Equal("Hold", pc.GetField("Disposition"));
-            Assert.Equal(-1, pc.Deduction);
-            Assert.Equal(1000 - -1, pc.NetPay);
+            Assert.Equal(47.1, pc.Deduction);
+            Assert.Equal(1000 - 47.1, pc.NetPay);
         }
 
         [Fact]
@@ -344,8 +344,8 @@ namespace payroll.tests
             Assert.Equal(payDate, pc.PayPeriodEndDate);
             Assert.Equal(8*15.24, pc.GrossPay);
             Assert.Equal("Hold", pc.GetField("Disposition"));
-            Assert.Equal(9.42 * 19.42, pc.Deduction);
-            Assert.Equal((8*15.24) - (9.42 * 19.42), pc.NetPay);
+            Assert.Equal(9.42 + 19.42, pc.Deduction);
+            Assert.Equal((8*15.24) - (9.42 + 19.42), pc.NetPay);
         }
 
         [Fact]

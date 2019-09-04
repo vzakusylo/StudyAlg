@@ -1,5 +1,4 @@
 using System;
-using payroll;
 
 namespace Payroll.PaymentSchedule
 {
@@ -7,7 +6,17 @@ namespace Payroll.PaymentSchedule
     {
         public bool IsPayDate(DateTime payDate)
         {
-            throw new NotImplementedException();
+            return payDate.DayOfWeek == DayOfWeek.Friday && payDate.Day % 2 == 0;
+        }
+
+        public DateTime GetPayPeriodStartDate(DateTime payDate)
+        {
+            return payDate.AddDays(-13);
+        }
+
+        public override string ToString()
+        {
+            return "bi-weekly";
         }
     }
 }

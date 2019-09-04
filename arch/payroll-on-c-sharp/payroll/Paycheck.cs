@@ -8,10 +8,10 @@ namespace payroll
         private Hashtable _fields = new Hashtable();
         public Paycheck(DateTime startDate, DateTime payDate)
         {
-            PayDate = payDate;
+            PayPeriodEndDate = payDate;
+            PayPeriodStartDate = startDate;
         }
-
-        public DateTime PayDate { get; set; }
+        
         public double GrossPay { get; set; }
         public double Deduction { get; set; }
         public double NetPay { get; set; }

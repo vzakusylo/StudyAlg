@@ -10,6 +10,22 @@ namespace payroll.PaymentSchedule
             return IsLastDayOfMonth(payDate);
         }
 
+        public DateTime GetPayPeriodStartDate(DateTime payDate)
+        {
+            int days = 0;
+            while (payDate.AddDays(days-1).Month == payDate.Month)
+            {
+                days--;
+            }
+
+            return payDate.AddDays(days);
+        }
+
+        public override string ToString()
+        {
+            return "monthly";
+        }
+
         private bool IsLastDayOfMonth(DateTime date)
         {
             int m1 = date.Month;
