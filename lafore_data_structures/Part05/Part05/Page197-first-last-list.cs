@@ -1,7 +1,33 @@
 ﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace _197_first_last_list
+namespace Page197
 {
+    [TestClass]
+    public class ListStack
+    {
+        [TestMethod]
+        public void Main()
+        {
+            FirstLastList theList = new FirstLastList();
+
+            theList.InsertFirst(22);
+            theList.InsertFirst(44);
+            theList.InsertFirst(66);
+
+            theList.InsertLast(11);
+            theList.InsertLast(33);
+            theList.InsertLast(55);
+
+            theList.DisplayList();
+
+            theList.DeleteFirst();
+            theList.DeleteFirst();
+
+            theList.DisplayList();
+        }
+    }
+
     public class FirstLastList
     {
         private Link first;
@@ -65,6 +91,23 @@ namespace _197_first_last_list
                 current = current.next;
             }
             Console.WriteLine();
+        }
+    }
+
+
+    public class Link
+    {
+        public long dData;
+        public Link next;
+
+        public Link(long d)
+        {
+            dData = d;
+        }
+
+        public void displayLink()
+        {
+            Console.Write($"{dData} ");
         }
     }
 }
