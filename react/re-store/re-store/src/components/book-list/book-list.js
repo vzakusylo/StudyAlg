@@ -34,35 +34,11 @@ class BookList extends Component{
         );
     };
 };
-
 const mapStateToProps = ({books}) => {
     return { books };
 };
-
-//const mapDispatchToProps = (dispatch) => {
-    const mapDispatchToProps = {
-    // return {
-    //     booksLoaded:(newBooks) => {
-    //         dispatch(booksLoaded(newBooks));
-    //     }
-    // };
-    // return bindActionCreators({
-    //     booksLoaded    
-    // }, dispatch);
-    
-        booksLoaded    
-    
-};
-
-// export default withBookstoreService()( 
-//     connect(mapStateToProps, mapDispatchToProps)(BookList)
-// );
-
+const mapDispatchToProps = { booksLoaded };
 export default compose(
     withBookstoreService(),
     connect(mapStateToProps, mapDispatchToProps)
 )(BookList)
-
-// export default withBookstoreService()( 
-//     connect(mapStateToProps, mapDispatchToProps)(BookList)
-// );
