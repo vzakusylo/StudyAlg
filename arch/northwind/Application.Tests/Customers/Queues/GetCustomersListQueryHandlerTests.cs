@@ -9,6 +9,7 @@ using Xunit;
 
 namespace Application.Tests.Customers.Queues
 {
+    [Collection("QueryCollection")]
     public class GetCustomersListQueryHandlerTests
     {
         private readonly NorthwindDbContext _context;
