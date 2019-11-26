@@ -1,0 +1,55 @@
+version: '3.4'
+
+services:      
+  
+  appointment.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - ConnectionString=${USAVC_APPOINTMENT_CATALOG_DB:-Server=sql.data;Database=Usavc.Services.AppointmentDb;User Id=sa;Password=Pass@word}      
+      - EventBusConnection=${USAVC_APPOINTMENT_SERVICE_BUS:-rabbitmq}
+      - EventBusUserName=${USAVC_SERVICE_BUS_USERNAME}
+      - EventBusPassword=${USAVC_SERVICE_BUS_PASSWORD}      
+      - OrchestratorType=${ORCHESTRATOR_TYPE}
+    ports:
+      - "80"  
+
+  webmvc:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - PurchaseUrl=http://usavcapigw            
+      - AppointmentUrlHC=http://appointment.api/hc
+      - OrchestratorType=${ORCHESTRATOR_TYPE}
+      - UseLoadTest=${USE_LOADTEST:-False}
+    ports:
+      - "5100:80"
+
+  webstatus:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - AppointmentUrl=http://appointment.api/hc            
+      - mvc=http://webmvc/hc            
+      - OrchestratorType=${ORCHESTRATOR_TYPE}
+    ports:
+      - "5107:80"
+
+  sql.data:
+    environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+    ports:
+      - "5433:1433"  
+        
+  rabbitmq:
+    ports:
+      - "15672:15672" 
+      - "5672:5672"   
+
+  usavcapigw:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development      
+    ports:
+      - "5202:80"   
+    

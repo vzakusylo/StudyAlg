@@ -1,0 +1,45 @@
+version: '3.4'
+
+services:
+
+  seq:
+    image: datalust/seq:latest
+
+  sql.data:
+    image: microsoft/mssql-server-linux:2017-latest
+  
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+ 
+  appointment.api:
+    image: ${REGISTRY:-usavc}/appointment.api:${PLATFORM:-linux}-${TAG:-latest}
+    build:
+      context: .
+      dockerfile: src/Services/Appointment/Appointment.API/Dockerfile
+    depends_on:
+      - sql.data
+      - rabbitmq
+
+  usavcapigw:
+    image: ${REGISTRY:-usavc}/ocelotapigw:${PLATFORM:-linux}-${TAG:-latest}
+    build:
+      context: .
+      dockerfile: src/ApiGateways/Dockerfile
+    depends_on:      
+      - sql.data      
+      - rabbitmq            
+      - appointment.api
+
+  webstatus:
+    image: ${REGISTRY:-usavc}/webstatus:${PLATFORM:-linux}-${TAG:-latest}
+    build:
+      context: .
+      dockerfile: src/Web/WebStatus/Dockerfile
+
+  webmvc:
+    image: ${REGISTRY:-usavc}/webmvc:${PLATFORM:-linux}-${TAG:-latest}
+    build:
+      context: .
+      dockerfile: src/Web/WebMVC/Dockerfile    
+    depends_on:      
+      - usavcapigw

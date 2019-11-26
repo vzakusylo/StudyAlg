@@ -1,0 +1,64 @@
+version: '3.4'
+
+services:
+  seq:
+    environment:
+      - ACCEPT_EULA=Y
+    ports:
+      - "5340:80"
+
+  sql.data:
+    environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+    ports:
+      - "5433:1433"   
+  
+  rabbitmq:
+    ports:
+      - "15672:15672" 
+      - "5672:5672"   
+  
+  appointment.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - ConnectionString=${USAVC_APPOINTMENT_DB:-Server=sql.data;Database=Usavc.Services.AppointmentDb;User Id=sa;Password=Pass@word}      
+      - EventBusConnection=${USAVC_APPOINTMENT_SERVICE_BUS:-rabbitmq}
+      - EventBusUserName=${USAVC_SERVICE_BUS_USERNAME}
+      - EventBusPassword=${USAVC_SERVICE_BUS_PASSWORD}
+      - OrchestratorType=${ORCHESTRATOR_TYPE}
+    ports:
+      - "5101:80"                     
+
+  usavcapigw:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development      
+      - AppointmentUrlHC=http://appointment.api/hc            
+    ports:
+      - "5202:80"   
+    
+        
+  webstatus:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - HealthChecks-UI__HealthChecks__0__Name=WebMVC HTTP Check
+      - HealthChecks-UI__HealthChecks__0__Uri=http://webmvc/hc
+      - HealthChecks-UI__HealthChecks__6__Name=USAVC API GW HTTP Check
+      - HealthChecks-UI__HealthChecks__6__Uri=http://usavcapigw/hc
+      - HealthChecks-UI__HealthChecks__11__Name=Appointment HTTP Check
+      - HealthChecks-UI__HealthChecks__11__Uri=http://appointment.api/hc
+      - OrchestratorType=${ORCHESTRATOR_TYPE}
+    ports:
+      - "5107:80"
+  
+  webmvc:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - PurchaseUrl=http://usavcapigw
+      - PurchaseUrlHC=http://usavcapigw/hc            
+      - OrchestratorType=${ORCHESTRATOR_TYPE}      
+    ports:
+      - "5100:80"

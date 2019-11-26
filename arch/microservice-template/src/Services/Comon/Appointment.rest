@@ -1,0 +1,10 @@
+@url = http://localhost:5000
+
+### create discount
+POST {{url}}/appointment
+Content-Type: application/json
+
+{    
+    "code": "ABC",
+    "description": "abc_desc"
+}

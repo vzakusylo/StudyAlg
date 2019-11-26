@@ -1,0 +1,15 @@
+﻿@model Usavc.WebMVC.ViewModels.CatalogViewModels.IndexViewModel
+
+@{
+    ViewData["Title"] = "Catalog";
+}
+
+    <section class="esh-catalog-filters">
+        <div class="container">
+            <form asp-action="Index" asp-controller="Catalog" method="post">
+                <label class="esh-catalog-label" data-title="brand">
+                    <select asp-items="@Model.Brands" class="esh-catalog-filter"></select>
+                </label>
+            </form>
+        </div>
+    </section>

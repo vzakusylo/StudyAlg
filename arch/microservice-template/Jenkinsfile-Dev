@@ -1,0 +1,38 @@
+pipeline {
+	agent {label 'Linux'}
+	
+    stages {
+		stage('build client app') {
+			agent { docker { image 'node:8.12' } }
+            steps {
+				sh 'npm set @usavc:registry http://192.168.5.138:4873'
+                sh 'cd ./PVP.Web/ && npm install'
+				sh 'cd ./PVP.Web/ && NODE_ENV=production && node_modules/.bin/webpack'
+				stash includes: 'PVP.Web/wwwroot/**/*', name: 'client-app'
+            }
+        }
+		stage('build server app') {
+			agent { docker { image 'microsoft/dotnet' } }
+            steps {
+				unstash 'client-app'
+                sh 'dotnet publish --framework netcoreapp2.1 --configuration Release --runtime centos-x64 ./PatientConsentsSigning.sln'
+				stash includes: 'PVP.Web/bin/Release/netcoreapp2.1/centos-x64/publish/**/*', name: 'app'
+            }
+        }
+		stage('deployment web app') {
+			agent {label 'Linux'}
+			steps {
+                sshagent(['jenkins-ci'])
+                {
+					unstash 'app'
+                    sh '''
+						ssh -o StrictHostKeyChecking=no root@192.168.5.147 'systemctl stop  patient_consents_signing'
+						ssh -o StrictHostKeyChecking=no root@192.168.5.147 'rm -r /var/patient_consents_signing/wwwroot/*'
+						scp -r ./PVP.Web/bin/Release/netcoreapp2.1/centos-x64/publish/* root@192.168.5.147:/var/patient_consents_signing
+                        ssh -o StrictHostKeyChecking=no root@192.168.5.147 'systemctl start  patient_consents_signing'
+                    '''
+                }
+            }
+		}
+    }
+}
