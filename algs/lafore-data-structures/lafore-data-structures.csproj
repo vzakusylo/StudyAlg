@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>lafore_data_structures</RootNamespace>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="129-reverse-word-stack\**" />
+    <Compile Remove="133-brackets\**" />
+    <Compile Remove="150-priority-q\**" />
+    <Compile Remove="165-infix\**" />
+    <Compile Remove="Arrays\**" />
+    <Compile Remove="Book\**" />
+    <Compile Remove="insertion-sort\**" />
+    <EmbeddedResource Remove="129-reverse-word-stack\**" />
+    <EmbeddedResource Remove="133-brackets\**" />
+    <EmbeddedResource Remove="150-priority-q\**" />
+    <EmbeddedResource Remove="165-infix\**" />
+    <EmbeddedResource Remove="Arrays\**" />
+    <EmbeddedResource Remove="Book\**" />
+    <EmbeddedResource Remove="insertion-sort\**" />
+    <None Remove="129-reverse-word-stack\**" />
+    <None Remove="133-brackets\**" />
+    <None Remove="150-priority-q\**" />
+    <None Remove="165-infix\**" />
+    <None Remove="Arrays\**" />
+    <None Remove="Book\**" />
+    <None Remove="insertion-sort\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
+    <PackageReference Include="coverlet.collector" Version="1.0.1" />
+  </ItemGroup>
+
+</Project>
