@@ -29,11 +29,7 @@ namespace Mediator
             Bruce.Send("Eddie", "How come you don't do stanup anymore.");
             Jen.Send("Eddie", "Do you like math.");
             Tom.Send("Tony", "Teach me to sing");
-
-            Console.ReadKey();
         }
-
-
     }
 
     // the 'Mediator' 
