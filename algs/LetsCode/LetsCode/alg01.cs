@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 //https://drive.google.com/file/d/0B7EfQdvL5qf_Q2JCWmZJRHQwdFU/view
 
-namespace page01
+namespace alg01
 {
     [TestClass]
     public class EvaluateReversePolishNotation
