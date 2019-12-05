@@ -105,19 +105,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.WebUI", "arch\nor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "All", "algs\All\All.csproj", "{1F00C70A-734C-4735-858E-80A28AA43844}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "arch\northwind\Common\Common.csproj", "{AADFD41C-407C-4B5A-A412-69BF09BAA079}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "arch\northwind\Common\Common.csproj", "{AADFD41C-407C-4B5A-A412-69BF09BAA079}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "arch\northwind\Domain\Domain.csproj", "{71043276-121E-4FA7-A473-4891E3FABACA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "arch\northwind\Domain\Domain.csproj", "{71043276-121E-4FA7-A473-4891E3FABACA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "arch\northwind\Application\Application.csproj", "{C9AE37A6-981E-4CAE-B7E2-F05AC123A181}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "arch\northwind\Application\Application.csproj", "{C9AE37A6-981E-4CAE-B7E2-F05AC123A181}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.Tests", "arch\northwind\Application.Tests\Application.Tests.csproj", "{7CCB6798-631B-440B-839F-37917AB510DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Tests", "arch\northwind\Application.Tests\Application.Tests.csproj", "{7CCB6798-631B-440B-839F-37917AB510DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "arch\northwind\Persistance\Persistence.csproj", "{F99507C4-C4D2-451A-9CC1-C1478A8B44A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "arch\northwind\Persistance\Persistence.csproj", "{F99507C4-C4D2-451A-9CC1-C1478A8B44A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.WebUI.FunctionalTests", "arch\northwind\Northwind.WebUI.FunctionalTests\Northwind.WebUI.FunctionalTests.csproj", "{F0ED18DF-B2F3-4F32-A966-D3931763BA47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.WebUI.FunctionalTests", "arch\northwind\Northwind.WebUI.FunctionalTests\Northwind.WebUI.FunctionalTests.csproj", "{F0ED18DF-B2F3-4F32-A966-D3931763BA47}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "arch\northwind\Infrastructure\Infrastructure.csproj", "{4639B2D6-9E8A-4D01-923D-54641041F1CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LetsCode", "algs\LetsCode\LetsCode\LetsCode.csproj", "{1433F590-0593-4186-AA3A-9C20E2942B30}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -301,6 +303,10 @@ Global
 		{4639B2D6-9E8A-4D01-923D-54641041F1CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4639B2D6-9E8A-4D01-923D-54641041F1CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4639B2D6-9E8A-4D01-923D-54641041F1CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1433F590-0593-4186-AA3A-9C20E2942B30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1433F590-0593-4186-AA3A-9C20E2942B30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1433F590-0593-4186-AA3A-9C20E2942B30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1433F590-0593-4186-AA3A-9C20E2942B30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -353,6 +359,7 @@ Global
 		{F99507C4-C4D2-451A-9CC1-C1478A8B44A8} = {EA9E71DD-85DF-4C74-864F-FCE7DE505B9E}
 		{F0ED18DF-B2F3-4F32-A966-D3931763BA47} = {EA9E71DD-85DF-4C74-864F-FCE7DE505B9E}
 		{4639B2D6-9E8A-4D01-923D-54641041F1CF} = {EA9E71DD-85DF-4C74-864F-FCE7DE505B9E}
+		{1433F590-0593-4186-AA3A-9C20E2942B30} = {51953BD7-9A17-4369-A1B7-06383D4F4FC9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6069C04-3F20-4887-B277-AC4CF5E0AD9B}
