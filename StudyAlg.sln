@@ -79,9 +79,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.WebUI.FunctionalT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "arch\northwind\Infrastructure\Infrastructure.csproj", "{4639B2D6-9E8A-4D01-923D-54641041F1CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LetsCode", "algs\LetsCode\LetsCode\LetsCode.csproj", "{1433F590-0593-4186-AA3A-9C20E2942B30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LetsCode", "algs\LetsCode\LetsCode\LetsCode.csproj", "{1433F590-0593-4186-AA3A-9C20E2942B30}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lafore-data-structures", "algs\lafore-data-structures\lafore-data-structures.csproj", "{2BB7872F-AFB4-451E-A9D8-EF4D8B37109C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "teplyakov-patterns", "design\teplyakov-patterns\teplyakov-patterns.csproj", "{A1EE7629-9A6F-4BA9-91FE-60E86008BEF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -197,6 +199,10 @@ Global
 		{2BB7872F-AFB4-451E-A9D8-EF4D8B37109C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BB7872F-AFB4-451E-A9D8-EF4D8B37109C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BB7872F-AFB4-451E-A9D8-EF4D8B37109C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1EE7629-9A6F-4BA9-91FE-60E86008BEF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1EE7629-9A6F-4BA9-91FE-60E86008BEF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1EE7629-9A6F-4BA9-91FE-60E86008BEF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1EE7629-9A6F-4BA9-91FE-60E86008BEF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -234,6 +240,7 @@ Global
 		{4639B2D6-9E8A-4D01-923D-54641041F1CF} = {EA9E71DD-85DF-4C74-864F-FCE7DE505B9E}
 		{1433F590-0593-4186-AA3A-9C20E2942B30} = {51953BD7-9A17-4369-A1B7-06383D4F4FC9}
 		{2BB7872F-AFB4-451E-A9D8-EF4D8B37109C} = {51953BD7-9A17-4369-A1B7-06383D4F4FC9}
+		{A1EE7629-9A6F-4BA9-91FE-60E86008BEF7} = {E7E0BE15-75E9-42A4-860E-9849053C7BA4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6069C04-3F20-4887-B277-AC4CF5E0AD9B}
