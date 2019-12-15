@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BinarySearchTree
 {
-    //https://www.geeksforgeeks.org/find-closest-element-binary-search-tree/
+//https://www.geeksforgeeks.org/find-closest-element-binary-search-tree/
 //       9
 //    4     17
 //  3    6     22
@@ -26,14 +26,15 @@ namespace BinarySearchTree
             root.Left.Right.Right = new Nodi(7);
             root.Right.Right = new Nodi(22);
             root.Right.Right.Left = new Nodi(20);
-
-            int k = 18;
-            Console.WriteLine(maxDiff(root, k));
+            
+            Console.WriteLine($"k=4 result={maxDiff(root, 4)} expected=17");
+            Console.WriteLine($"k=18 result={maxDiff(root, 18)} expected=17");
+            Console.WriteLine($"k=12 result={maxDiff(root, 12)} expected=9");
         }
 
         private int maxDiff(Nodi root, int k)
         {
-            min_diff = int.MaxValue;
+            min_diff = 9999999;
             min_diff_key = -1;
 
             maxDiffUtil(root, k);
@@ -47,13 +48,11 @@ namespace BinarySearchTree
             {
                 return;
             }
-
             if (ptr.Key == k)
             {
                 min_diff_key = k;
                 return;
             }
-
             if (min_diff > Math.Abs(ptr.Key - k))
             {
                 min_diff = Math.Abs(ptr.Key - k);
@@ -74,9 +73,7 @@ namespace BinarySearchTree
     {
         public Nodi(int t) : base(t)
         {
-        }
-
-        
+        }        
     }
 
     public class Node<T>
