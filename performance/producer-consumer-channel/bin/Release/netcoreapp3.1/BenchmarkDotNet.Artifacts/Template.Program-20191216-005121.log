@@ -1,0 +1,74 @@
+// Validating benchmarks:
+// ***** BenchmarkRunner: Start   *****
+// ***** Found 1 benchmark(s) in total *****
+// ***** Building 1 exe(s) in Parallel: Start   *****
+// start dotnet restore  /p:UseSharedCompilation=false /p:BuildInParallel=false /m:1 in C:\projects\StudyAlg\performance\producer-consumer-channel\bin\Release\netcoreapp3.1\7d649136-624d-476e-a7eb-a3129c92a243
+// command took 11.16s and exited with 0
+// start dotnet build -c Release  --no-restore /p:UseSharedCompilation=false /p:BuildInParallel=false /m:1 in C:\projects\StudyAlg\performance\producer-consumer-channel\bin\Release\netcoreapp3.1\7d649136-624d-476e-a7eb-a3129c92a243
+// command took 15.15s and exited with 0
+// ***** Done, took 00:00:26 (26.6 sec)   *****
+// Found 1 benchmarks:
+//   Program.WriteThenRead: DefaultJob
+
+// **************************
+// Benchmark: Program.WriteThenRead: DefaultJob
+// *** Execute ***
+// Launch: 1 / 1
+// Execute: dotnet "7d649136-624d-476e-a7eb-a3129c92a243.dll" --benchmarkName "Template.Program.WriteThenRead" --job "Default" --benchmarkId 0 in C:\projects\StudyAlg\performance\producer-consumer-channel\bin\Release\netcoreapp3.1\7d649136-624d-476e-a7eb-a3129c92a243\bin\Release\netcoreapp3.1
+// BeforeAnythingElse
+
+// Benchmark Process Environment Information:
+// Runtime=.NET Core 3.1.0 (CoreCLR 4.700.19.56402, CoreFX 4.700.19.56404), X64 RyuJIT
+// GC=Concurrent Workstation
+// Job: DefaultJob
+
+OverheadJitting  1: 1 op, 756800.00 ns, 756.8000 us/op
+WorkloadJitting  1: 1 op, 1225953700.00 ns, 1.2260 s/op
+
+WorkloadWarmup   1: 1 op, 1208379000.00 ns, 1.2084 s/op
+WorkloadWarmup   2: 1 op, 1166240300.00 ns, 1.1662 s/op
+WorkloadWarmup   3: 1 op, 1149756100.00 ns, 1.1498 s/op
+WorkloadWarmup   4: 1 op, 1155228100.00 ns, 1.1552 s/op
+WorkloadWarmup   5: 1 op, 1197845300.00 ns, 1.1978 s/op
+WorkloadWarmup   6: 1 op, 1191775200.00 ns, 1.1918 s/op
+WorkloadWarmup   7: 1 op, 1190527200.00 ns, 1.1905 s/op
+WorkloadWarmup   8: 1 op, 1193766500.00 ns, 1.1938 s/op
+WorkloadWarmup   9: 1 op, 1184666900.00 ns, 1.1847 s/op
+
+// BeforeActualRun
+WorkloadActual   1: 1 op, 1205826600.00 ns, 1.2058 s/op
+WorkloadActual   2: 1 op, 1305969100.00 ns, 1.3060 s/op
+WorkloadActual   3: 1 op, 1449877100.00 ns, 1.4499 s/op
+WorkloadActual   4: 1 op, 1296984700.00 ns, 1.2970 s/op
+WorkloadActual   5: 1 op, 1321722500.00 ns, 1.3217 s/op
+WorkloadActual   6: 1 op, 1355345400.00 ns, 1.3553 s/op
+WorkloadActual   7: 1 op, 1377323700.00 ns, 1.3773 s/op
+WorkloadActual   8: 1 op, 1371714100.00 ns, 1.3717 s/op
+WorkloadActual   9: 1 op, 1296489800.00 ns, 1.2965 s/op
+WorkloadActual  10: 1 op, 1327527100.00 ns, 1.3275 s/op
+WorkloadActual  11: 1 op, 1432169900.00 ns, 1.4322 s/op
+WorkloadActual  12: 1 op, 1107741800.00 ns, 1.1077 s/op
+WorkloadActual  13: 1 op, 1150462000.00 ns, 1.1505 s/op
+WorkloadActual  14: 1 op, 1288907400.00 ns, 1.2889 s/op
+WorkloadActual  15: 1 op, 1286631800.00 ns, 1.2866 s/op
+WorkloadActual  16: 1 op, 1165377600.00 ns, 1.1654 s/op
+WorkloadActual  17: 1 op, 1226723800.00 ns, 1.2267 s/op
+WorkloadActual  18: 1 op, 1179008800.00 ns, 1.1790 s/op
+WorkloadActual  19: 1 op, 1264571000.00 ns, 1.2646 s/op
+WorkloadActual  20: 1 op, 1252849500.00 ns, 1.2528 s/op
+WorkloadActual  21: 1 op, 1193472600.00 ns, 1.1935 s/op
+WorkloadActual  22: 1 op, 1185222900.00 ns, 1.1852 s/op
+WorkloadActual  23: 1 op, 1146302100.00 ns, 1.1463 s/op
+WorkloadActual  24: 1 op, 1167833600.00 ns, 1.1678 s/op
+WorkloadActual  25: 1 op, 1181213800.00 ns, 1.1812 s/op
+WorkloadActual  26: 1 op, 1129648500.00 ns, 1.1296 s/op
+WorkloadActual  27: 1 op, 1168706800.00 ns, 1.1687 s/op
+WorkloadActual  28: 1 op, 1140199500.00 ns, 1.1402 s/op
+WorkloadActual  29: 1 op, 1212395100.00 ns, 1.2124 s/op
+WorkloadActual  30: 1 op, 1139756600.00 ns, 1.1398 s/op
+WorkloadActual  31: 1 op, 1202021900.00 ns, 1.2020 s/op
+WorkloadActual  32: 1 op, 1254966500.00 ns, 1.2550 s/op
+WorkloadActual  33: 1 op, 1228487100.00 ns, 1.2285 s/op
+WorkloadActual  34: 1 op, 1247184900.00 ns, 1.2472 s/op
+WorkloadActual  35: 1 op, 1200074600.00 ns, 1.2001 s/op
+WorkloadActual
