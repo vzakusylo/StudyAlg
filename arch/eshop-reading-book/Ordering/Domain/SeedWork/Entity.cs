@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using System;
 using System.Collections.Generic;
 
 namespace Ordering.Domain.SeedWork
@@ -26,6 +27,11 @@ namespace Ordering.Domain.SeedWork
         public void RemoveDomainEvent(INotification eventItem)
         {
             _domainEvents?.Remove(eventItem);
+        }
+
+        internal void ClearDomainEvents()
+        {
+            throw new NotImplementedException();
         }
     }
     // Вместо немедленной отправки обработчику событий рекомендуется добавить события предметной 
