@@ -16,5 +16,19 @@ namespace Ordering.Domain.SeedWork
 
         private List<INotification> _domainEvents;
         public IReadOnlyCollection<INotification> DomainEvent => _domainEvents.AsReadOnly();
+
+        public void AddDomainEvent(INotification eventItem)
+        {
+            _domainEvents = _domainEvents ?? new List<INotification>();
+            _domainEvents.Add(eventItem);
+        }
+
+        public void RemoveDomainEvent(INotification eventItem)
+        {
+            _domainEvents?.Remove(eventItem);
+        }
     }
+    // Вместо немедленной отправки обработчику событий рекомендуется добавить события предметной 
+    // области в коллекцию, а затем отправить их непосредственно до или непосредственно после фиксации 
+    // транзакции(как в случае с SaveChanges в EF). 
 }
