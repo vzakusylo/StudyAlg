@@ -1,9 +1,42 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading;
 
 namespace Logger
 {
+    public class LogFileReader : IDisposable
+    {
+        private readonly string _logFileName;
+        private readonly Action<string> _logEntrySubsriber;
+        private readonly static TimeSpan CheckFileInterval = TimeSpan.FromSeconds(5);
+        private readonly Timer _timer;
+
+        public LogFileReader(string fileName, Action<string> logEntrySubscriber)
+        {
+            _logEntrySubsriber = logEntrySubscriber;
+  
+            _timer = new Timer(CheckFile, null, CheckFileInterval, CheckFileInterval);
+        }
+        public void Dispose()
+        {
+            _timer.Dispose();
+        }
+
+        private void CheckFile(object o)
+        {
+            foreach (var logEntry in ReadNewLogEntries())
+            {
+                _logEntrySubsriber(logEntry);
+            }
+        }
+
+        private IEnumerable<string> ReadNewLogEntries()
+        {
+            throw new NotImplementedException();
+        }
+    }
 
     // - Abstract class (LogReader) - deffine non virtual method TEMPLATE METHOD (ReadLogEntry) 
     //   which calls internaly PrimitiveOperation1(), PrimitiveOperation2() - ReadEntries and ParseLogEntry
