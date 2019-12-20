@@ -18,6 +18,8 @@ namespace Ordering.Domain.AggregatesModel.OrderAggregate
 
         public Address Address { get; internal set; }
 
+        public OrderStatus OrderStatus { get; private set; }
+
         public Order(string userId, string userName, Address address, int cardTypeId, string cardNumber,
             string cardSecurityNumber, string cardHolderName, DateTime cardExpiration,
             int? buyerId = null, int? paymentMethod = null)

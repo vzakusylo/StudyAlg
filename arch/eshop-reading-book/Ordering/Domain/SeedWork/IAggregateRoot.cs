@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Ordering.Domain.SeedWork
+﻿namespace Ordering.Domain.SeedWork
 {
-    interface IAggregateRoot
+    public interface IAggregateRoot
     {
     }
 }
