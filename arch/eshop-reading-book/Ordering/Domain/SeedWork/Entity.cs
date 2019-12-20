@@ -18,6 +18,11 @@ namespace Ordering.Domain.SeedWork
         private List<INotification> _domainEvents;
         public IReadOnlyCollection<INotification> DomainEvent => _domainEvents.AsReadOnly();
 
+        // В соответствии с терминологией DDD события предметной области используются для явной реализации 
+        // побочных эффектов в одном или нескольких агрегатах.Кроме того, итоговая согласованность между 
+        // агрегатами в рамках одной предметной области обеспечивает улучшенную масштабируемость и оказывает 
+        // меньшее воздействие на блокировки базы данных
+
         public void AddDomainEvent(INotification eventItem)
         {
             _domainEvents = _domainEvents ?? new List<INotification>();
