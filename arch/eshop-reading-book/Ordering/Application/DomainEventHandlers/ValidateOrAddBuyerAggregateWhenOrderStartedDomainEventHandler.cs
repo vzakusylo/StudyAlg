@@ -16,7 +16,7 @@ namespace Ordering.Application.DomainEventHandlers
     public class ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandler : INotificationHandler<OrderStartedDomainEvent>
     {
         private readonly IIdentityService _identityService;
-        private readonly IOrderIntegrationEventService _orderIntegrationEventService;
+        private readonly IOrderingIntegrationEventService _orderIntegrationEventService;
         private readonly ILoggerFactory _logger;
         private readonly IBuyerRepository _buyerRepository;
 
@@ -24,7 +24,7 @@ namespace Ordering.Application.DomainEventHandlers
             ILoggerFactory logger,
             IBuyerRepository buyerRepository,
             IIdentityService identityService,
-            IOrderIntegrationEventService orderIntegrationEventService)
+            IOrderingIntegrationEventService orderIntegrationEventService)
         {
             this._identityService = identityService;
             this._orderIntegrationEventService = orderIntegrationEventService;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ordering.Application.IntegrationEvents
 {
-    public interface IOrderIntegrationEventService
+    public interface IOrderingIntegrationEventService
     {
         Task PublishEventsThroughtBusAsync(Guid transactionId);
         Task AddAndSaveEventAsync(IntegrationEvent ent);
