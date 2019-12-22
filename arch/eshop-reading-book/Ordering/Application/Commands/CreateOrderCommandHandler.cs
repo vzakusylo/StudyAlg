@@ -25,7 +25,7 @@ namespace Ordering.Application.Commands
         {
             this._mediator = mediator;
             this._orderingIntegrationEventService = orderingIntegrationEventService;
-            this._orderRepository = orderRepository;
+            this._orderRepository = orderRepository ?? throw new ArgumentException(nameof(orderRepository));
             this._identityService = identityService;
             this._logger = logger;
         }
