@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Ordering.Infrastructure;
 using Ordering.Infrastructure.AutofacModules;
+using System;
 
 namespace Ordering
 {
@@ -22,8 +23,16 @@ namespace Ordering
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<OrderingContext>(c=> { 
-                c.UseSqlServer(Configuration["ConnectionString"]); 
+            services.AddDbContext<OrderingContext>(c=> 
+            {
+                c.UseSqlServer(Configuration["ConnectionString"],
+                   sqlServerOptionsAction: sqlOptions =>
+                   {
+                       sqlOptions.EnableRetryOnFailure(
+                           maxRetryCount: 10,
+                           maxRetryDelay: TimeSpan.FromSeconds(30),
+                           errorNumbersToAdd: null);
+                   }); 
             }, ServiceLifetime.Scoped);
             services.AddControllers();
         }
