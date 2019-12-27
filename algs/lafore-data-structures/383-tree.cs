@@ -10,32 +10,31 @@ namespace Tree
         [TestMethod]
         public void Main()
         {
+            // 4 lelvels filling
             Tree t = new Tree();
             t.Insert(8);
-            for (int i = 7; i > 0 ; i--)
-            {
-                t.Insert(i);
-            }
-            for (int i = 8; i < 15; i++)
-            {
-                t.Insert(i);
-            }
+            t.Insert(4);
+            t.Insert(12);
+            t.Insert(2);
+            t.Insert(6);
+            t.Insert(10);
+            t.Insert(14);
+            t.Insert(1);
+            t.Insert(3);
+            t.Insert(5);
+            t.Insert(7);
+            t.Insert(9);
+            t.Insert(11);
+            t.Insert(13);
+            t.Insert(15);
+
             t.DisplayTree();
-
-            //Tree t = new Tree();
-            //t.Insert(50);
-            //t.Insert(25);
-            //t.Insert(75);
-            //t.Insert(12);
-            //t.Insert(37);
-            //t.Insert(43);
-            //t.Insert(30);
-            //t.Insert(33);
-            //t.Insert(87);
-            //t.Insert(93);
-            //t.Insert(97);
-
-            //t.DisplayTree();
+//==========================================================
+//                          8
+//              4                         12
+//        2           6           10             14
+//    1      3     5     7     9      11     13      15
+//==========================================================
         }
     }
 
