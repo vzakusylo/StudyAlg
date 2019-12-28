@@ -18,7 +18,7 @@ namespace GenericCollections
             SortedList<int, string> sl = new SortedList<int, string>(); // поддерживает массив элементов, которые хранятся отсортированными
             SortedDictionary<int, string> sd = new SortedDictionary<int, string>();// применяет структуру красно черного дерева.
 
-                        IEnumerable ienumberable = Enumerable.Range(1, 2);
+            IEnumerable ienumberable = Enumerable.Range(1, 2);
             IEnumerable<int> ienumerablet = Enumerable.Range(1, 2);
             ICollection icollection = new List<int>() { 1, 2 };
             ICollection<int> icollectiont = new List<int>() { 1, 2 };
