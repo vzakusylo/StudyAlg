@@ -93,7 +93,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "eshop-reading-book", "eshop
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering", "arch\eshop-reading-book\Ordering\Ordering.csproj", "{A38D3AAD-CD68-49EC-A8C3-D0E1F4F59012}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "plural", "algs\plural\plural.csproj", "{D9E52BFB-A4EC-493D-BB03-A2E6D309FEB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "plural", "algs\plural\plural.csproj", "{D9E52BFB-A4EC-493D-BB03-A2E6D309FEB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "linda-adv-threading", "mult\linda-adv-threading\linda-adv-threading.csproj", "{43776B59-DC0D-47E5-B052-0B28DE47D0A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -225,6 +227,10 @@ Global
 		{D9E52BFB-A4EC-493D-BB03-A2E6D309FEB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9E52BFB-A4EC-493D-BB03-A2E6D309FEB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9E52BFB-A4EC-493D-BB03-A2E6D309FEB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43776B59-DC0D-47E5-B052-0B28DE47D0A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43776B59-DC0D-47E5-B052-0B28DE47D0A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43776B59-DC0D-47E5-B052-0B28DE47D0A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43776B59-DC0D-47E5-B052-0B28DE47D0A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -267,6 +273,7 @@ Global
 		{572CFFE8-29FA-4DF9-B6C9-D49CAD2B1D1B} = {389B40ED-685E-4A35-A15A-D54D6117264B}
 		{A38D3AAD-CD68-49EC-A8C3-D0E1F4F59012} = {572CFFE8-29FA-4DF9-B6C9-D49CAD2B1D1B}
 		{D9E52BFB-A4EC-493D-BB03-A2E6D309FEB4} = {51953BD7-9A17-4369-A1B7-06383D4F4FC9}
+		{43776B59-DC0D-47E5-B052-0B28DE47D0A9} = {B3351533-1AA6-4952-8BFA-D4378E057956}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6069C04-3F20-4887-B277-AC4CF5E0AD9B}
