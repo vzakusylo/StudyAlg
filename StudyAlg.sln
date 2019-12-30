@@ -39,9 +39,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payroll", "arch\payroll-on-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "payroll.tests", "arch\payroll-on-c-sharp\payroll.tests\payroll.tests.csproj", "{72FF2E3D-ADB7-4429-9CB0-817156EE7249}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "base-skit", "base-skit", "{5AAB8C77-ABF0-4C0F-A4C3-CEE97856647F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "base", "base", "{5AAB8C77-ABF0-4C0F-A4C3-CEE97856647F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "book", "base-skit\part-01\book.csproj", "{9561B5D9-0030-4B93-97C2-DC87D9BE9A00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "skit", "base-skit\part-01\skit.csproj", "{9561B5D9-0030-4B93-97C2-DC87D9BE9A00}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "patterns", "design\patterns\patterns.csproj", "{F8DD00F7-D7AB-4696-8126-CFF5E175CC1B}"
 EndProject
@@ -96,6 +96,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "plural", "algs\plural\plural.csproj", "{D9E52BFB-A4EC-493D-BB03-A2E6D309FEB4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "linda-adv-threading", "mult\linda-adv-threading\linda-adv-threading.csproj", "{43776B59-DC0D-47E5-B052-0B28DE47D0A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "alhabari", "base-skit\alhabari\alhabari.csproj", "{B8D5A540-C5DC-46A0-8B69-8BA756209F2D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -231,6 +233,10 @@ Global
 		{43776B59-DC0D-47E5-B052-0B28DE47D0A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43776B59-DC0D-47E5-B052-0B28DE47D0A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43776B59-DC0D-47E5-B052-0B28DE47D0A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8D5A540-C5DC-46A0-8B69-8BA756209F2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8D5A540-C5DC-46A0-8B69-8BA756209F2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8D5A540-C5DC-46A0-8B69-8BA756209F2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8D5A540-C5DC-46A0-8B69-8BA756209F2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -274,6 +280,7 @@ Global
 		{A38D3AAD-CD68-49EC-A8C3-D0E1F4F59012} = {572CFFE8-29FA-4DF9-B6C9-D49CAD2B1D1B}
 		{D9E52BFB-A4EC-493D-BB03-A2E6D309FEB4} = {51953BD7-9A17-4369-A1B7-06383D4F4FC9}
 		{43776B59-DC0D-47E5-B052-0B28DE47D0A9} = {B3351533-1AA6-4952-8BFA-D4378E057956}
+		{B8D5A540-C5DC-46A0-8B69-8BA756209F2D} = {5AAB8C77-ABF0-4C0F-A4C3-CEE97856647F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6069C04-3F20-4887-B277-AC4CF5E0AD9B}
