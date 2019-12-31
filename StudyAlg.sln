@@ -95,9 +95,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering", "arch\eshop-read
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "plural", "algs\plural\plural.csproj", "{D9E52BFB-A4EC-493D-BB03-A2E6D309FEB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "linda-adv-threading", "mult\linda-adv-threading\linda-adv-threading.csproj", "{43776B59-DC0D-47E5-B052-0B28DE47D0A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "linda-adv-threading", "mult\linda-adv-threading\linda-adv-threading.csproj", "{43776B59-DC0D-47E5-B052-0B28DE47D0A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "alhabari", "base-skit\alhabari\alhabari.csproj", "{B8D5A540-C5DC-46A0-8B69-8BA756209F2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "alhabari", "base-skit\alhabari\alhabari.csproj", "{B8D5A540-C5DC-46A0-8B69-8BA756209F2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "msdn", "base-skit\msdn\msdn.csproj", "{BFBC12F3-682B-406A-844A-4533404C879F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -237,6 +239,10 @@ Global
 		{B8D5A540-C5DC-46A0-8B69-8BA756209F2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8D5A540-C5DC-46A0-8B69-8BA756209F2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8D5A540-C5DC-46A0-8B69-8BA756209F2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFBC12F3-682B-406A-844A-4533404C879F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFBC12F3-682B-406A-844A-4533404C879F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFBC12F3-682B-406A-844A-4533404C879F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFBC12F3-682B-406A-844A-4533404C879F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -281,6 +287,7 @@ Global
 		{D9E52BFB-A4EC-493D-BB03-A2E6D309FEB4} = {51953BD7-9A17-4369-A1B7-06383D4F4FC9}
 		{43776B59-DC0D-47E5-B052-0B28DE47D0A9} = {B3351533-1AA6-4952-8BFA-D4378E057956}
 		{B8D5A540-C5DC-46A0-8B69-8BA756209F2D} = {5AAB8C77-ABF0-4C0F-A4C3-CEE97856647F}
+		{BFBC12F3-682B-406A-844A-4533404C879F} = {5AAB8C77-ABF0-4C0F-A4C3-CEE97856647F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6069C04-3F20-4887-B277-AC4CF5E0AD9B}
