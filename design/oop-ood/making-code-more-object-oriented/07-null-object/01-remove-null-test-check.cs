@@ -15,14 +15,16 @@ namespace Leveraging_Special_Case_Objects_To_Remove_Null_Checks_1
             TimeSpan warrantySpan = TimeSpan.FromDays(365);
 
             IWarranty moneyBack = new TimeLimitedWarranty(sellingDate, moneyBackSpan);
-            IWarranty warranty = new TimeLimitedWarranty(sellingDate, warrantySpan);
-           
+            //IWarranty warranty = new TimeLimitedWarranty(sellingDate, warrantySpan);
+
             //SoldArticle goods = new SoldArticle(moneyBack, warranty);
             //  Offer money back
             //  Offer repair
 
-            SoldArticle goods = new SoldArticle(VoidWarranty.Instance, warranty);
+            //SoldArticle goods = new SoldArticle(VoidWarranty.Instance, warranty);
             // Offer repair
+            IWarranty warranty = new LifetimeWarranty(sellingDate);
+            SoldArticle goods = new SoldArticle(warranty, warranty);
 
             ClaimWarrenty(goods);
         }
@@ -32,15 +34,17 @@ namespace Leveraging_Special_Case_Objects_To_Remove_Null_Checks_1
         private static void ClaimWarrenty(SoldArticle article)  // bool flags
         {
             DateTime now = DateTime.Now;
+            article.MoneyBackGuarantee.Claim(now, () => Console.WriteLine("Offer money back"));
+            article.ExpressWarranty.Claim(now, () => Console.WriteLine("Offer repair"));
 
-            if (article.MoneyBackGuarantee.IsValidOn(now))
-            {
-                Console.WriteLine("Offer money back");
-            }
-            if (article.ExpressWarranty.IsValidOn(now))
-            {
-                Console.WriteLine("Offer repair");
-            }
+            //if (article.MoneyBackGuarantee.IsValidOn(now))
+            //{
+            //    Console.WriteLine("Offer money back");
+            //}
+            //if (article.ExpressWarranty.IsValidOn(now))
+            //{
+            //    Console.WriteLine("Offer repair");
+            //}
         }
     }
 
@@ -49,16 +53,31 @@ namespace Leveraging_Special_Case_Objects_To_Remove_Null_Checks_1
         public IWarranty MoneyBackGuarantee { get; set; }
         public IWarranty ExpressWarranty { get; set; }
 
+        public IWarranty NotOpperationalWarranty { get; set; }
+
         public SoldArticle(IWarranty moneyBack, IWarranty express)
         {
             MoneyBackGuarantee = moneyBack;
             ExpressWarranty = express;
+            NotOpperationalWarranty = express;
+        }
+
+        public void VisibleDamage()
+        {
+            this.MoneyBackGuarantee = VoidWarranty.Instance;
+        }
+        public void NotOperational()
+        {
+            MoneyBackGuarantee = VoidWarranty.Instance;
+            ExpressWarranty = NotOpperationalWarranty;
         }
     }
 
     public interface IWarranty
     {
-        bool IsValidOn(DateTime date);
+       // bool IsValidOn(DateTime date);
+
+        void Claim(DateTime onDate, Action onValidClaim);
     }
 
     public class TimeLimitedWarranty : IWarranty
@@ -75,10 +94,19 @@ namespace Leveraging_Special_Case_Objects_To_Remove_Null_Checks_1
         public bool IsValidOn(DateTime date) =>
             date.Date >= DateIssued &&
             date.Date < DateIssued + Duration;
+
+        public void Claim(DateTime onDate, Action onValidClaim)
+        {
+            if (!IsValidOn(onDate))
+            {
+                return;
+            }
+            onValidClaim();
+        }
     }
 
    
-    public class VoidWarranty : IWarranty
+    public class VoidWarranty : IWarranty // Null object class
     {
         [ThreadStatic] //Indicates that the value of a static field is unique for each thread.
         private static VoidWarranty instance;
@@ -93,7 +121,31 @@ namespace Leveraging_Special_Case_Objects_To_Remove_Null_Checks_1
                 return instance;
             }
         }
+
+        public void Claim(DateTime onDate, Action onValidClaim)
+        {
+           
+        }
+
         public bool IsValidOn(DateTime date) => false;
+    }
+
+    public class LifetimeWarranty : IWarranty // Special case class
+    {
+        private DateTime IssuingDate { get; }
+
+        public LifetimeWarranty(DateTime issuingDate) => IssuingDate = issuingDate;        
+
+        public bool IsValidOn(DateTime date) => date >= IssuingDate;
+
+        public void Claim(DateTime onDate, Action onValidClaim)
+        {
+            if (!IsValidOn(onDate))
+            {
+                return;
+            }
+            onValidClaim();
+        }
     }
 }
 
