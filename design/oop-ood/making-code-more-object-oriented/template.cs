@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace template
 {
     [TestClass]
-    public class EntryPoint
+    public class Client
     {
         [TestMethod]
         public void Main()
