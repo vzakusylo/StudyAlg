@@ -74,18 +74,37 @@ namespace Optional_Calls
             ExpressWarranty = NotOpperationalWarranty;
         }
 
-        private Part Circuitry { get; set; }
+        //private Part Circuitry { get; set; } 
+        // change object to list
+
+        private List<Part> Circuitry { get; set; } = new List<Part>(); 
+
         private IWarranty FailedCircuitryWarranty { get; set; }
 
         public void CircuitryNotOpperational(DateTime detectedOn) 
         {
-            Circuitry.MarkDefective(detectedOn);
+            Circuitry.ForEach(circuitry => {
+                circuitry.MarkDefective(detectedOn);
+                CircuitryWarranty = FailedCircuitryWarranty;
+            });
+            //Circuitry.MarkDefective(detectedOn);
         }
 
         public void InstallCircuitry(Part circuitry, IWarranty extendedWarranty)
         {
-            Circuitry = circuitry;
+            Circuitry = new List<Part> { circuitry };
             FailedCircuitryWarranty = extendedWarranty;
+        }
+
+        public void ClaimCircuitryWarranty(Action onValidClaim)
+        {
+            Circuitry.ForEach(circuitry => {
+                CircuitryWarranty.Claim(circuitry.DefecDetectedOn, onValidClaim);
+            });
+           // CircuitryWarranty.Claim(Circuitry.DefecDetectedOn, onValidClaim);
+            //                   ^
+            //                   |
+            //                   L Actual Claim() implementation only know on runtime.
         }
     }
 
