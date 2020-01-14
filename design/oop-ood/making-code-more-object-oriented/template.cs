@@ -2,7 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 
-namespace template
+namespace 02_cover_objects
 {
     [TestClass]
     public class Client
