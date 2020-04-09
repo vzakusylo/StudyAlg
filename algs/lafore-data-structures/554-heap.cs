@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -89,36 +89,103 @@ namespace Heap
             heapArray = new Node[maxSize];
         }
 
-        internal bool Change(int value, int value2)
+        internal bool Change(int index, int newValue)
         {
-            throw new NotImplementedException();
+            if (index < 0 || index>=currentSize)
+            {
+                return false;
+            }
+
+            int oldValue = heapArray[index].Key;
+            heapArray[index].Key = newValue;
+
+            if (oldValue < newValue)
+            {
+                TrickleUp(index);
+            }
+            else
+            {
+                TrickleDown(index);
+            }
+            return true;
         }
 
         internal void Display()
         {
-            throw new NotImplementedException();
+            Console.Write("heap array: ");
+            for (int m = 0; m < currentSize; m++)
+            {
+                if (heapArray[m] != null)
+                {
+                    Console.Write(heapArray[m].Key + " ");
+                }
+                else
+                {
+                    Console.Write("--");
+                }
+            }
+            Console.WriteLine();
+
+            int nBlanks = 32;
+            int itemsPerRow = 1;
+            int column = 0;
+            int j = 0;
+            string dots = "................................";
+            Console.WriteLine(dots + dots);
+
+            while (currentSize > 0)
+            {
+                if (column == 0)
+                {
+                    for (int k = 0; k < nBlanks; k++)
+                    {
+                        Console.Write(" ");
+                    }
+                }
+                Console.Write(heapArray[j].Key);
+                if (++j == currentSize)
+                {
+                    break;
+                }
+
+                if (++column == itemsPerRow)
+                {
+                    nBlanks /= 2;
+                    itemsPerRow *= 2;
+                    column = 0;
+                    Console.WriteLine();
+                }
+                else
+                {
+                    for (int k = 0; k < nBlanks*2-2; k++)
+                    {
+                        Console.Write(" ");
+                    }
+                }
+            }
+            Console.WriteLine("\n" + dots + dots);
         }
 
         internal bool Insert(int key)
         {
-            if (currentSize == maxSize)
+            if (currentSize == maxSize)       // если массив заполнен
             {
-                return false;
+                return false;                 // возращаем признак неудачи
             }
-            Node newNode = new Node(key);
-            heapArray[currentSize] = newNode;
-            TrickleUp(currentSize++);
+            Node newNode = new Node(key);     // создание нового узла
+            heapArray[currentSize] = newNode; // размещение в конце массива
+            TrickleUp(currentSize++);         // смещение вверх
             return true;
         }
 
-        private void TrickleUp(int index)
+        private void TrickleUp(int index) //смещение вверх
         {
             int parent = (index - 1) / 2;
             Node bottom = heapArray[index];
             while (index > 0 && heapArray[parent].Key < bottom.Key)
             {
-                heapArray[index] = heapArray[parent];
-                index = parent;
+                heapArray[index] = heapArray[parent]; // узел перемещается вниз
+                index = parent;                       // index перемещается вверх
                 parent = (parent - 1) / 2;
             }
             heapArray[index] = bottom;
@@ -137,9 +204,32 @@ namespace Heap
             return root;
         }
 
-        private void TrickleDown(int v)
+        private void TrickleDown(int index)
         {
-            throw new NotImplementedException();
+            int largerChild;
+            Node top = heapArray[index];
+            while (index < currentSize/2)
+            {
+                int leftChild = 2 * index + 1;
+                int rightChild = leftChild + 1;
+                if (rightChild < currentSize &&
+                    heapArray[leftChild].Key < heapArray[rightChild].Key)
+                {
+                    largerChild = rightChild;
+                }
+                else
+                {
+                    largerChild = leftChild;
+                }
+
+                if (top.Key >= heapArray[largerChild].Key)
+                {
+                    break;
+                }
+                heapArray[index] = heapArray[largerChild];
+                index = largerChild;
+            }
+            heapArray[index] = top;
         }
     }
 }
