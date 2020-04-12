@@ -91,22 +91,17 @@ namespace Heap
 
         internal bool Change(int index, int newValue)
         {
-            if (index < 0 || index>=currentSize)
-            {
-                return false;
-            }
+            if (index < 0 || index>=currentSize)            
+                return false;            
 
             int oldValue = heapArray[index].Key;
             heapArray[index].Key = newValue;
 
-            if (oldValue < newValue)
-            {
-                TrickleUp(index);
-            }
-            else
-            {
+            if (oldValue < newValue)            
+                TrickleUp(index);            
+            else            
                 TrickleDown(index);
-            }
+            
             return true;
         }
 
@@ -196,23 +191,24 @@ namespace Heap
             return currentSize == 0;
         }
 
-        internal Node Remove()
+        internal Node Remove()                        // удаление элемента с максимальным ключем
         {
-            Node root = heapArray[0];
-            heapArray[0] = heapArray[--currentSize];
-            TrickleDown(0);
-            return root;
+            Node root = heapArray[0];                 // сохранение корня
+            heapArray[0] = heapArray[--currentSize];  // корень <- последний узел
+            TrickleDown(0);                           // корневой узел смещается вниз
+            return root;                              // метод возращает удаленный узел
         }
 
         private void TrickleDown(int index)
         {
             int largerChild;
-            Node top = heapArray[index];
-            while (index < currentSize/2)
+            Node top = heapArray[index];                                   //сохранение корня
+            while (index < currentSize/2)                                  // пока у узла имеется хотя бы один потомок
             {
                 int leftChild = 2 * index + 1;
                 int rightChild = leftChild + 1;
-                if (rightChild < currentSize &&
+                                                                           // определение большего потомка
+                if (rightChild < currentSize &&                            // правый потомок существует ?
                     heapArray[leftChild].Key < heapArray[rightChild].Key)
                 {
                     largerChild = rightChild;
@@ -226,10 +222,11 @@ namespace Heap
                 {
                     break;
                 }
+                                                                            // потомок сдвигается вверх
                 heapArray[index] = heapArray[largerChild];
-                index = largerChild;
+                index = largerChild;                                        // переход вниз
             }
-            heapArray[index] = top;
+            heapArray[index] = top;                                         // index <- корень
         }
     }
 }
