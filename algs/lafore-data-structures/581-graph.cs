@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace graph_581
 {
@@ -8,8 +10,21 @@ namespace graph_581
     {
         [TestMethod]
         public void Main()
-        {          
-            
+        {
+            Graph theGraph = new Graph();
+            theGraph.AddVertex('A');
+            theGraph.AddVertex('B');
+            theGraph.AddVertex('C');
+            theGraph.AddVertex('D');
+            theGraph.AddVertex('E');
+
+            theGraph.AddEdge(0, 1);
+            theGraph.AddEdge(1, 2);
+            theGraph.AddEdge(0, 3);
+            theGraph.AddEdge(3, 4);
+
+            Console.WriteLine("Visits:");
+            theGraph.Dfs();
         }
     }
 
@@ -20,6 +35,7 @@ namespace graph_581
         private Vertex [] vertexList;
         private int[,] adjMat;
         private int nVerts;
+        private Stack<int> theStack = new Stack<int>();
 
         public Graph()
         {
@@ -47,6 +63,45 @@ namespace graph_581
             Console.WriteLine(vertexList[v].Label);
         }
 
+        public int GetAdjUnvisitedVertex(int v)
+        {
+            for (int j = 0; j < nVerts; j++)
+            {
+                if (adjMat[v,j] == 1 && vertexList[j].WasVisited == false)
+                {
+                    return j; // Возвращает первую найденную вершину
+                }               
+            }
+            return -1;  // таких вершин нет
+        }
+
+        public void Dfs()
+        {
+            vertexList[0].WasVisited = true;
+            DisplayVertex(0);
+            theStack.Push(0);
+            
+            while(theStack.Count() != 0)
+            {
+                int v = GetAdjUnvisitedVertex(theStack.Peek());
+                if (v == -1)
+                {
+                    theStack.Pop();
+                }
+                else
+                {
+                    vertexList[v].WasVisited = true;
+                    DisplayVertex(v);
+                    theStack.Push(v);
+                }
+            }
+
+            for (int i = 0; i < nVerts; i++)
+            {
+                vertexList[i].WasVisited = false;
+            }
+        }
+
     }
     // Вершины графа моделировали участки земли, а ребра — мосты
 
@@ -61,3 +116,6 @@ namespace graph_581
         }
     }
 }
+
+//При работе с графами обычно применяются две структуры: матрица смежности и список смежности.
+//Обход в глубину реализуется на базе стека, а обход в ширину реализуется на базе очереди.
