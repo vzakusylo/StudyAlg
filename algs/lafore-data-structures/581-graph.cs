@@ -25,6 +25,7 @@ namespace graph_581
 
             Console.WriteLine("Visits:");
             theGraph.Dfs();
+           // theGraph.Bfs();
         }
     }
 
@@ -36,6 +37,7 @@ namespace graph_581
         private int[,] adjMat;
         private int nVerts;
         private Stack<int> theStack = new Stack<int>();
+        private Queue<int> theQueue = new Queue<int>();
 
         public Graph()
         {
@@ -93,6 +95,30 @@ namespace graph_581
                     vertexList[v].WasVisited = true;
                     DisplayVertex(v);
                     theStack.Push(v);
+                }
+            }
+
+            for (int i = 0; i < nVerts; i++)
+            {
+                vertexList[i].WasVisited = false;
+            }
+        }
+
+        public void Bfs()
+        {
+            vertexList[0].WasVisited = true;
+            DisplayVertex(0);
+            theQueue.Enqueue(0);
+            int v2;
+
+            while (theQueue.Count != 0)
+            {
+                int v1 = theQueue.Dequeue();
+                while ((v2=GetAdjUnvisitedVertex(v1)) != -1)
+                {
+                    vertexList[v2].WasVisited = true;
+                    DisplayVertex(v2);
+                    theQueue.Enqueue(v2);
                 }
             }
 
