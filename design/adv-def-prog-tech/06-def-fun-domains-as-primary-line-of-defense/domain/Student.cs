@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using remove_corruption_consistent_obj;
 
 namespace def_fun_domains_as_primary_line_of_defense
 {
+
     public abstract class Student
     {
         public PersonalName Name { get; }
@@ -26,6 +28,11 @@ namespace def_fun_domains_as_primary_line_of_defense
                 throw new ArgumentException();
 
             Grades[subject] = grade;
+        }
+
+        internal bool HasPassedExam(Subject onSubject)
+        {
+            throw new NotImplementedException();
         }
 
         public double AverageGrade => Grades.Values
