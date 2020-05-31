@@ -8,6 +8,7 @@ namespace def_fun_domains_as_primary_line_of_defense
     public interface ICandidateSelector
     {
         IEnumerable<IExamApplication> Filter(IEnumerable<Student> candidates, IExam exam);
+        IEnumerable<Student> FilterNotEligible(IEnumerable<Student> candidates, IExam exam);
     }
 
     public class CandidateSelector : ICandidateSelector
@@ -19,9 +20,23 @@ namespace def_fun_domains_as_primary_line_of_defense
                         new Implementation.ExamApplication(
                                 exam.OnSubject, exam.AdministratedBy, candidate));
 
-        private bool CanApply(Student candidate, IExam exam)
-            => candidate.Enrolled == exam.OnSubject.TaughtDuring &&
-            !candidate.HasPassedExam(exam.OnSubject);
+        public IEnumerable<Student> FilterNotEligible(
+            [NotNull] IEnumerable<Student> candidates, 
+            [NotNull] IExam exam) =>
+            candidates.Where(x => !CanApply(x, exam));
+
+        private bool CanApply(Student candidate, IExam exam) =>
+            !HasPassed(candidate, exam.OnSubject) &&
+            (IsDomestic(candidate) || HasEnrolled(candidate, exam.OnSubject.TaughtDuring));
+
+        private bool HasPassed(Student candidate, Subject subject) =>
+            candidate.HasPassedExam(subject);
+
+        private bool IsDomestic(Student candidate) =>
+            candidate is RegularStudent;
+
+        private bool HasEnrolled(Student candidate, Semester semester) =>
+            candidate.Enrolled == semester;
     }
 
     public interface IExamRules
