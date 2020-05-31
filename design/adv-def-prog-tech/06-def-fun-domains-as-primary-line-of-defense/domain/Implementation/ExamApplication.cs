@@ -1,6 +1,6 @@
-﻿namespace def_fun_domains_as_primary_line_of_defense
+﻿namespace def_fun_domains_as_primary_line_of_defense.Implementation
 {
-    class ExamApplication : IExamApplication
+    public class ExamApplication : IExamApplication
     {
         public Subject OnSubject { get; }
         public Professor AdministratedBy { get; }

@@ -39,7 +39,7 @@ namespace def_fun_domains_as_primary_line_of_defense
                 throw new InvalidOperationException();
             }
 
-            return new ExamApplication(Subject, Administrator, Candidate);
+            return new Implementation.ExamApplication(Subject, Administrator, Candidate);
         }
 
     }

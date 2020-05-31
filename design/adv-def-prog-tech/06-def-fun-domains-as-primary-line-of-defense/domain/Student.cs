@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 
 namespace def_fun_domains_as_primary_line_of_defense
 {
-    abstract class Student
+    public abstract class Student
     {
         public PersonalName Name { get; }
         public Semester Enrolled { get; private set; }
@@ -45,20 +46,22 @@ namespace def_fun_domains_as_primary_line_of_defense
             Enrolled = semester;
         }
 
-        public IExamApplication ApplyFor(Subject examOn, Professor administratedBy)
+        // Exam object bundles subject object together with a professor  
+        public bool CanApplyFor([NotNull] IExam exam) =>
+               Enrolled == exam.OnSubject.TaughtDuring ||
+               HasPassedExam(exam.OnSubject);
+
+        public IExamApplication ApplyFor([NotNull] IExam exam)
         {
-            ExamApplicationBuilder builder = new ExamApplicationBuilder();
-            builder.OnSubject(examOn);
-            builder.AdministratedBy(administratedBy);
-            builder.TakenBy(this);
+            if (!CanApplyFor(exam))  
+                throw new ArgumentException();
 
-            if (builder.CanBuild())
-            {
-                 return builder.Build();
-            }
+            return new Implementation.ExamApplication(exam.OnSubject, exam.AdministratedBy, this);
+        }
 
-            // think of something smarter;
-            throw new ArgumentException();
+        private bool HasPassedExam(Subject examOn)
+        {
+            throw new NotImplementedException();
         }
 
         // Returns factory function for the exam application
@@ -69,7 +72,13 @@ namespace def_fun_domains_as_primary_line_of_defense
             builder.AdministratedBy(administratedBy);
             builder.TakenBy(this);
 
-            return builder.Build;
+            if (builder.CanBuild())
+            {
+                return builder.Build;
+            }
+
+            // think of something smarter;
+            throw new ArgumentException();
         }
 
         public bool PassedExam(Subject subject)

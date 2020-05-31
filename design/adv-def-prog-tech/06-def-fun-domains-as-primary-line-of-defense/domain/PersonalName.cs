@@ -2,7 +2,7 @@
 
 namespace def_fun_domains_as_primary_line_of_defense
 {
-    class PersonalName
+    public class PersonalName
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
