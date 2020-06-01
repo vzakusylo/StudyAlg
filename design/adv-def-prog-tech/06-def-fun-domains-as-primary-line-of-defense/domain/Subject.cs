@@ -56,5 +56,53 @@ namespace def_fun_domains_as_primary_line_of_defense
         public IExam CanAdministerExam() =>
             new Implementation.Exam(this, TaughtBy);
 
+        public double? GetPassingRate_Bad(IEnumerable<Student> students)
+        {
+            int passingGrades = 0;
+            int totalGrades = 0;
+
+            foreach (var candidate in students)
+            {
+                Grade grade = candidate.GetGrade_Bad(this);
+                if (grade != null)
+                {
+                    if (!grade.Equals(Grade.F))
+                    {
+                        passingGrades += 1;
+                    }
+                    totalGrades += 1;
+                }
+            }
+
+            if (totalGrades > 0)
+            {
+                return passingGrades / (double)totalGrades;
+            }
+            return null;
+        }
+
+        public double? GetPassingRate(IEnumerable<Student> students)
+        {
+            int passingGrades = 0;
+            int totalGrades = 0;
+
+            foreach (var candidate in students)
+            {
+                candidate.WithGrade(this, grade => {
+                    if (!grade.Equals(Grade.F))
+                    {
+                        passingGrades += 1;
+                    }
+                    totalGrades += 1;
+                });
+            }
+
+            if (totalGrades > 0)
+            {
+                return passingGrades / (double)totalGrades;
+            }
+            return null;
+        }
+
     }
 }

@@ -33,6 +33,26 @@ namespace def_fun_domains_as_primary_line_of_defense
             Grades[subject] = grade;
         }
 
+        public Grade GetGrade_Bad(Subject subject)
+        {
+            Grade grade;
+            if (Grades.TryGetValue(subject, out grade))
+            {
+                return grade;
+            }
+            return null;
+        }
+
+        // With Grade on subject do this
+        public void WithGrade(Subject subject, Action<Grade> doThis)
+        {
+            Grade grade;
+            if (Grades.TryGetValue(subject, out grade))
+            {
+                doThis(grade);
+            }
+        }
+
         internal bool HasPassedExam(Subject onSubject)
         {
             throw new NotImplementedException();
