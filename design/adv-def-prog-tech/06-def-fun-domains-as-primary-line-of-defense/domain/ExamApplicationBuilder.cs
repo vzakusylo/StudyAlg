@@ -1,4 +1,5 @@
 ﻿using System;
+using def_fun_domains_as_primary_line_of_defense.Models;
 
 namespace def_fun_domains_as_primary_line_of_defense
 {
@@ -9,7 +10,7 @@ namespace def_fun_domains_as_primary_line_of_defense
 
         private Student Candidate { get; set; }
 
-        public void AdministratedBy(Professor professor)
+        public void AdministratedBy(Models.Professor professor)
         {
             Administrator = professor;
         }
@@ -41,7 +42,5 @@ namespace def_fun_domains_as_primary_line_of_defense
 
             return new Implementation.ExamApplication(Subject, Administrator, Candidate);
         }
-
     }
-
 }

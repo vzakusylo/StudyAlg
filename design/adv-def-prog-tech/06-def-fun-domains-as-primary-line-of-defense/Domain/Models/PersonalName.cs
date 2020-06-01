@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace def_fun_domains_as_primary_line_of_defense
+namespace def_fun_domains_as_primary_line_of_defense.Models
 {
     public class PersonalName
     {

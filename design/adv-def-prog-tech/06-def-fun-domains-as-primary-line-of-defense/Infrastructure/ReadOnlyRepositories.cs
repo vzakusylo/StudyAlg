@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using def_fun_domains_as_primary_line_of_defense;
+using def_fun_domains_as_primary_line_of_defense.Models;
 
 namespace adv_def_prog_tech._06_def_fun_domains_as_primary_line_of_defense.Infrastructure
 {
@@ -6,7 +8,11 @@ namespace adv_def_prog_tech._06_def_fun_domains_as_primary_line_of_defense.Infra
     {
         static ReadOnlyRepositories()
         {
-           // Mapper.Initialize(cfg => cfg.CreateMap<)
+           // Mapper.Initialize(cfg => cfg.CreateMap<Professor, ProfessorViewModel>());
         }
+
+        public static IReadOnlyRepository<ProfessorViewModel>
+            CreateProfessorRepository() =>
+                new ReadOnlyRepository<ProfessorViewModel, Models.Professor, CollegeModel>(() => new CollegeModel(), dbContext => dbContext.Professors);
     }
 }

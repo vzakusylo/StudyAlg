@@ -1,7 +1,8 @@
-﻿namespace def_fun_domains_as_primary_line_of_defense
+﻿
+namespace def_fun_domains_as_primary_line_of_defense.Models
 {
-    public class Professor {
-    
+    public class Professor
+    {    
         public PersonalName Name { get; }
 
         public Professor(PersonalName name)

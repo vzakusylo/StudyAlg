@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using remove_corruption_consistent_obj;
+using def_fun_domains_as_primary_line_of_defense.Models;
+using PersonalName = def_fun_domains_as_primary_line_of_defense.Models.PersonalName;
+using Professor = def_fun_domains_as_primary_line_of_defense.Models.Professor;
 
 namespace def_fun_domains_as_primary_line_of_defense
 {
@@ -64,11 +67,6 @@ namespace def_fun_domains_as_primary_line_of_defense
                 throw new ArgumentException();
 
             return new Implementation.ExamApplication(exam.OnSubject, exam.AdministratedBy, this);
-        }
-
-        private bool HasPassedExam(Subject examOn)
-        {
-            throw new NotImplementedException();
         }
 
         // Returns factory function for the exam application

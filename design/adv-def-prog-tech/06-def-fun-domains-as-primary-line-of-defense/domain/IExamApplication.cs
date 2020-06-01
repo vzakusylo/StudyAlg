@@ -2,7 +2,7 @@
 {
     public interface IExamApplication
     {
-        Professor AdministratedBy { get; }
+        Models.Professor AdministratedBy { get; }
         Subject OnSubject { get; }
         Student TakenBy { get; }
     }

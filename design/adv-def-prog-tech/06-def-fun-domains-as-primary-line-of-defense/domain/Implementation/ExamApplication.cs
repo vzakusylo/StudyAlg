@@ -3,10 +3,10 @@
     public class ExamApplication : IExamApplication
     {
         public Subject OnSubject { get; }
-        public Professor AdministratedBy { get; }
+        public Models.Professor AdministratedBy { get; }
         public Student TakenBy { get; }
 
-        public ExamApplication(Subject subject, Professor admin, Student candidate)
+        public ExamApplication(Subject subject, Models.Professor admin, Student candidate)
         {
             OnSubject = subject;
             AdministratedBy = admin;
