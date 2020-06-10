@@ -33,6 +33,17 @@ namespace def_fun_domains_as_primary_line_of_defense
             Grades[subject] = grade;
         }
 
+        // Optional (Maybe) in functional languages either contains a value or is none
+        //public optional Grade GetGrade(Subject subject)
+        //{
+        //    Grade grade;
+        //    if (Grades.TryGetValue(subject, out grade))
+        //    {
+        //        return some grade;
+        //    }
+        //    return none;
+        //}
+
         public Grade GetGrade_Bad(Subject subject)
         {
             Grade grade;
