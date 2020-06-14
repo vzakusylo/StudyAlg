@@ -1,7 +1,8 @@
 ﻿using System;
-using def_fun_domains_as_primary_line_of_defense.Models;
+using Course.Implementation;
+using Course.Models;
 
-namespace def_fun_domains_as_primary_line_of_defense
+namespace Course
 {
     class ExamApplicationBuilder
     {
@@ -40,7 +41,7 @@ namespace def_fun_domains_as_primary_line_of_defense
                 throw new InvalidOperationException();
             }
 
-            return new Implementation.ExamApplication(Subject, Administrator, Candidate);
+            return new ExamApplication(new Exam(Subject, Administrator), Candidate);
         }
     }
 }

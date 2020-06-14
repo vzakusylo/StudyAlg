@@ -1,6 +1,6 @@
-﻿using def_fun_domains_as_primary_line_of_defense.Models;
+﻿using Course.Models;
 
-namespace def_fun_domains_as_primary_line_of_defense
+namespace Course
 {
     public interface IExam
     {

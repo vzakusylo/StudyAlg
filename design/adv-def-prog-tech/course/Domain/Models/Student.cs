@@ -2,20 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using remove_corruption_consistent_obj;
-using def_fun_domains_as_primary_line_of_defense.Models;
-using PersonalName = def_fun_domains_as_primary_line_of_defense.Models.PersonalName;
-using Professor = def_fun_domains_as_primary_line_of_defense.Models.Professor;
+using PersonalName = Course.Models.PersonalName;
+using Professor = Course.Models.Professor;
 
-namespace def_fun_domains_as_primary_line_of_defense
+namespace Course
 {
-
     public abstract class Student
     {
         public PersonalName Name { get; }
         public Semester Enrolled { get; private set; }
         public Dictionary<Subject, Grade> Grades { get; }
-        public IEnumerable<IExamApplication> Exams { get; private set; }
+        public List<IExamApplication> Exams { get; private set; }
 
         public Student(PersonalName name)
         {           
@@ -74,9 +71,7 @@ namespace def_fun_domains_as_primary_line_of_defense
             .Select(grade => grade.NumericEquivalent)
             .Where(value => value > 0)
             .Average();
-
         
-
         private bool IsEnlistedFor(Subject subject) => true;
 
         public abstract bool CanEnroll(Semester semester);       
@@ -97,11 +92,32 @@ namespace def_fun_domains_as_primary_line_of_defense
 
         public IExamApplication ApplyFor([NotNull] IExam exam)
         {
-            if (!CanApplyFor(exam))  
-                throw new ArgumentException();
+            ExamApplicationBuilder builder = new ExamApplicationBuilder();
+            builder.OnSubject(exam.OnSubject);
+            builder.AdministratedBy(exam.AdministratedBy);
+            builder.TakenBy(this);
 
-            return new Implementation.ExamApplication(exam.OnSubject, exam.AdministratedBy, this);
+            IExamApplication application = builder.Build();
+            this.Exams.Add(application);
+
+            return application;
+                        
+            //if (!CanApplyFor(exam))  
+            //    throw new ArgumentException();
+
+            //return new Implementation.ExamApplication(new Exam(exam.OnSubject, exam.AdministratedBy), this);
         }
+
+        public void Assign(Grade grade, IExam onExam)
+        {
+            IExamApplication application = this.Exams
+                .Where(app => app.ForExam == onExam)
+                .FirstOrNone()
+                .Reduce(() => this.FindApplication(onExam.OnSubject));
+
+            this.Grades[onExam.OnSubject] = grade;
+        }
+
 
         // Returns factory function for the exam application
         public Func<IExamApplication> GetExamApplicationFactory(Subject examOn, Professor administratedBy)
@@ -125,15 +141,7 @@ namespace def_fun_domains_as_primary_line_of_defense
             throw new NotImplementedException();
         }
 
-        public void Assign(Grade grade, IExam onExam)
-        {
-            IExamApplication application = this.Exams
-                .Where(app => app.ForExam == onExam)
-                .FirstOrNone()
-                .Reduce(()=> this.FindApplication(onExam.OnSubject));
-
-            this.Grades[onExam.OnSubject] = grade;
-        }
+      
 
         private IExamApplication FindApplication(Subject onSubject) =>
             this.Exams.First(app => app.ForExam.OnSubject == onSubject);

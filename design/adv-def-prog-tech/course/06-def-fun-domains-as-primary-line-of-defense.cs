@@ -1,7 +1,7 @@
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace def_fun_domains_as_primary_line_of_defense
+namespace Course
 {
     [TestClass]
     public class Solution

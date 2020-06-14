@@ -1,9 +1,10 @@
-﻿using JetBrains.Annotations;
+﻿using Course.Implementation;
+using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace def_fun_domains_as_primary_line_of_defense
+namespace Course
 {
     public interface ICandidateSelector
     {
@@ -18,7 +19,7 @@ namespace def_fun_domains_as_primary_line_of_defense
                     .Where(candidate => CanApply(candidate, exam))
                     .Select(candidate => 
                         new Implementation.ExamApplication(
-                                exam.OnSubject, exam.AdministratedBy, candidate));
+                                new Exam(exam.OnSubject, exam.AdministratedBy), candidate));
 
         public IEnumerable<Student> FilterNotEligible(
             [NotNull] IEnumerable<Student> candidates, 
@@ -54,7 +55,7 @@ namespace def_fun_domains_as_primary_line_of_defense
             if (!CanApply(candidate, exam))
                 throw new ArgumentException();
 
-            return new Implementation.ExamApplication(exam.OnSubject, exam.AdministratedBy, candidate);
+            return new Implementation.ExamApplication(new Exam(exam.OnSubject, exam.AdministratedBy), candidate);
         }
 
         private bool CanApply(Student candidate, IExam exam)
@@ -68,7 +69,7 @@ namespace def_fun_domains_as_primary_line_of_defense
         {
             if (CanApply(candidate, exam))
             {
-                IExamApplication app = new Implementation.ExamApplication(exam.OnSubject, exam.AdministratedBy, candidate);
+                IExamApplication app = new ExamApplication(new Exam(exam.OnSubject, exam.AdministratedBy), candidate);
                 action(app);
             }
         }

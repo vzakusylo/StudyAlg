@@ -1,7 +1,7 @@
 ﻿using JetBrains.Annotations;
-using def_fun_domains_as_primary_line_of_defense.Models;
+using Course.Models;
 
-namespace def_fun_domains_as_primary_line_of_defense.Implementation
+namespace Course.Implementation
 {
     public class Exam : IExam
     {
@@ -13,5 +13,8 @@ namespace def_fun_domains_as_primary_line_of_defense.Implementation
             this.OnSubject = subject;
             this.AdministratedBy = taughtBy;
         }
+
+        public IExam Substitute(Professor administrator) =>
+            new Exam(this.OnSubject, administrator);
     }
 }

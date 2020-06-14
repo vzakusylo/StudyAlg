@@ -1,11 +1,11 @@
 ﻿using AutoMapper.QueryableExtensions;
-using def_fun_domains_as_primary_line_of_defense;
+using Course;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using def_fun_domains_as_primary_line_of_defense.Models;
+using Course.Models;
 
 namespace adv_def_prog_tech._06_def_fun_domains_as_primary_line_of_defense.Infrastructure
 {
