@@ -15,6 +15,7 @@ namespace def_fun_domains_as_primary_line_of_defense
         public PersonalName Name { get; }
         public Semester Enrolled { get; private set; }
         public Dictionary<Subject, Grade> Grades { get; }
+        public IEnumerable<IExamApplication> Exams { get; private set; }
 
         public Student(PersonalName name)
         {           
@@ -74,6 +75,8 @@ namespace def_fun_domains_as_primary_line_of_defense
             .Where(value => value > 0)
             .Average();
 
+        
+
         private bool IsEnlistedFor(Subject subject) => true;
 
         public abstract bool CanEnroll(Semester semester);       
@@ -121,6 +124,19 @@ namespace def_fun_domains_as_primary_line_of_defense
         {
             throw new NotImplementedException();
         }
-    }
 
+        public void Assign(Grade grade, IExam onExam)
+        {
+            IExamApplication application = this.Exams
+                .Where(app => app.ForExam == onExam)
+                .FirstOrNone()
+                .Reduce(()=> this.FindApplication(onExam.OnSubject));
+
+            this.Grades[onExam.OnSubject] = grade;
+        }
+
+        private IExamApplication FindApplication(Subject onSubject) =>
+            this.Exams.First(app => app.ForExam.OnSubject == onSubject);
+       
+    }
 }

@@ -6,6 +6,8 @@
         public Models.Professor AdministratedBy { get; }
         public Student TakenBy { get; }
 
+        public IExam ForExam => throw new System.NotImplementedException();
+
         public ExamApplication(Subject subject, Models.Professor admin, Student candidate)
         {
             OnSubject = subject;
