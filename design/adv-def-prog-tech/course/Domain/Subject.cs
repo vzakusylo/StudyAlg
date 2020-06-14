@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Course.Models;
+using Course.Domain;
+using Course.Domain.Models;
+using Course.Domain.Implementation;
 
 namespace Course
 {
@@ -54,7 +56,7 @@ namespace Course
         // Implicit validation principle - One consisten object construct another consistent object. 
         // The process builds on data that are already valid.
         public IExam CanAdministerExam() =>
-            new Implementation.Exam(this, TaughtBy);
+            new Exam(this, TaughtBy);
 
         public double? GetPassingRate_Bad(IEnumerable<Student> students)
         {

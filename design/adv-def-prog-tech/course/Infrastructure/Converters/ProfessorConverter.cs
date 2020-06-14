@@ -1,6 +1,6 @@
-﻿using Course.Models;
+﻿using Course.Domain.Models;
 
-namespace adv_def_prog_tech._06_def_fun_domains_as_primary_line_of_defense.Infrastructure
+namespace Course.Infrastructure
 {
     public class ProfessorConverter : IModelConverter<Professor, Models.Professor>
     {

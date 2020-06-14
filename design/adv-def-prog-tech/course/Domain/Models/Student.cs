@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using PersonalName = Course.Models.PersonalName;
-using Professor = Course.Models.Professor;
+using PersonalName = Course.Domain.Models.PersonalName;
+using Professor = Course.Domain.Models.Professor;
 
-namespace Course
+namespace Course.Domain
 {
     public abstract class Student
     {

@@ -1,4 +1,5 @@
-﻿using Course.Models;
+﻿using Course.Domain.Models;
+using Course.Domain;
 
 namespace Course
 {
@@ -11,5 +12,4 @@ namespace Course
             return semester != null && semester.Predecessor == base.Enrolled;
         }
     }
-
 }

@@ -1,6 +1,6 @@
-﻿using Course.Models;
+﻿using Course.Domain.Models;
 
-namespace Course
+namespace Course.Domain
 {
     public interface IExam
     {

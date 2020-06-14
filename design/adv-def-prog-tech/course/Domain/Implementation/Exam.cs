@@ -1,7 +1,7 @@
 ﻿using JetBrains.Annotations;
-using Course.Models;
+using Course.Domain.Models;
 
-namespace Course.Implementation
+namespace Course.Domain.Implementation
 {
     public class Exam : IExam
     {

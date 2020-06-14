@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Course.Implementation
+namespace Course.Domain.Implementation
 {
     public class ExamApplication : IExamApplication
     {
@@ -9,6 +9,14 @@ namespace Course.Implementation
         public Student TakenBy { get; }
 
         public Option<Grade> Grade { get; }
+
+        private ExamApplication(string justForExamle)
+        {
+            IExam forExam = null;
+            Student candidate = null;
+            // Example:
+            new ExamApplication(forExam, candidate).With(Domain.Grade.B);
+        }
 
         public ExamApplication(IExam forExam, Student candidate): this(forExam, candidate, Option.None<Grade>())
         {

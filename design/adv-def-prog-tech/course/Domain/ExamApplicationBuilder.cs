@@ -1,8 +1,8 @@
 ﻿using System;
-using Course.Implementation;
-using Course.Models;
+using Course.Domain.Implementation;
+using Course.Domain.Models;
 
-namespace Course
+namespace Course.Domain
 {
     class ExamApplicationBuilder
     {

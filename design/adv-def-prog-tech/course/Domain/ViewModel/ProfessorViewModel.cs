@@ -1,4 +1,4 @@
-﻿namespace Course
+﻿namespace Course.Domain.ViewModel
 {
     public class ProfessorViewModel
     {

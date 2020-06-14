@@ -1,4 +1,4 @@
-using System.Threading;
+using Course.Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Course

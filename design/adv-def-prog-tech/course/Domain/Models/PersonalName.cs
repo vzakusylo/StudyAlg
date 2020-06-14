@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Course.Models
+namespace Course.Domain.Models
 {
     public class PersonalName
     {

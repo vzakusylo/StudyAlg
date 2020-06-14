@@ -1,10 +1,10 @@
-﻿using Course.Implementation;
+﻿using Course.Domain.Implementation;
 using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Course
+namespace Course.Domain
 {
     public interface ICandidateSelector
     {

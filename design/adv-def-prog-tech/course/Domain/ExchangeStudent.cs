@@ -1,4 +1,6 @@
-﻿using Course.Models;
+﻿using Course.Domain;
+using Course.Domain.Models;
+
 
 namespace Course
 {

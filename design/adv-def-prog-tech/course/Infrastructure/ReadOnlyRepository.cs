@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Course.Models;
 
-namespace adv_def_prog_tech._06_def_fun_domains_as_primary_line_of_defense.Infrastructure
+
+namespace Course.Infrastructure
 {
 
     public class MappingRepository<TModel, TPesistance, TDbContext> : IRepository<TModel>
