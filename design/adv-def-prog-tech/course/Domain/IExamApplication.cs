@@ -3,8 +3,8 @@
     public interface IExamApplication
     {
         IExam ForExam { get; }
-        Student TakenBy { get; }
-        //Models.Professor AdministratedBy { get; }
-        //Subject OnSubject { get; }
+        Student TakenBy { get; }  
+        IExamApplication For(IExam exam);
+        IExamApplication With(Grade grade);
     }
 }

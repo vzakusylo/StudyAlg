@@ -6,5 +6,7 @@ namespace Course
     {
         Subject OnSubject { get; }
         Professor AdministratedBy { get; }
+
+        IExam Substitute(Professor administrator);
     }
 }

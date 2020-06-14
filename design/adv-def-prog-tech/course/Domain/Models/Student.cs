@@ -108,6 +108,28 @@ namespace Course
             //return new Implementation.ExamApplication(new Exam(exam.OnSubject, exam.AdministratedBy), this);
         }
 
+        public bool CanSubstituteOnExam(Professor newAdministrator, Subject onSubject)
+        {
+            return Exams.FirstOrNone(app => app.ForExam.OnSubject == onSubject)
+                .Map(app => app.For(app.ForExam.Substitute(newAdministrator)))
+                .Map(Validate)
+                .Reduce(false);
+        }
+
+        public void SubstituteOnExam(Professor newAdministrator, Subject onSubject)
+        {
+            if (!this.CanSubstituteOnExam(newAdministrator, onSubject))
+                throw new ArgumentException();
+
+            this.Exams
+                .Select(app => app.ForExam.OnSubject == onSubject ?
+                app.For(app.ForExam.Substitute(newAdministrator)) :
+                    app)
+                .ToList();
+        }
+
+        private bool Validate(IExamApplication app) => true;
+
         public void Assign(Grade grade, IExam onExam)
         {
             IExamApplication application = this.Exams
