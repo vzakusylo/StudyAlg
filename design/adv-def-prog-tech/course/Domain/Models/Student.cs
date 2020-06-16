@@ -11,7 +11,7 @@ namespace Course.Domain
     {
         public PersonalName Name { get; }
         public Semester Enrolled { get; private set; }
-        public Dictionary<Subject, Grade> Grades { get; }
+       
         public List<IExamApplication> Exams { get; private set; }
 
         public Student(PersonalName name)
@@ -25,10 +25,10 @@ namespace Course.Domain
                 throw new ArgumentException(nameof(grade));
             if (subject == null || !IsEnlistedFor(subject))
                 throw new ArgumentException(nameof(grade));
-            if (Grades.ContainsKey(subject) && Grades[subject] != Grade.F)
-                throw new ArgumentException();
+            //if (Grades.ContainsKey(subject) && Grades[subject] != Grade.F)
+            //    throw new ArgumentException();
 
-            Grades[subject] = grade;
+            //Grades[subject] = grade;
         }
 
         // Optional (Maybe) in functional languages either contains a value or is none
@@ -42,24 +42,24 @@ namespace Course.Domain
         //    return none;
         //}
 
-        public Grade GetGrade_Bad(Subject subject)
-        {
-            Grade grade;
-            if (Grades.TryGetValue(subject, out grade))
-            {
-                return grade;
-            }
-            return null;
-        }
+        //public Grade GetGrade_Bad(Subject subject)
+        //{
+        //    Grade grade;
+        //    if (Grades.TryGetValue(subject, out grade))
+        //    {
+        //        return grade;
+        //    }
+        //    return null;
+        //}
 
         // With Grade on subject do this
         public void WithGrade(Subject subject, Action<Grade> doThis)
         {
-            Grade grade;
-            if (Grades.TryGetValue(subject, out grade))
-            {
-                doThis(grade);
-            }
+            //Grade grade;
+            //if (Grades.TryGetValue(subject, out grade))
+            //{
+            //    doThis(grade);
+            //}
         }
 
         internal bool HasPassedExam(Subject onSubject)
@@ -67,10 +67,10 @@ namespace Course.Domain
             throw new NotImplementedException();
         }
 
-        public double AverageGrade => Grades.Values
-            .Select(grade => grade.NumericEquivalent)
-            .Where(value => value > 0)
-            .Average();
+        //public double AverageGrade => Grades.Values
+        //    .Select(grade => grade.NumericEquivalent)
+        //    .Where(value => value > 0)
+        //    .Average();
         
         private bool IsEnlistedFor(Subject subject) => true;
 
@@ -130,14 +130,25 @@ namespace Course.Domain
 
         private bool Validate(IExamApplication app) => true;
 
+        public bool CanAssign(Grade grade, IExam onExam) =>
+            this.Exams
+                .FirstOrNone(app => app.ForExam == onExam)
+                .Map(CanAssignGrade)
+                .Reduce(false);
+
+        private bool CanAssignGrade(IExamApplication onExam) =>
+            onExam.Grade.Map(_ => false).Reduce(true);
+
         public void Assign(Grade grade, IExam onExam)
         {
-            IExamApplication application = this.Exams
-                .Where(app => app.ForExam == onExam)
-                .FirstOrNone()
-                .Reduce(() => this.FindApplication(onExam.OnSubject));
+            if (!this.CanAssign(grade, onExam))
+            {
+                throw new ArgumentException();
+            }
 
-            this.Grades[onExam.OnSubject] = grade;
+            Exams = Exams
+                .Select(exam => exam.ForExam == onExam ? exam.With(grade) : exam)
+                .ToList();
         }
 
 

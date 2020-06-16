@@ -58,30 +58,30 @@ namespace Course
         public IExam CanAdministerExam() =>
             new Exam(this, TaughtBy);
 
-        public double? GetPassingRate_Bad(IEnumerable<Student> students)
-        {
-            int passingGrades = 0;
-            int totalGrades = 0;
+        //public double? GetPassingRate_Bad(IEnumerable<Student> students)
+        //{
+        //    int passingGrades = 0;
+        //    int totalGrades = 0;
 
-            foreach (var candidate in students)
-            {
-                Grade grade = candidate.GetGrade_Bad(this);
-                if (grade != null)
-                {
-                    if (!grade.Equals(Grade.F))
-                    {
-                        passingGrades += 1;
-                    }
-                    totalGrades += 1;
-                }
-            }
+        //    foreach (var candidate in students)
+        //    {
+        //        Grade grade = candidate.GetGrade_Bad(this);
+        //        if (grade != null)
+        //        {
+        //            if (!grade.Equals(Grade.F))
+        //            {
+        //                passingGrades += 1;
+        //            }
+        //            totalGrades += 1;
+        //        }
+        //    }
 
-            if (totalGrades > 0)
-            {
-                return passingGrades / (double)totalGrades;
-            }
-            return null;
-        }
+        //    if (totalGrades > 0)
+        //    {
+        //        return passingGrades / (double)totalGrades;
+        //    }
+        //    return null;
+        //}
 
         public double? GetPassingRate(IEnumerable<Student> students)
         {

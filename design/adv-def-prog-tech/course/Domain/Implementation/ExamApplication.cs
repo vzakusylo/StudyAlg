@@ -12,7 +12,7 @@ namespace Course.Domain.Implementation
 
         private ExamApplication(string justForExamle)
         {
-            IExam forExam = null;
+            IExam forExam = null;  
             Student candidate = null;
             // Example:
             new ExamApplication(forExam, candidate).With(Domain.Grade.B);
