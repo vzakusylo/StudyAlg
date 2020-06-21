@@ -17,18 +17,18 @@ namespace function_language_pattern_matching
             // Advice: Start from the feature consumer. Let the customer define which calls it would like to make. 
             //         Don't start from the feature provider. It might not understand caller's needs well.
 
-            name
-                .When(s => s.Length > 3).Do(s => Console.WriteLine($"{s} long"))
-                .WhenSome().Do(s => Console.WriteLine($"{s} short"))
-                .WhenNone().Do(() => Console.WriteLine("missing"))
-                .Execute();
+            //name
+            //    .When(s => s.Length > 3).Do(s => Console.WriteLine($"{s} long"))
+            //    .WhenSome().Do(s => Console.WriteLine($"{s} short"))
+            //    .WhenNone().Do(() => Console.WriteLine("missing"))
+            //    .Execute();
 
-            string label =
-                name
-                    .When(s => s.Length > 3).MapTo(s => s.Substring(0, 3) + ".")
-                    .WhenSome().MapTo(s => s)
-                    .WhenNone().MapTo("<empty>")
-                    .Map();
+            //string label =
+            //    name
+            //        .When(s => s.Length > 3).MapTo(s => s.Substring(0, 3) + ".")
+            //        .WhenSome().MapTo(s => s)
+            //        .WhenNone().MapTo("<empty>")
+            //        .Map();
         }
     }
 
@@ -49,7 +49,7 @@ namespace function_language_pattern_matching
 
         public IEnumerator<T> GetEnumerator() => Content.GetEnumerator();
 
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+        //IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 
     public interface IOption<T>

@@ -17,8 +17,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Northwind.WebUI\Northwind.WebUI.csproj" />
-  </ItemGroup>
-
 </Project>
