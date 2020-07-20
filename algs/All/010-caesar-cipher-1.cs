@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace caesarcipher1
+namespace caesarcipher2
 {
     //https://www.hackerrank.com/challenges/camelcase/problem?utm_campaign=challenge-recommendation&utm_medium=email&utm_source=7-day-campaign&h_r=next-challenge&h_v=zen
 
@@ -39,7 +39,7 @@ namespace caesarcipher1
                 var charAsInt = (int)char.ToLower(c);
                 if (charAsInt >= 97 && charAsInt <= 122)
                 {
-                    charAsInt = (charAsInt + k);
+                    charAsInt = charAsInt + k;
                     while (charAsInt > 122)
                     {
                         charAsInt = charAsInt % 122 + 96;
