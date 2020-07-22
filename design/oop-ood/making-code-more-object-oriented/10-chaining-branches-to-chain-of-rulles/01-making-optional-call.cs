@@ -17,7 +17,7 @@ namespace Chained_Branching_Rule_Objects
             TimeSpan moneyBackSpan = TimeSpan.FromDays(30);
 
             IWarranty warranty = new LifetimeWarranty(sellingDate);
-            SoldArticle goods = new SoldArticle(warranty, warranty, null);
+            SoldArticle goods = new SoldArticle(warranty, warranty);
 
             ClaimWarrenty(goods);
         }
@@ -48,7 +48,8 @@ namespace Chained_Branching_Rule_Objects
         private IWarrantyRules WarrantyRules { get; }
       
 
-        public SoldArticle(IWarranty moneyBack, IWarranty express, 
+        public SoldArticle(IWarranty moneyBack, IWarranty express
+            //, 
            // IWarrantyRulesFactory rulesFactory
             )
         {

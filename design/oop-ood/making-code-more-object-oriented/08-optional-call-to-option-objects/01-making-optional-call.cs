@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using static Chained_Branching_Rule_Objects.SoldArticle;
 
 namespace Optional_Calls_6
 {
@@ -410,7 +411,7 @@ namespace Optional_Calls_5
             TimeSpan moneyBackSpan = TimeSpan.FromDays(30);
 
             IWarranty warranty = new LifetimeWarranty(sellingDate);
-            SoldArticle goods = new SoldArticle(warranty, warranty);
+            SoldArticle goods = null; // new SoldArticle(warranty, warranty);
 
             ClaimWarrenty(goods);
         }
@@ -1569,10 +1570,10 @@ namespace Optional_Calls_2
 
         public void CircuitryNotOpperational(DateTime detectedOn)
         {
-            Circuitry.Do(circuitry => {
-                circuitry.MarkDefective(detectedOn);
-                CircuitryWarranty = FailedCircuitryWarranty;
-            });
+            //Circuitry.Do(circuitry => {
+            //    circuitry.MarkDefective(detectedOn);
+            //    CircuitryWarranty = FailedCircuitryWarranty;
+            //});
         }
 
         public void InstallCircuitry(Part circuitry, IWarranty extendedWarranty)
@@ -1583,9 +1584,9 @@ namespace Optional_Calls_2
 
         public void ClaimCircuitryWarranty(Action onValidClaim)
         {
-            Circuitry.Do(circuitry => {
-                CircuitryWarranty.Claim(circuitry.DefecDetectedOn, onValidClaim);
-            });
+            //Circuitry.Do(circuitry => {
+            //    CircuitryWarranty.Claim(circuitry.DefecDetectedOn, onValidClaim);
+            //});
         }
 
         public DeviceStatus OperationStatus { get; private set; }
