@@ -48,3 +48,6 @@ bin/.vs/
 /bin/Debug/*
 /design/oop-ood/making-code-more-object-oriented/08-optional-call-to-option-objects/.vs/08-optional-call-to-option-objects/v16/TestStore/0/000-0000.testlog
 /design/oop-ood/making-code-more-object-oriented/08-optional-call-to-option-objects/.vs/slnx.sqlite
+/arch/payroll-on-net-core/PayrollOnContainers/.vs/PayrollOnContainers/v16/*.suo
+/arch/payroll-on-net-core/PayrollOnContainers/.vs/PayrollOnContainers/v16/TestStore/0/*.testlog
+/arch/payroll-on-net-core/PayrollOnContainers/.vs/PayrollOnContainers/v16/TestStore/0/*.manifest
