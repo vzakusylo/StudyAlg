@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  payroll.api:
+    image: ${DOCKER_REGISTRY-}payrollapi
+    build:
+      context: .
+      dockerfile: src/Services/Payroll/Payroll.API/Dockerfile
