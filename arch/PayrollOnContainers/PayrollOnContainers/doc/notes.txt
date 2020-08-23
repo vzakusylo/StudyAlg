@@ -1,0 +1,6 @@
+dotnet new webapi -o Payroll.API --no-https
+vs - plate - Docker add to workspace
+docker build -t payroll.api:v1 .
+docker images
+docker run -it --rm -p 8080:80 payroll.api:v1
+http://localhost:8080/WeatherForecast
