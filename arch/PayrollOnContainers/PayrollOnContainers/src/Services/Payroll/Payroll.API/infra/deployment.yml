@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payroll-deployment
+spec:
+  selector:
+    matchLabels:
+      app: payroll-pod
+  template:
+    metadata:
+      labels:
+        app: payroll-pod
+    spec:
+      containers:
+      - name: payroll-container
+        image: payroll.api:v1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
