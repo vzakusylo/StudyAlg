@@ -13,9 +13,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{2E2D1307-9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Payroll", "Payroll", "{76E84BA4-60A2-41CC-B053-91B0F41D63BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payroll.API", "src\Services\Payroll\Payroll.API\Payroll.API.csproj", "{0074782B-5F14-412B-9582-C8CE70DA4372}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payroll.API", "src\Services\Payroll\Payroll.API\Payroll.API.csproj", "{0074782B-5F14-412B-9582-C8CE70DA4372}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{1813DBF8-6D31-47D5-9714-B31EB831096F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payroll.Domain", "src\Services\Payroll\Payroll.Domain\Payroll.Domain\Payroll.Domain.csproj", "{48EE0DA1-5F85-45E4-888D-495EA546006F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,10 @@ Global
 		{1813DBF8-6D31-47D5-9714-B31EB831096F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1813DBF8-6D31-47D5-9714-B31EB831096F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1813DBF8-6D31-47D5-9714-B31EB831096F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48EE0DA1-5F85-45E4-888D-495EA546006F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48EE0DA1-5F85-45E4-888D-495EA546006F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48EE0DA1-5F85-45E4-888D-495EA546006F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48EE0DA1-5F85-45E4-888D-495EA546006F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -40,6 +46,7 @@ Global
 		{98C26BD3-B1B6-4056-A1F9-6843C5E17426} = {16E9E7D0-0785-4A47-B8F1-9AFFD4B588C1}
 		{76E84BA4-60A2-41CC-B053-91B0F41D63BA} = {0445D355-9775-45F0-AA30-8E817FDEF37D}
 		{0074782B-5F14-412B-9582-C8CE70DA4372} = {76E84BA4-60A2-41CC-B053-91B0F41D63BA}
+		{48EE0DA1-5F85-45E4-888D-495EA546006F} = {76E84BA4-60A2-41CC-B053-91B0F41D63BA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {75C19FE1-53F5-4811-9B0F-DB76A0772043}

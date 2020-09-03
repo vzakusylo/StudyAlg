@@ -1,11 +1,22 @@
+1 dotnet
 dotnet new webapi -o Payroll.API --no-https
 vs - plate - Docker add to workspace
 docker build -t payroll.api:v1 .
 docker images
 docker run -it --rm -p 8080:80 payroll.api:v1
+
+2 kuber
 http://localhost:8080/WeatherForecast
 kubectl apply -f .\infra\deployment.yml
 kubectl get pods
 kubectl get deployments
 kubectl apply -f .\infra\service.yml
 kubectl get services
+
+3 aks
+az login
+az account set --subscription "Name"
+az account show
+az ad sp create-for-rbac --skip-assignment
+
+Directory permission is needed for the current user to register the application. For how to configure, please refer 'https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal'. Original error: Insufficient privileges to complete the operation.
