@@ -14,12 +14,11 @@ variables:
   containerRegistry: 'vadoszcr.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildNumber)'
-  imagePullSecret: 'vadoszcr95db-auth'
+  
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
   
-
 stages:
 - stage: Build
   displayName: Build stage
@@ -39,7 +38,7 @@ stages:
         tags: |
           $(tag)
           
-    - upload: manifests
+    - publish: manifests
       artifact: manifests
 
 - stage: Deploy
@@ -57,21 +56,12 @@ stages:
         deploy:
           steps:
           - task: KubernetesManifest@0
-            displayName: Create imagePullSecret
-            inputs:
-              action: createSecret
-              secretName: $(imagePullSecret)
-              dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
-              
-          - task: KubernetesManifest@0
             displayName: Deploy to Kubernetes cluster
             inputs:
               action: deploy
               manifests: |
                 $(Pipeline.Workspace)/manifests/deployment.yml
-                $(Pipeline.Workspace)/manifests/service.yml
-              imagePullSecrets: |
-                $(imagePullSecret)
+                $(Pipeline.Workspace)/manifests/service.yml            
               containers: |
                 $(containerRegistry)/$(imageRepository):$(tag)
 
