@@ -35,7 +35,7 @@ docker tag payroll.api:v1 vadoszcr.azurecr.io/payroll.api:v1
 docker push vadoszcr.azurecr.io/payroll.api:v1
 
 5 connect to the claster
-az aks get-credentials --resource-group aks --name vadoszkc
+az aks get-credentials --resource-group aks --name vadosz-kc
 kubectl 
 
-Ви ввійшли в програму Azure Kubernetes Service AAD Client на пристрої. Тепер можна закрити це вікно.
+
