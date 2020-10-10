@@ -1,3 +1,4 @@
 kubectl get pods
 kubectl describe pod payroll-deployment-9645966dd-vzr7c
 kubectl create -f pod-definition.yml
+kubectl get pods -o wide

@@ -19,4 +19,23 @@ az account set --subscription "Name"
 az account show
 az ad sp create-for-rbac --skip-assignment
 
-Directory permission is needed for the current user to register the application. For how to configure, please refer 'https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal'. Original error: Insufficient privileges to complete the operation.
+{
+  "appId": "587568fa-10b3-4556-bfd8-a44c77f2c27b",
+  "displayName": "azure-cli-2020-10-10-16-07-19",
+  "name": "http://azure-cli-2020-10-10-16-07-19",
+  "password": "5x8rLwiLarEVbyv~39IKPX.nHy8DK33Rax",
+  "tenant": "9b92009a-b415-4616-bfb5-cb4c048f249f"
+}
+
+Directory permission is needed for the current user to register the application. For how to configure, please refer 'https
+
+4 contariner registry
+az acr login --name vadoszcr
+docker tag payroll.api:v1 vadoszcr.azurecr.io/payroll.api:v1
+docker push vadoszcr.azurecr.io/payroll.api:v1
+
+5 connect to the claster
+az aks get-credentials --resource-group aks --name vadoszkc
+kubectl 
+
+Ви ввійшли в програму Azure Kubernetes Service AAD Client на пристрої. Тепер можна закрити це вікно.
