@@ -5,8 +5,6 @@
 trigger:
 - master
 
-resources:
-- repo: self
 
 variables:
 
@@ -15,7 +13,7 @@ variables:
   imageRepository: 'payroll'
   containerRegistry: 'vadoszcr.azurecr.io'
   dockerfilePath: '**/Dockerfile'
-  tag: '$(Build.BuildId)'
+  tag: '$(Build.BuildNumber)'
   imagePullSecret: 'vadoszcr95db-auth'
 
   # Agent VM image name
