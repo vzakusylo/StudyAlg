@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payroll-deployment
+spec:
+  selector:
+    matchLabels:
+      app: payroll-pod
+  template:
+    metadata:
+      labels:
+        app: payroll-pod
+    spec:
+      containers:
+      - name: payroll-container
+        image: vadoszcr.azurecr.io/payroll
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "200m"
+        ports:
+        - containerPort: 80
