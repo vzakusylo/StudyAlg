@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: payroll 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payroll
+  template:
+    metadata:
+      labels:
+        app: payroll 
+    spec:
+      containers:
+        - name: payroll 
+          image: vadoszcr.azurecr.io/payroll
+          ports:
+          - containerPort: 80
