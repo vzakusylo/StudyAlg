@@ -1,0 +1,24 @@
+az aks get-credentials --name kb-shared-stg-we-k8s01-aks --resource-group "kb-shared-stg-we-k8s01-rg" --subscription 57d8e8a3-2710-40a9-81fb-1c6dfaf64003
+az aks get-credentials --name eshop-learn-aks --resource-group "eshop-learn-rg" --subscription 514ebe21-5c78-4b3f-9796-63cd5963180d
+helm repo update
+
+kubectl apply -f quote.yaml
+kubectl apply -f quote-backend.yaml
+.\edgectl.exe login --namespace=ambassador 20.67.168.49
+https://20.67.168.49/edge_stack/admin/#hosts
+kubectl -n ambassador get svc ambassador -o "go-template={{range .status.loadBalancer.ingress}}{{or .ip .hostname}}{{end}}"
+
+curl -Lk https://$env:OPENAI_LOGDIR/backend/ {  'server': 'idle-cranberry-8tbb6iks',  "quote": "Non-locality is the driver of truth. By summoning, we vibrate.",  "time": "2019-12-11T20:10:16.525471212Z" }
+kubectl get hosts
+ kubectl get svc -n ambassador
+
+
+ /////
+ helm repo add datawire https://www.getambassador.io
+ kubectl create namespace ambassador
+ helm install ambassador --namespace ambassador datawire/ambassador
+ https://www.getambassador.io/docs/latest/topics/install/helm/
+
+ // 
+ helm repo add datawire https://www.getambassador.io
+ helm uninstall sftp
