@@ -70,6 +70,12 @@ namespace semaphore_slim_06
     }
 }
 
+// Calling WaitAsync on the semaphore produces a task that will be completed when that thread has been given 
+// "access" to that token.await-ing that task lets the program continue execution when it is "allowed" to do so.
+// Having an asynchronous version, rather than calling Wait, is important both to ensure that the method stays asynchronous,
+// rather than being synchronous, as well as deals with the fact that an async method can be executing code across several threads, 
+// due to the callbacks, and so the natural thread affinity with semaphores can be a problem.
+
 //0 tasks can enter the semaphore
 //Task 3 begins and wait for the semaphore
 //Task 1 begins and wait for the semaphore
@@ -87,24 +93,4 @@ namespace semaphore_slim_06
 //Task 2 releases the semaphore; previous count 0
 //Task 4 releases the semaphore; previous count 1
 //Task 3 releases the semaphore; previous count 2
-//Main thread exits
-
-// async version
-//0 tasks can enter the semaphore
-//Task 3 begins and wait for the semaphore
-//Task 2 begins and wait for the semaphore
-//Task 1 begins and wait for the semaphore
-//Task 4 begins and wait for the semaphore
-//Task 5 begins and wait for the semaphore
-//Main thread calls Release(3) --> 0 tasks can enter the semaphore
-//Task  enters the semaphore
-//Task  enters the semaphore
-//Task  enters the semaphore
-//Task  releases the semaphore; previous count 0
-//Task enters the semaphore
-//Task releases the semaphore; previous count 0
-//Task releases the semaphore; previous count 0
-//Task enters the semaphore
-//Task releases the semaphore; previous count 1
-//Task releases the semaphore; previous count 2
 //Main thread exits
