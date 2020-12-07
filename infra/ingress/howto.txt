@@ -3,3 +3,9 @@ kubectl create -f ingress-wear.yaml
 kubectl get ingress
 kubectl describe ingress ingress-wear-watch
 
+az storage share download-batch -d . \
+  --pattern *.* \
+  -s cs-vzakusylo1-outlook-com-10032000f51d7b06 \
+  --account-name csb10032000f51d7b06 \
+  --connection-string 'DefaultEndpointsProtocol=https;AccountName=csb10032000f51d7b06;AccountKey=GwAza+Vmb3YpusCCeqvfVcAYxk3DcR0W/SgkldNfxSzWGf/HE7FEeVQOsogXgdQy2MgueNb5YUyaZo+007DeKA==;EndpointSuffix=core.windows.net'
+

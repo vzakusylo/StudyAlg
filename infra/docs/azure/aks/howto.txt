@@ -1,0 +1,58 @@
+https://docs.microsoft.com/en-us/azure/aks/ingress-basic
+
+# Create a namespace for your ingress resources
+kubectl create namespace ingress-basic
+
+# Add the ingress-nginx repository
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+
+# Use Helm to deploy an NGINX ingress controller
+helm install nginx-ingress ingress-nginx/ingress-nginx \
+    --namespace ingress-basic \
+    --set controller.replicaCount=2 \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
+
+kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
+
+kubectl apply -f aks-helloworld-one-service.yaml --namespace ingress-basic
+kubectl apply -f aks-helloworld-one-deployment.yaml --namespace ingress-basic
+
+kubectl apply -f aks-helloworld-two-service.yaml --namespace ingress-basic
+kubectl apply -f aks-helloworld-two-deployment.yaml --namespace ingress-basic
+
+kubectl apply -f hello-world-ingress.yaml
+
+/////
+https://docs.microsoft.com/en-us/azure/aks/http-application-routing
+
+az aks create --resource-group eshop-learn-rg --name eshop-learn-aks --enable-addons http_application_routing
+az aks enable-addons --resource-group eshop-learn-rg --name eshop-learn-aks --addons http_application_routing
+az aks show --resource-group eshop-learn-rg --name eshop-learn-aks --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
+
+kubectl apply -f application-routing.yaml
+
+ DNS zone name collected 
+
+ kubectl apply -f samples-http-application-routing.yaml
+
+ kubectl get configmaps --namespace kube-system
+
+ //////
+ https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Faks%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json
+
+ az feature register --name AKS-IngressApplicationGatewayAddon --namespace microsoft.containerservice
+
+ az feature list -o table --query "[?contains(name, 'microsoft.containerservice/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
+
+ az provider register --namespace Microsoft.ContainerService
+
+az network public-ip create -n myPublicIp -g MyResourceGroup --allocation-method Static --sku Standard
+az network vnet create -n myVnet -g eshop-learn-rg --address-prefix 11.0.0.0/8 --subnet-name mySubnet --subnet-prefix 11.1.0.0/16 
+az network application-gateway create -n myApplicationGateway -l northeurope -g eshop-learn-rg --sku Standard_v2 --public-ip-address myPublicIp --vnet-name myVnet --subnet mySubnet
+
+appgwId=$(az network application-gateway show -n myApplicationGateway -g eshop-learn-rg -o tsv --query "id") 
+az aks enable-addons -n eshop-learn-aks -g eshop-learn-rg -a ingress-appgw --appgw-id /subscriptions/79c1545e-8261-4723-9532-84fa64947e2d/resourceGroups/eshop-learn-rg/providers/Microsoft.Network/applicationGateways/myApplicationGateway
+
+
