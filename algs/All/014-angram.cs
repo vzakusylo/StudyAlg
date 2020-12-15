@@ -23,7 +23,7 @@ namespace angram
         static int makingAnagrams(string s1, string s2)
         {
             HashSet<char> hashset = new HashSet<char>();
-            foreach (char c in s1)            
+            foreach (char c in s1)              
                 hashset.Add(c);            
             foreach (char c in s2)            
                 hashset.Add(c);
