@@ -21,6 +21,7 @@ namespace diagonal_difference
         public static int diagonalDifference(List<List<int>> arr)
         {
             var leftToRigh = 0;
+            var rightToLeft = 0;
             for (int i = 0; i < arr.Count; i++)
             {
                 for (int j = 0; j < arr[i].Count; j++)
@@ -29,15 +30,7 @@ namespace diagonal_difference
                     {
                         leftToRigh += arr[i][j];
                     }
-                }
-            }
-
-            var rightToLeft = 0;
-            for (int i = 0; i < arr.Count; i++)
-            {
-                for (int j = arr[i].Count-1; j >= 0 ; j--) // 0
-                {
-                    if (i + j == arr.Count-1) // 
+                    if (i + j == arr.Count - 1)
                     {
                         rightToLeft += arr[i][j];
                     }

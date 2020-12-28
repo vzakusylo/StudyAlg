@@ -1,0 +1,10 @@
+#page 30
+kubectl get clusterroles
+kubectl describe clusterrole view
+#page 31
+kubectl create namespace coolapp
+kubectl --namespace=coolapp create serviceaccount myappid
+kubectl --namespace=coolapp create role podview --verb=get --verb=list --resource=pods
+kubectl --namespace=coolapp describe role/podview
+kubectl --namespace=coolapp create rolebinding mypodviewer --role=podreader --serviceaccount=coolapp:myappid
+kubectl --namespace=coolapp describe rolebinding/mypodviewer
