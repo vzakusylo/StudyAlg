@@ -1,7 +1,7 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Template
+namespace Template1
 {
     [TestClass]
     public class Solution

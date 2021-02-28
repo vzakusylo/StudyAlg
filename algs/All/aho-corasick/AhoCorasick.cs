@@ -1,13 +1,14 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AhoCorasick
 {
-    //blob:https://web.telegram.org/dcf09708-d747-4622-9c0b-d5dbbf9c9ed8
-    //blob:https://web.telegram.org/5568db39-2a3f-49a2-a8a1-9f07f5f23b93
-    class Program
+    [TestClass]
+    public class Solution
     {
-        static void Main(string[] args)
+        [TestMethod]
+        public void Main()
         {
             AhoCorasick ahoCorasick = new AhoCorasick(1000);
             ahoCorasick.addString("bc");
@@ -26,8 +27,8 @@ namespace AhoCorasick
             }
             Console.WriteLine(positions);
         }
-
     }
+
 
     public class AhoCorasick
     {
@@ -42,7 +43,7 @@ namespace AhoCorasick
             public int suffLink = -1;
             public int[] children = new int[ALHAPHBET_SIZE];
             public int[] transitions = new int[ALHAPHBET_SIZE];
-            public  bool leaf;
+            public bool leaf;
 
             public Node()
             {

@@ -1,15 +1,21 @@
-﻿namespace _07_QuickSort
-{
-    internal class Program
-    {
-        private static void Main(string[] args)
-        {
-            int[] array = {2, 8, 7, 1, 3, 5, 6, 4};
+using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-            var p = new Program();
+namespace _07_QuickSort
+{
+    [TestClass]
+    public class Solution
+    {
+        [TestMethod]
+        public void Main()
+        {
+            int[] array = { 2, 8, 7, 1, 3, 5, 6, 4 };
+
+            var p = new Solution();
             p.QuickSort(array, 0, 7);
         }
 
+        
         public void QuickSort(int[] a, int p, int r)
         {
             if (p < r)

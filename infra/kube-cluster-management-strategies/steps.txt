@@ -1,0 +1,15 @@
+https://youtu.be/966TJ6mlOYY?list=PLLasX02E8BPBDxOHaJGottZuYg5afNxp7&t=925
+
+kubectl create namespace cm-webinar
+kubectl describe namespace cm-webinar
+choco install kubens
+kubens cm-webinar 
+kubectl create -f .\cm-webinar-compute-resources.yaml
+kubectl create -f .\nginx-noquote.yaml
+kubectl create -f .\nginx-quota-dep.yaml
+kubectl delete -f .\nginx-quota-dep.yaml
+kubectl apply -f .\limitrange.yaml
+kubectl describe namespace cm-webinar
+kubectl create -f .\nginx-noquote.yaml
+kubectl describe pods
+delete -f .\nginx-noquote.yaml
