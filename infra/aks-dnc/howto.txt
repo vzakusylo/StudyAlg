@@ -1,2 +1,29 @@
 az group create --name ps-demo-rg --location westeurope
-az aks create --resource-group ps-demo-rg --name GloboTickerCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys --kubernetes-version 1.19.0
+az aks create --resource-group ps-demo-rg --name GloboTicketCluster --node-count 1 --kubernetes-version 1.19.6 --generate-ssh-keys 
+az aks install-cli
+az aks get-credentials --resource-group ps-demo-rg --name GloboTicketCluster
+ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended.yaml
+  kubectl proxy
+  http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login
+  choco install awk
+  kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
+
+  az acr create --resource-group ps-demo-rg --name globoticketvzacr --sku Basic
+  globoticketvzacr.azurecr.io
+  docker-compose -f .\docker-compose.yml -f .\docker-compose-build.override.yml build
+  docker images
+  az acr login --name globoticketvzacr
+
+  kubectl create secret generic shoppingbasket-db --from-literal=connectionstring="Data Source=tcp:globoticket.database.windows.net,1433;Initial Catalog=GloboTicketShoppingbasketDB;Integrated Security=False;User ID=globoticket-user;Password=****;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;"
+kubectl create secret generic ordering-db --from-literal=connectionstring="Data Source=tcp:globoticket.database.windows.net,1433;Initial Catalog=GloboTicketOrderDb;Integrated Security=False;User ID=globoticket-user;Password=****;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;"
+kubectl create secret generic marketing-db --from-literal=connectionstring="Data Source=tcp:globoticket.database.windows.net,1433;Initial Catalog=GloboTicketMarketingDb;Integrated Security=False;User ID=globoticket-user;Password=****;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;"
+kubectl create secret generic eventcatalog-db --from-literal=connectionstring="Data Source=tcp:globoticket.database.windows.net,1433;Initial Catalog=GloboTicketEventCatalogDb;Integrated Security=False;User ID=globoticket-user;Password=****;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;"
+kubectl create secret generic discount-db --from-literal=connectionstring="Data Source=tcp:globoticket.database.windows.net,1433;Initial Catalog=GloboTicketDiscountDB;Integrated Security=False;User ID=globoticket-user;Password=****;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;"
+kubectl create secret docker-registry acr-secret --docker-server=globoticketvzacr.azurecr.io --docker-username=globoticketvzacr --docker-password=aBG8GbgfTRKF+Ab4zBAIOFvYmnwzrh7c --docker-email=ignorethis@email.com
+
+kubectl get secrets
+
+az aks update -n GloboTicketCluster -g ps-demo-rg --attach-acr globoticketvzacr
+
+
+kubectl proxy
