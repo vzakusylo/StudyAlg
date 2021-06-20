@@ -1,0 +1,65 @@
+lab 3
+
+Task #2 - get information about pods
+
+# Run pod app-c
+kubectl run app-b --image iacaksws1vz2acr.azurecr.io/apia:1.0.0 pod/app-c created
+
+
+# Run pod app-b
+kubectl run app-b --image iacaksws1vz2acr.azurecr.io/apia:1.0.0 pod/app-b created
+
+
+kubectl run app-a --image iacaksws1vz2acr.azurecr.io/apia:v1
+#pod/app-a created
+
+git clone https://github.com/evgenyb/aks-workshops.git
+
+docker build -t apia:1.0.0 -f Dockerfile ..
+
+# login to ACR
+az acr login --name iacaksws1vz2acr
+Login Succeeded
+
+# Use docker tag to create an alias of the image with the fully qualified path to your ACR registry.
+docker tag apia:1.0.0 iacaksws1vz2acr.azurecr.io/apia:1.0.0
+
+# Now that you've tagged the image with the fully qualified path to your private registry, you can push it to the registry with docker push
+docker push iacaksws1vz2acr.azurecr.io/apia:1.0.0
+
+az acr build --registry iacaksws1vz2acr --image apia:v1 --file Dockerfile ..
+
+
+
+lab 2
+
+
+
+lab 1
+# Create new resource group iac-aks-ws1-rg
+az group create -g iac-aks-ws1-rg -l westeurope
+
+# Create Azure Container Registry iacaksws1<YOU-NAME>acr
+az acr create -g iac-aks-ws1-rg -n iacaksws1vz2acr --sku Basic
+
+# Create Azure Log Analytics iac-aks-ws1-<YOU-NAME>-la
+az monitor log-analytics workspace create -g iac-aks-ws1-rg -n iac-aks-ws1-vz-la
+
+# get workspace resource id
+az monitor log-analytics workspace show -g iac-aks-ws1-rg -n iac-aks-ws1-vz-la --query id -o tsv
+"/subscriptions/14bcc9f5-e7a6-42aa-906f-c0ae9c69d8b3/resourcegroups/iac-aks-ws1-rg/providers/microsoft.operationalinsights/workspaces/iac-aks-ws1-vz-la"
+
+#Get aks version
+az aks get-versions --location westeurope
+
+# Provision new AKS cluster
+az aks create --resource-group iac-aks-ws1-rg --name aks-ws1 --node-count 1 --kubernetes-version 1.19.9 --attach-acr iacaksws1vz2acr --generate-ssh-keys --enable-addons monitoring --workspace-resource-id "/subscriptions/14bcc9f5-e7a6-42aa-906f-c0ae9c69d8b3/resourcegroups/iac-aks-ws1-rg/providers/microsoft.operationalinsights/workspaces/iac-aks-ws1-vz-la"
+
+# Install kubectl
+az aks install-cli
+
+$env:path += 'C:\Users\O90\.azure-kubectl'
+
+az aks get-credentials -g iac-aks-ws1-rg -n aks-ws1 --overwrite-existing
+
+kubectl get nodes
