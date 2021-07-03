@@ -1,16 +1,97 @@
-# Got to ARM folder
-cd 02-aks-advanced-configuration\labs\lab-01\ARM\APIM\
+# lab-02
+# Set your user name for global resources (LogAnalytics, AppInsight, APIM etc...)
+YOUR_NAME="vz5"
 
-# Validate APIM ARM template. Run this command from lab-02 folder
-az deployment group validate -g iac-ws2-rg --template-file template.json --parameters publisherEmail=ados@bk.ru userName=vzakusylo
+# Create AKS resource group
+az group create -g iac-ws2-blue-rg -l westeurope 
 
-# If no errors, deploy APIM ARM template. APIM deployment takes between 30 and 50 mins
-az deployment group create -g iac-ws2-rg --template-file template.json --parameters publisherEmail=ados@bk.ru userName=vzakusylo
+# Create AKS Vnet
+az network vnet create -g iac-ws2-blue-rg -n iac-ws2-blue-vnet --address-prefix 10.11.0.0/16 --subnet-name aks-net --subnet-prefix 10.11.0.0/20
+
+# Get base VNet Id
+BASE_VNET_ID="$(az network vnet show -g iac-ws2-rg -n iac-ws2-vnet --query id -o tsv)"
+
+# Establish VNet peering from AKS VNet to base VNet
+az network vnet peering create -g iac-ws2-blue-rg -n aks-blue-to-base --vnet-name iac-ws2-blue-vnet --allow-vnet-access --allow-forwarded-traffic --remote-vnet $BASE_VNET_ID
+
+# Get AKS VNet ID
+AKS_BLUE_VNET_ID="$(az network vnet show -g iac-ws2-blue-rg -n iac-ws2-blue-vnet --query id -o tsv)"
+
+# Establish VNet peering from base VNet to AKS VNet
+az network vnet peering create -g iac-ws2-rg -n base-to-aks-blue --vnet-name iac-ws2-vnet --allow-vnet-access --allow-forwarded-traffic --remote-vnet $AKS_BLUE_VNET_ID
+
+# Get workspace resource id
+WORKSPACE_ID="$(az monitor log-analytics workspace show -g iac-ws2-rg -n iac-ws2-${YOUR_NAME}-la --query id -o tsv)"
+
+# Create Azure AD group iac-ws2
+az ad group create --display-name iac-ws2 --mail-nickname iac-ws2
+
+# Get your user Azure AD objectId 
+#USER_ID="$(az ad user show --id "<AZURE-AD-USER-NAME>" --query objectId -o tsv)"
+USER_ID="722fe7c3-1316-4452-8529-dcadadeaa8b1"
+
+# Sometimes userPrincipalName is in really strange format. In that case, you can try to search
+USER_ID="$(az ad user list --query "[?contains(userPrincipalName, 'zakusylo')].objectId" -o tsv)"
+
+USER_ID="722fe7c3-1316-4452-8529-dcadadeaa8b1"
+
+# Add user into iac-ws2 Azure AD group. Use object Id from previous query 
+az ad group member add -g iac-ws2 --member-id ${USER_ID}
+
+# Get iac-ws2 Azure AD group id)
+ADMIN_GROUP_ID="$(az ad group show -g iac-ws2 --query objectId -o tsv)"
+
+# Get subnet Id
+SUBNET_ID="$(az network vnet subnet show -g iac-ws2-blue-rg --vnet-name iac-ws2-blue-vnet -n aks-net --query id -o tsv)"
+
+# Create user assigned managed identity
+az identity create --name iac-ws2-blue-aks-mi --resource-group iac-ws2-blue-rg
+
+# Get managed identity ID
+MANAGED_IDENTITY_ID="$(az identity show --name iac-ws2-blue-aks-mi --resource-group iac-ws2-blue-rg --query id -o tsv)"
+
+# Create AKS cluster
+az aks create -g iac-ws2-blue-rg -n iac-ws2-blue-aks \
+    --nodepool-name systempool  \
+    --node-count 1 \
+    --max-pods 110 \
+    --enable-aad \
+    --aad-admin-group-object-ids ${ADMIN_GROUP_ID} \
+    --kubernetes-version 1.19.7 \
+    --network-plugin azure \
+    --vm-set-type VirtualMachineScaleSets \
+    --docker-bridge-address 172.17.0.1/16 \
+    --enable-managed-identity \
+    --assign-identity ${MANAGED_IDENTITY_ID} \
+    --vnet-subnet-id ${SUBNET_ID} \
+    --no-ssh-key \
+    --attach-acr iacws2${YOUR_NAME}acr \
+    --enable-addons monitoring \
+    --workspace-resource-id ${WORKSPACE_ID}
+
+    az aks create -g iac-ws2-blue-rg -n iac-ws2-blue-aks \
+    --nodepool-name systempool  \
+    --node-count 1 \
+    --max-pods 110 \
+    --enable-aad \
+    --aad-admin-group-object-ids ${ADMIN_GROUP_ID} \
+    --kubernetes-version 1.19.9 \
+    --network-plugin azure \
+    --vm-set-type VirtualMachineScaleSets \
+    --docker-bridge-address 172.17.0.1/16 \
+    --enable-managed-identity \
+    --assign-identity ${MANAGED_IDENTITY_ID} \
+    --no-ssh-key \
+    --attach-acr iacws2${YOUR_NAME}acr \
+    --enable-addons monitoring \
+    --workspace-resource-id ${WORKSPACE_ID} \
+    --vnet-subnet-id ${SUBNET_ID} 
 
 
+# lab-01
 
 WS_PREFIX='iac-ws2'
-YOUR_NAME='vz3'                 # I am using "evg"
+YOUR_NAME='vz5'                 # I am using "evg"
 BASE_RG="$WS_PREFIX-rg"                     # iac-ws2-rg
 VNET_NAME=$WS_PREFIX-vnet                   # iac-ws2-vnet
 LA_NAME="$WS_PREFIX-$YOUR_NAME-la"          # iac-ws2-evg-la
