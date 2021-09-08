@@ -108,6 +108,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "consumer", "design\kafka\co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "producer", "design\kafka\producer\producer.csproj", "{B137C6B7-DFB3-4A24-971E-BA6E79969A2B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cloud-design-patterns", "cloud-design-patterns", "{549B4428-D27A-4373-AFD4-9927A6DE23ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog", "arch\cloud-design-patterns\Catalog\Catalog.csproj", "{2B743324-FD50-436A-8C7E-DB666203018F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -246,6 +250,10 @@ Global
 		{B137C6B7-DFB3-4A24-971E-BA6E79969A2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B137C6B7-DFB3-4A24-971E-BA6E79969A2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B137C6B7-DFB3-4A24-971E-BA6E79969A2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B743324-FD50-436A-8C7E-DB666203018F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B743324-FD50-436A-8C7E-DB666203018F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B743324-FD50-436A-8C7E-DB666203018F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B743324-FD50-436A-8C7E-DB666203018F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -293,6 +301,8 @@ Global
 		{49A472DE-D687-480D-84B0-E71DB65CC6AC} = {389B40ED-685E-4A35-A15A-D54D6117264B}
 		{F96206CC-6D3B-46C9-AF2D-C0B2801EA79C} = {49A472DE-D687-480D-84B0-E71DB65CC6AC}
 		{B137C6B7-DFB3-4A24-971E-BA6E79969A2B} = {49A472DE-D687-480D-84B0-E71DB65CC6AC}
+		{549B4428-D27A-4373-AFD4-9927A6DE23ED} = {389B40ED-685E-4A35-A15A-D54D6117264B}
+		{2B743324-FD50-436A-8C7E-DB666203018F} = {549B4428-D27A-4373-AFD4-9927A6DE23ED}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6069C04-3F20-4887-B277-AC4CF5E0AD9B}
