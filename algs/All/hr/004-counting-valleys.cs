@@ -23,8 +23,34 @@ namespace counting_valleys
             Assert.AreEqual(0, result);
         }
 
+        static int countingValleys(int steps, string path)
+        {
+            int altitude = 0;
+            int numValues = 0;
+
+            for (int i = 0; i < steps; i++)
+            {
+                if (path[i] == 'U')
+                {
+                    if (altitude  == -1)
+                    {
+                        numValues++;
+                    }
+
+                    altitude++;
+                }
+
+                if (path[i] == 'D')
+                {
+                    altitude--;
+                }
+            }
+
+            return numValues;
+        }
+
         // Complete the countingValleys function below.
-        static int countingValleys(int n, string s)
+            static int countingValleys1(int n, string s)
         {
             var upLevel = 0;
             var downLevel = 0;
