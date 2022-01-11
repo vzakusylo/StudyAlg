@@ -12,29 +12,29 @@ namespace template1
         [TestMethod]
         public void Main()
         {
-            var arr = new[] {1, 3, 5, 2, 4, 6, 7};
+            var arr = new[] { 4, 3, 1, 2 };
             var res = MinimumSwaps(arr);
             Assert.AreEqual(3, res);
-            res = MinimumSwaps2(arr);
-            Assert.AreEqual(3, res);
+          //  res = MinimumSwaps2(arr);
+           // Assert.AreEqual(3, res);
 
             arr = new[] {2, 3, 4, 1, 5};
             res = MinimumSwaps(arr);
             Assert.AreEqual(3, res);
-            res = MinimumSwaps2(arr);
-            Assert.AreEqual(3, res);
+        //    res = MinimumSwaps2(arr);
+           // Assert.AreEqual(3, res);
 
             arr = new[] { 3, 7, 6, 9, 1, 8, 10, 4, 2, 5 };
             res = MinimumSwaps(arr);
             Assert.AreEqual(9, res);
-            res = MinimumSwaps2(arr);
-            Assert.AreEqual(3, res);
+        //    res = MinimumSwaps2(arr);
+       //     Assert.AreEqual(3, res);
 
-            arr = new[] { 4,3,1,2 };
+            arr = new[] { 1, 3, 5, 2, 4, 6, 7 };
             res = MinimumSwaps(arr);
             Assert.AreEqual(3, res);
-            res = MinimumSwaps2(arr);
-            Assert.AreEqual(3, res);
+         //   res = MinimumSwaps2(arr);
+         //   Assert.AreEqual(3, res);
         }
 
         static int MinimumSwaps(int[] arr)
