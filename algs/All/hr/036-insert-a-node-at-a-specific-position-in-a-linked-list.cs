@@ -23,12 +23,11 @@ namespace insertanodeataspecificposition
             var currentNode = llist;
             while (index < position -1)
             {
-
                 currentNode = currentNode.next;
                 index++;
             }
 
-            newNode.next = currentNode;
+            newNode.next = currentNode.next;
             currentNode.next = newNode;
 
             return llist;
