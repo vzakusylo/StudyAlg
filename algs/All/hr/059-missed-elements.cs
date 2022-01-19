@@ -13,7 +13,7 @@ namespace missingnumbers
         [TestMethod]
         public void Main()
         {
-            var arr = new List<int>() {203, 204, 205, 206, 207, 208, 203, 204, 205, 206};
+            var arr = new List<int>() {203, 204,      205, 206, 207,      208, 203, 204, 205, 206};
             var brr = new List<int>() {203, 204, 204, 205, 206, 207, 205, 208, 203, 206, 205, 206, 204};
 
             var res = missingNumbers(arr, brr);
@@ -41,7 +41,7 @@ namespace missingnumbers
             {
                 if (bMap.ContainsKey(brr[i]))
                 {
-                    bMap[brr[i]] = bMap[brr[i]] + 1;
+                    bMap[brr[i]] += 1;
                 }
                 else
                 {
