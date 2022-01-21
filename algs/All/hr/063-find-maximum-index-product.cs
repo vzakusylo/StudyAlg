@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace findmaximumindexproduct
 {
-    // m
+    // m 15
     //https://www.hackerrank.com/challenges/find-maximum-index-product/problem?h_r=internal-search&isFullScreen=true
 
     [TestClass]
