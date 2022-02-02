@@ -45,6 +45,11 @@ namespace insertanodeataspecificposition
             this.data = nodeData;
             this.next = null;
         }
+
+        public override string ToString()
+        {
+            return data.ToString();
+        }
     }
 
     class SinglyLinkedList

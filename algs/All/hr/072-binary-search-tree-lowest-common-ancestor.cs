@@ -27,6 +27,8 @@ namespace binarysearchtreelowestcommonancestor
             };
 
             var res = lca(root, 1, 7);
+
+
             Assert.AreEqual(4, res.data);
         }
 
