@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace template
 {
-    //https://www.hackerrank.com/challenges/common-child
+    // https://www.hackerrank.com/challenges/common-child
 
     [TestClass]
     public class Program
