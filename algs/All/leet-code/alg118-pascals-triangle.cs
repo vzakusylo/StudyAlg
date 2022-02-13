@@ -8,7 +8,7 @@ namespace pascals_triangle
 {
     // https://leetcode.com/problems/pascals-triangle/
     [TestClass]
-    public class LongestPalindromicSubstringNativApproach
+    public class Solution
     {
         [TestMethod]
         public void Main()

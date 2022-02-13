@@ -8,7 +8,7 @@ namespace numberofislands
 {
     // https://leetcode.com/problems/number-of-islands/
     [TestClass]
-    public class LongestPalindromicSubstringNativApproach
+    public class Solution
     {
         [TestMethod]
         public void Main()
@@ -47,7 +47,7 @@ namespace numberofislands
         public void callBFS(char[][] grid, int i, int j)
         {
 
-            if (i < 0 || i >= grid.Length || j < 0 || j > grid[i].Length || grid[i][j] == '0')
+            if (i < 0 || i >= grid.Length || j < 0 || j >= grid[i].Length || grid[i][j] == '0')
             {
                 return;
             }

@@ -2,12 +2,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 
-//https://drive.google.com/file/d/0B7EfQdvL5qf_Q2JCWmZJRHQwdFU/view
+// https://leetcode.com/problems/evaluate-reverse-polish-notation/
 
-namespace alg01
+namespace evaluatereversepolishnotation
 {
     [TestClass]
-    public class EvaluateReversePolishNotation
+    public class Solution
     {
         [TestMethod]
         public void Main()

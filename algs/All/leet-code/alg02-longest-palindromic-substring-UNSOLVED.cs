@@ -2,12 +2,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 
-//https://drive.google.com/file/d/0B7EfQdvL5qf_Q2JCWmZJRHQwdFU/view
+// https://leetcode.com/problems/longest-palindromic-substring
 
-namespace alg02
+namespace longestpalindromicsubstring
 {
     [TestClass]
-    public class LongestPalindromicSubstringNativApproach
+    public class Solution
     {
         [TestMethod]
         public void Main()
@@ -17,6 +17,18 @@ namespace alg02
             var resultPalindrom = LongestPalindrome(initialString);
 
             Assert.AreEqual(palindromExpected, resultPalindrom);
+
+            initialString = "a";
+            palindromExpected = "a";
+            resultPalindrom = LongestPalindrome(initialString);
+
+            Assert.AreEqual(palindromExpected, resultPalindrom);
+
+            initialString = "ac";
+            palindromExpected = "a";
+            resultPalindrom = LongestPalindrome(initialString);
+
+            Assert.AreEqual(palindromExpected, resultPalindrom);
         }
 
         public static string LongestPalindrome(string s)
@@ -24,6 +36,8 @@ namespace alg02
             int maxPalinLength = 0;
             string longestPalindrome = null;
             int length = s.Length;
+
+            if (length == 1) return s;
 
             for (int i = 0; i < length; i++)
             {
