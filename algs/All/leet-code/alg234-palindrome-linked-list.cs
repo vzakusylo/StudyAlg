@@ -11,6 +11,8 @@ namespace palindromelinkedlist
     [TestClass]
     public class Solution
     {
+        // racecar
+        // 123321
         [TestMethod]
         public void Main()
         {
