@@ -15,18 +15,14 @@ namespace narytreepostordertraversal
         public void Main()
         {
 
-
-
             /*
-                             
-                             
-                             
+                     1
+                   / | \
+                  3  2  4
+                 / \     
+                5   6
+
             */
-
-
-
-
-
 
             var root = new Node(1)
             {
