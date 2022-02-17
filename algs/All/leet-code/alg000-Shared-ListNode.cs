@@ -28,6 +28,11 @@ namespace shared
             val = _val;
             children = _children;
         }
+
+        public override string ToString()
+        {
+            return val.ToString();
+        }
     }
 
     public class TreeNode
