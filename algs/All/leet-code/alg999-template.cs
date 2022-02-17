@@ -7,7 +7,7 @@ using shared;
 
 namespace template
 {
-    //https://leetcode.com/problems/binary-tree-inorder-traversal/submissions/
+    // https://leetcode.com
     [TestClass]
     public class Solution
     {
