@@ -51,3 +51,5 @@ bin/.vs/
 /arch/payroll-on-net-core/PayrollOnContainers/.vs/PayrollOnContainers/v16/*.suo
 /arch/payroll-on-net-core/PayrollOnContainers/.vs/PayrollOnContainers/v16/TestStore/0/*.testlog
 /arch/payroll-on-net-core/PayrollOnContainers/.vs/PayrollOnContainers/v16/TestStore/0/*.manifest
+/high-load/designing-data-intensive-applications/05-replications/01-Leaders-Followers/.vs/01-Leaders-Followers/v17
+/high-load/designing-data-intensive-applications/05-replications/01-Leaders-Followers/.vs/01-Leaders-Followers

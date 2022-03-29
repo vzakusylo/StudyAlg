@@ -2,8 +2,8 @@
 
 
 
-var cs_slave = "Host=localhost:61710;Username=postgres;Password=my_password;Database=my_database";
-var cs_master = "Host=localhost:61707;Username=postgres;Password=my_password;Database=my_database";
+var cs_slave = "Host=localhost:59571;Username=postgres;Password=my_password;Database=my_database";
+var cs_master = "Host=localhost:59570;Username=postgres;Password=my_password;Database=my_database";
 
 using var master_con = new NpgsqlConnection(cs_master);
 master_con.Open();

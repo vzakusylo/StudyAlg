@@ -9,6 +9,11 @@ namespace shared
             this.val = val;
             this.next = next;
         }
+
+        public override string ToString()
+        {
+            return val.ToString();
+        }
     }
 
     public class Node

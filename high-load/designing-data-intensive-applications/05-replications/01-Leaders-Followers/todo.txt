@@ -1,4 +1,6 @@
 
+master slave replication postgres docker
+
 docker run -it --rm --network 01-leaders-followers_default postgres psql -h localhost -U postgres 
 
 choco psql 
@@ -7,6 +9,7 @@ dotnet add package Npgsql
 dotnet new console
 
 https://zetcode.com/csharp/postgresql/
+https://github.com/bitnami/bitnami-docker-postgresql/blob/master/docker-compose-replication.yml
 
 
 docker-compose up -d
