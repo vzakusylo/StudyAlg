@@ -1,0 +1,14 @@
+
+docker run -it --rm --network 01-leaders-followers_default postgres psql -h localhost -U postgres 
+
+choco psql 
+
+dotnet add package Npgsql
+dotnet new console
+
+https://zetcode.com/csharp/postgresql/
+
+
+docker-compose up -d
+
+https://stackoverflow.com/questions/58647357/postgresql-docker-replications
