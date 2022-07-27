@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.0.32014.148
+VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "algs", "algs", "{51953BD7-9A17-4369-A1B7-06383D4F4FC9}"
 EndProject
@@ -114,7 +114,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog", "arch\cloud-desig
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "neo4j", "neo4j", "{F3E84F44-3DED-4EEC-B4DC-E918EEAB4123}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "neo4j-learning", "neo4j-learning\neo4j-learning.csproj", "{E118DE7C-4FC6-4990-B484-318DD8C227A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "neo4j-learning", "neo4j-learning\neo4j-learning.csproj", "{E118DE7C-4FC6-4990-B484-318DD8C227A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mass-transit-mediator", "mass-transit-mediator", "{5CED558C-07D7-4499-B41E-EF3C6BEEA123}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "demo", "arch\mass-transit-mediator\demo\demo.csproj", "{4B33A637-59DB-458A-B9AD-223669176610}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "demoApp", "arch\mass-transit-mediator\demoApp\demoApp.csproj", "{2FE181BF-00F2-4F0F-AAA4-39329F0760FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "span-t", "performance\span-t\span-t.csproj", "{EB1AA895-F252-41F0-B51A-1A2BEC352D19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -262,6 +270,18 @@ Global
 		{E118DE7C-4FC6-4990-B484-318DD8C227A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E118DE7C-4FC6-4990-B484-318DD8C227A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E118DE7C-4FC6-4990-B484-318DD8C227A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B33A637-59DB-458A-B9AD-223669176610}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B33A637-59DB-458A-B9AD-223669176610}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B33A637-59DB-458A-B9AD-223669176610}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B33A637-59DB-458A-B9AD-223669176610}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FE181BF-00F2-4F0F-AAA4-39329F0760FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FE181BF-00F2-4F0F-AAA4-39329F0760FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FE181BF-00F2-4F0F-AAA4-39329F0760FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FE181BF-00F2-4F0F-AAA4-39329F0760FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB1AA895-F252-41F0-B51A-1A2BEC352D19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB1AA895-F252-41F0-B51A-1A2BEC352D19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB1AA895-F252-41F0-B51A-1A2BEC352D19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB1AA895-F252-41F0-B51A-1A2BEC352D19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -313,6 +333,10 @@ Global
 		{2B743324-FD50-436A-8C7E-DB666203018F} = {549B4428-D27A-4373-AFD4-9927A6DE23ED}
 		{F3E84F44-3DED-4EEC-B4DC-E918EEAB4123} = {389B40ED-685E-4A35-A15A-D54D6117264B}
 		{E118DE7C-4FC6-4990-B484-318DD8C227A6} = {F3E84F44-3DED-4EEC-B4DC-E918EEAB4123}
+		{5CED558C-07D7-4499-B41E-EF3C6BEEA123} = {389B40ED-685E-4A35-A15A-D54D6117264B}
+		{4B33A637-59DB-458A-B9AD-223669176610} = {5CED558C-07D7-4499-B41E-EF3C6BEEA123}
+		{2FE181BF-00F2-4F0F-AAA4-39329F0760FE} = {5CED558C-07D7-4499-B41E-EF3C6BEEA123}
+		{EB1AA895-F252-41F0-B51A-1A2BEC352D19} = {D33B6936-4AAC-490B-A651-8D1A8AA27235}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6069C04-3F20-4887-B277-AC4CF5E0AD9B}

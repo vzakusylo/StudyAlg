@@ -53,3 +53,6 @@ bin/.vs/
 /arch/payroll-on-net-core/PayrollOnContainers/.vs/PayrollOnContainers/v16/TestStore/0/*.manifest
 /high-load/designing-data-intensive-applications/05-replications/01-Leaders-Followers/.vs/01-Leaders-Followers/v17
 /high-load/designing-data-intensive-applications/05-replications/01-Leaders-Followers/.vs/01-Leaders-Followers
+net5.0
+net6.0-windows
+net6.0
