@@ -1,0 +1,1 @@
+az deployment group create --resource-group MyResourceGroup --template-file ./az-load-balancer-basic.bicep
