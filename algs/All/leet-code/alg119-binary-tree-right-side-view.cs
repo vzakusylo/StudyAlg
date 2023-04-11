@@ -15,7 +15,28 @@ namespace binary_tree_right_side_view
         [TestMethod]
         public void Main()
         {
-          
+          TreeNode root = new TreeNode{
+            val = 1,
+            left= new TreeNode{
+                val = 2,
+                right = new TreeNode{
+                    val = 5
+                }
+            },
+            right = new TreeNode{
+                val = 3,
+                right = new TreeNode{
+                    val = 4
+                }
+            }
+          };
+
+
+          var res = RightSideView(root);
+
+          Assert.AreEqual(1, res[0]);
+          Assert.AreEqual(3, res[1]);
+          Assert.AreEqual(4, res[2]);
         }
 
          public IList<int> RightSideView(TreeNode root) {
