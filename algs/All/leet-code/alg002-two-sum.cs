@@ -21,11 +21,9 @@ namespace two_sum
         public int[] TwoSumHashMap(int[] nums, int target)
         {
             Dictionary<int,int> map = new Dictionary<int,int>();
-
             for (int i = 0; i < nums.Length; i++)
             {
                 int complement = target - nums[i];
-
                 if (map.ContainsKey(complement))
                 {
                     return new int[] {map[complement], i};
